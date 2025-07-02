@@ -8,5 +8,9 @@ project(MARKET_SIM VERSION 0.1
         LANGUAGES CXX)
 
 
+file(GLOB_RECURSE SRC "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp")
+file(GLOB_RECURSE TEST_SRC "test/*.cpp")
 
+add_executable(sim ${SRC})
+add_executable(test ${TEST_SRC} ${SRC})
 
