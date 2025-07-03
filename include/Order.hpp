@@ -14,11 +14,33 @@
  */
 class Order {
 public:
+  /**
+   * @brief Construct a new Order object (default)
+   * 
+   */
   Order() = default;
+  /**
+   * @brief Destroy the Order object (default)
+   * 
+   */
   ~Order() = default;
+  
+  /**
+   * @brief Construct a new Order object
+   * 
+   * @param _price 
+   * @param _volume 
+   * @param _maker 
+   */
   Order(float _price, int _volume, const std::shared_ptr<Trader> &_maker);
 
+  /**
+   * @brief Construct a new Order object
+   * 
+   */
   Order(const Order &);
+  
+  // deleted assignment operator
   Order &operator=(const Order &) = delete;
   
   // getters
