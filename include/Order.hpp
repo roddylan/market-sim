@@ -11,7 +11,7 @@ public:
   ~Order();
 
   Order(const Order &);
-  Order operator=(const Order &);
+  Order &operator=(const Order &);
   
 
 private:
