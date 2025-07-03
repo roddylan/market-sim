@@ -32,7 +32,7 @@ public:
    * @param _volume 
    * @param _maker 
    */
-  Order(float _price, int _volume, const std::shared_ptr<Trader> &_maker);
+  Order(float _price, int _volume, Trader &_maker);
 
   /**
    * @brief Construct a new Order object
@@ -75,7 +75,7 @@ public:
 private:
   float price;
   int volume;
-  const std::shared_ptr<Trader> maker;
+  Trader* const maker;
   const std::chrono::time_point<std::chrono::steady_clock> timestamp;
 };
 
