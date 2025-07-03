@@ -13,8 +13,9 @@
  */
 class Order { 
 public:
-  Order();
-  ~Order();
+  Order() = default;
+  ~Order() = default;
+  Order(float _price, int _volume) : price{_price}, volume{_volume} {}
 
   Order(const Order &);
   Order &operator=(const Order &);

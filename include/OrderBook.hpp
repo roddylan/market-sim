@@ -8,7 +8,7 @@ struct OrderBook {
   // default/empty constructor
   OrderBook() = default;
   // destructor
-  ~OrderBook();
+  ~OrderBook() = default;
   // value constructor
   OrderBook(const std::vector<Order> &_buys = {},
             const std::vector<Order> &_sells = {})
