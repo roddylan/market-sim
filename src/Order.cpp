@@ -5,3 +5,6 @@
 
 Order::Order(float _price, int _volume, const std::shared_ptr<Trader> &_maker)
     : price{_price}, volume{_volume}, maker{_maker} {}
+
+Order::Order(const Order &other)
+    : price{other.price}, volume{other.volume}, maker{other.maker} {}
