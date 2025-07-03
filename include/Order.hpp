@@ -8,37 +8,24 @@
 /**
  * @class Order
  * @brief Represents Order
- * 
- * Class stores order information, negative volume for short/sell and positive volume for long/buy
+ *
+ * Class stores order information, negative volume for short/sell and positive
+ * volume for long/buy
  */
-class Order { 
+class Order {
 public:
   Order() = default;
   ~Order() = default;
-  Order(float _price, int _volume) : price{_price}, volume{_volume} {}
+  Order(float _price, int _volume, const std::shared_ptr<Trader> &_maker)
+      : price{_price}, volume{_volume}, maker{_maker} {}
 
   Order(const Order &);
   Order &operator=(const Order &);
-  
 
 private:
   float price;
   int volume;
+  const std::shared_ptr<Trader> maker;
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #endif
