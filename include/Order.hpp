@@ -5,6 +5,12 @@
 #include "Trader.hpp"
 #include <memory>
 
+/**
+ * @class Order
+ * @brief Represents Order
+ * 
+ * Class stores order information, negative volume for short/sell and positive volume for long/buy
+ */
 class Order { 
 public:
   Order();
@@ -17,8 +23,6 @@ public:
 private:
   float price;
   size_t volume;
-  std::shared_ptr<Trader> buyer;
-  std::shared_ptr<Trader> seller;
 };
 
 
