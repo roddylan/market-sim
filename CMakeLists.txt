@@ -14,3 +14,7 @@ file(GLOB_RECURSE TEST_SRC "test/*.cpp")
 add_executable(sim ${SRC})
 add_executable(test ${TEST_SRC} ${SRC})
 
+
+target_include_directories(sim PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(test PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+
