@@ -4,6 +4,7 @@
 #define _ORDER_HPP
 #include "Trader.hpp"
 #include <memory>
+#include <chrono>
 
 /**
  * @class Order
@@ -14,16 +15,15 @@
  */
 class Order {
 public:
-  /**
-   * @brief Construct a new Order object (default)
-   * 
-   */
-  Order() = default;
+  
+  // deleted default/empty constructor
+  Order() = delete;
+  
   /**
    * @brief Destroy the Order object (default)
    * 
    */
-  ~Order() = default;
+  ~Order();
   
   /**
    * @brief Construct a new Order object
@@ -68,14 +68,15 @@ public:
   /**
    * @brief Execute order (partially or fully)
    * 
+   * @param req_vol requested trade volume
    * @return int volume traded
    */
-  int make_trade();
+  int make_trade(int req_vol);
 private:
   float price;
   int volume;
   const std::shared_ptr<Trader> maker;
-
+  const std::chrono::time_point<std::chrono::steady_clock> timestamp;
 };
 
 #endif
