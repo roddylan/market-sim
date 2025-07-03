@@ -1,13 +1,17 @@
 // OrderBook.hpp
 #ifndef _ORDER_BOOK_HPP
 #define _ORDER_BOOK_HPP
-#include <vector>
 #include "Order.hpp"
+#include <vector>
+
 struct OrderBook {
+  OrderBook() = default;
+  OrderBook(const std::vector<Order> &_buys = {},
+            const std::vector<Order> &_sells = {})
+      : buy_orders(_buys), sell_orders(_sells) {}
+
   std::vector<Order> buy_orders;
   std::vector<Order> sell_orders;
 };
-
-
 
 #endif
