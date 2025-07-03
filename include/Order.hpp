@@ -22,7 +22,7 @@ public:
 
 private:
   float price;
-  size_t volume;
+  int volume;
 };
 
 
