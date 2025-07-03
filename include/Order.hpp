@@ -49,21 +49,21 @@ public:
    * 
    * @return float 
    */
-  float get_price();
+  float get_price() const noexcept;
   
   /**
    * @brief Get the volume of the trade. < 0 if short/sell, > 0 if long/buy
    * 
    * @return int 
    */
-  int get_volume();
+  int get_volume() const noexcept;
   
   /**
    * @brief Get the maker object
    * 
    * @return Trader& 
    */
-  Trader &get_maker();
+  Trader &get_maker() const noexcept;
 
   /**
    * @brief Execute order (partially or fully)
