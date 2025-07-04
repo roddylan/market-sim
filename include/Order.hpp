@@ -38,6 +38,16 @@ public:
   /**
    * @brief Construct a new Order object
    * 
+   * @param _price 
+   * @param _volume 
+   * @param _trader 
+   * @param _timestamp 
+   */
+  Order(float _price, int _volume, Trader &_trader, const Timestamp &_timestamp);
+
+  /**
+   * @brief Construct a new Order object
+   * 
    * @param other 
    */
   Order(const Order &other);
@@ -73,9 +83,6 @@ public:
    * @return std::chrono::time_point<std::chrono::steady_clock> 
    */
   Timestamp get_time() const noexcept;
-
-  
-  void set_time();
 
   /**
    * @brief update volume
