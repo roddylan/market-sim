@@ -69,6 +69,13 @@ private:
  */
 class MMakerTrader : public Trader {
   /**
+   * @brief Construct a new MMakerTrader object
+   * 
+   * @param _name 
+   */
+  MMakerTrader(const std::string &_name);
+  
+  /**
    * @brief Let Trader make trade
    * 
    * @return std::tuple<float, int> 
@@ -81,6 +88,13 @@ class MMakerTrader : public Trader {
  * 
  */
 class MTakerTrader : public Trader {
+  /**
+   * @brief Construct a new MTakerTrader object
+   * 
+   * @param _name 
+   */
+  MTakerTrader(const std::string &_name);
+
   /**
    * @brief Let Trader make trade
    * 
