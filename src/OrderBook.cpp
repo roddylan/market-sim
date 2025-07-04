@@ -3,6 +3,7 @@
 
 #include "OrderBook.hpp"
 #include "MatchingEngine.hpp"
+#include <cassert>
 #include <memory>
 
 OrderBook::OrderBook(const BuyQueue &_buys, const SellQueue &_sells)
@@ -96,7 +97,7 @@ float OrderBook::sell_match(Order &taker_order) {
   const float fair_price = taker_order.get_price();
   float res{};
 
-  while (taker_order.get_volume() > 0) {
+  while (taker_order.get_volume() > 0 && !sell_orders.empty()) {
     // todo: dont pop, access order directly since only volume updating
     float book_price = sell_orders.top()->get_price();
     if (fair_price < book_price) {
