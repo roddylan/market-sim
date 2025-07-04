@@ -6,24 +6,18 @@
 #include <cassert>
 #include <chrono>
 
-
 Order::Order(float _price, int _volume, Trader &_maker)
-    : price{_price}, volume{_volume}, maker{&_maker}, timestamp{std::chrono::steady_clock::now()} {}
+    : price{_price}, volume{_volume}, maker{&_maker},
+      timestamp{std::chrono::steady_clock::now()} {}
 
 Order::Order(const Order &other)
     : price{other.price}, volume{other.volume}, maker{other.maker} {}
 
-float Order::get_price() const noexcept {
-  return price;
-}
+float Order::get_price() const noexcept { return price; }
 
-int Order::get_volume() const noexcept {
-  return volume;
-}
+int Order::get_volume() const noexcept { return volume; }
 
-Trader &Order::get_maker() const noexcept {
-  return *maker;
-}
+Trader &Order::get_maker() const noexcept { return *maker; }
 
 int Order::make_trade(const int req_vol) {
   if (req_vol < 0) {
@@ -35,7 +29,6 @@ int Order::make_trade(const int req_vol) {
   }
 
   return 0;
-
 }
 
 int Order::sell_trade(const int req_vol) {
