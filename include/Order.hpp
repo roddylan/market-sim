@@ -42,7 +42,7 @@ public:
    * @param _volume 
    * @param _trader 
    */
-  Order(float _price, int _volume, Trader* const _trader);
+  Order(float _price, int _volume, const Trader* const _trader);
 
   /**
    * @brief Construct a new Order object
@@ -54,7 +54,7 @@ public:
    */
   Order(float _price, int _volume, Trader &_trader, const Timestamp &_timestamp);
   
-  Order(float _price, int _volume, Trader* const _trader, const Timestamp &_timestamp);
+  Order(float _price, int _volume, const Trader* const _trader, const Timestamp &_timestamp);
 
   /**
    * @brief Construct a new Order object
@@ -110,6 +110,6 @@ private:
   
   float price;
   int volume;
-  Trader* const trader;
+  const Trader* const trader;
   const Timestamp timestamp; // uint_8 
 };

@@ -13,7 +13,7 @@ Order::Order(float _price, int _volume, Trader &_trader)
   price = _price;
 }
 
-Order::Order(float _price, int _volume, Trader* const _trader)
+Order::Order(float _price, int _volume, const Trader* const _trader)
     : volume{_volume}, trader{_trader}, timestamp{
                                              std::chrono::steady_clock::now()} {
   assert(_price > 0);
@@ -27,7 +27,7 @@ Order::Order(float _price, int _volume, Trader &_trader,
   price = _price;
 }
 
-Order::Order(float _price, int _volume, Trader* const _trader,
+Order::Order(float _price, int _volume, const Trader* const _trader,
              const Timestamp &_timestamp)
     : volume{_volume}, trader{_trader}, timestamp{_timestamp} {
   assert(_price > 0);
