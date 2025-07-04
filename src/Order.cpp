@@ -49,3 +49,36 @@ int Order::buy_trade(const int req_vol) {
   volume += avail;
   return avail;
 }
+
+bool Order::operator<(const Order &other) {
+  if (this == &other) { return false; }
+  
+  if (price < other.price) {
+    return true;
+  }
+  if (timestamp < other.timestamp) {
+    return true;
+  }
+  return false;
+}
+
+bool Order::operator>(const Order &other) {
+  if (this == &other) { return false; }
+  
+  if (price > other.price) {
+    return true;
+  }
+  if (timestamp > other.timestamp) {
+    return true;
+  }
+  return false;
+}
+
+bool Order::operator==(const Order &other) {
+  if (this == &other) { return true; }
+  
+  if (price == other.price && timestamp == other.timestamp) {
+    return true;
+  }
+  return false;
+}

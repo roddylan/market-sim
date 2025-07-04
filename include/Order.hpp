@@ -73,6 +73,11 @@ public:
    * @return int volume traded
    */
   int make_trade(const int req_vol);
+
+  // comparisons
+  bool operator<(const Order &other);
+  bool operator>(const Order &other);
+  bool operator==(const Order &other);
 private:
   /**
    * @brief Execute sell order (maker selling, taker buying)
