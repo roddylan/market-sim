@@ -46,6 +46,7 @@ int Order::sell_trade(const int req_vol) {
   volume += avail;
   return avail;
 }
+
 int Order::buy_trade(const int req_vol) {
   // maker buy, taker sell
   // req_vol < 0
