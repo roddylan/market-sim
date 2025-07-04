@@ -40,6 +40,24 @@ TEST_F(OrderTest, OrderGettersTest) {
   EXPECT_EQ(buy_order_maker.get_trader().get_name(), std::string("maker_test"));
   EXPECT_EQ(sell_order_maker.get_trader().get_name(), std::string("maker_test"));
 
+  EXPECT_EQ(buy_order_maker.get_price(), f_price);
+  EXPECT_EQ(sell_order_maker.get_price(), f_price);
+
+  EXPECT_TRUE(buy_order_maker.get_volume() > 0);
+  EXPECT_TRUE(sell_order_maker.get_volume() < 0);
+  EXPECT_EQ(buy_order_maker.get_volume(), abs_vol);
+  EXPECT_EQ(sell_order_maker.get_volume(), -abs_vol);
+}
+
+TEST_F(OrderTest, OrderVolumeUpdateTest) {
+  Order buy_order_maker(f_price, abs_vol, maker);
+  Order sell_order_maker(f_price, -abs_vol, maker);
+
+  buy_order_maker.update_volume(100);
+  sell_order_maker.update_volume(100);
+  EXPECT_EQ(buy_order_maker.get_volume(), abs_vol + 100);
+  EXPECT_EQ(sell_order_maker.get_volume(), -abs_vol + 100);
+
 }
 
 TEST_F(OrderTest, BuyOrderComparisonTest) {
