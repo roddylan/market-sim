@@ -4,8 +4,12 @@
 #include "Order.hpp"
 #include <vector>
 #include <queue>
+#include "OrderUtils.hpp"
+
 
 struct OrderBook {
+  using BuyQueue = std::priority_queue<Order, std::vector<Order>, OrderUtils::BuyOrderCompare>;
+  using SellQueue = std::priority_queue<Order, std::vector<Order>, OrderUtils::SellOrderCompare>;
   /**
    * @brief Construct a new Order Book object
    *
@@ -35,8 +39,8 @@ struct OrderBook {
    */
   OrderBook &operator=(const OrderBook &other);
 
-  std::priority_queue<Order> buy_orders;
-  std::priority_queue<Order> sell_orders;
+  BuyQueue buy_orders;
+  SellQueue sell_orders;
 };
 
 #endif
