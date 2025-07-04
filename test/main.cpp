@@ -4,6 +4,29 @@
 #include <gtest/gtest.h>
 #include <iostream>
 
+void print_book(const OrderBook &book) {
+  std::cout << "buy orders: \n";
+  auto temp_buy_orders = book.get_buy_orders();
+  auto temp_sell_orderes = book.get_sell_orders();
+  while (!temp_buy_orders.empty()) {
+    auto cur = temp_buy_orders.top();
+    std::cout << "PRICE: " << cur->get_price()
+              << " | VOLUME: " << cur->get_volume()
+              << " | TRADER: " << cur->get_trader().get_name() << " | "
+              << cur->get_time().time_since_epoch().count() << std::endl;
+    temp_buy_orders.pop();
+  }
+  std::cout << "sell orders: \n";
+  while (!temp_sell_orderes.empty()) {
+    auto cur = temp_sell_orderes.top();
+    std::cout << "PRICE: " << cur->get_price()
+              << " | VOLUME: " << cur->get_volume()
+              << " | TRADER: " << cur->get_trader().get_name() << " | "
+              << cur->get_time().time_since_epoch().count() << std::endl;
+    temp_sell_orderes.pop();
+  }
+}
+
 int main() {
   // trader tests
   std::cout << "-----TRADER-----\n";
@@ -27,6 +50,13 @@ int main() {
 
   std::cout << test_trader.get_name() << std::endl;
   std::cout << "-----ORDERBOOK-----\n";
+
+  // test_order
+  Order test_buy(10.0, 100, test_trader);
+  std::cout << test_buy.get_price() << std::endl;
+  test_buy.update_volume(-5);
+  std::cout << test_buy.get_volume() << std::endl;
+
 
   // order book
   // maker orders
@@ -57,22 +87,25 @@ int main() {
   assert(book.get_sell_orders().size() == 2);
 
   std::cout << "pass\n";
-  std::cout << "buy orders: \n";
-  auto temp_buy_orders = book.get_buy_orders();
-  auto temp_sell_orderes = book.get_sell_orders();
-  while (!temp_buy_orders.empty()) {
-    auto cur = temp_buy_orders.top();
-    std::cout << "PRICE: " << cur->get_price()
-              << " | VOLUME: " << cur->get_volume()
-              << " | TRADER: " << cur->get_trader().get_name() << " | "
-              << cur->get_time().time_since_epoch().count() << std::endl;
-    temp_buy_orders.pop();
-  }
-
-  Order taker_buy(5.0, 50, taker1);
-  auto price_na = book.match(taker_buy);
-  std::cout << price_na << std::endl;
-
+  print_book(book);
+  
+  
+  Order taker_buy1(5.0, 50, taker1);
+  auto price_na = book.match(taker_buy1);
+  std::cout << price_na << std::endl << std::endl;
+  
   assert(book.get_buy_orders().size() == 2);
   assert(book.get_sell_orders().size() == 2);
+  print_book(book);
+  
+
+  std::cout << "--------REAL BUY-------\n";
+  Order taker_buy2(11.0, 250, taker1);
+  auto price_1 = book.match(taker_buy2);
+  std::cout << price_1 << std::endl;
+  print_book(book);
+  
+  assert(book.get_buy_orders().size() == 2);
+  assert(book.get_sell_orders().size() == 2);
+  
 }
