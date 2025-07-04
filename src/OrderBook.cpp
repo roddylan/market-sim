@@ -2,8 +2,8 @@
 // OrderBook implementation
 
 #include "OrderBook.hpp"
-#include <memory>
 #include "MatchingEngine.hpp"
+#include <memory>
 
 OrderBook::OrderBook(const BuyQueue &_buys, const SellQueue &_sells)
     : buy_orders(_buys), sell_orders(_sells) {}
@@ -18,6 +18,14 @@ OrderBook &OrderBook::operator=(const OrderBook &other) {
   this->buy_orders = other.buy_orders;
   this->sell_orders = other.sell_orders;
   return *this;
+}
+
+const OrderBook::BuyQueue &OrderBook::get_buy_orders() const {
+  return buy_orders;
+}
+
+const OrderBook::SellQueue &OrderBook::get_sell_orders() const {
+  return sell_orders;
 }
 
 bool OrderBook::insert(const Order &order) {
@@ -56,7 +64,7 @@ float OrderBook::buy_match(Order &taker_order) {
 
   const float fair_price = taker_order.get_price();
   float res{};
-  
+
   while (taker_order.get_volume() < 0 && !buy_orders.empty()) {
     // todo: dont pop, access order directly since only volume updating
     float book_price = buy_orders.top()->get_price();
