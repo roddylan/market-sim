@@ -81,6 +81,12 @@ public:
    */
   int make_trade(const int req_vol);
 
+  /**
+   * @brief update volume
+   * 
+   * @param inc 
+   */
+  void update_volume(const int &inc);
 
   // comparisons
   bool operator<(const Order &other) const noexcept;
