@@ -75,9 +75,9 @@ public:
   int make_trade(const int req_vol);
 
   // comparisons
-  bool operator<(const Order &other) const;
-  bool operator>(const Order &other) const;
-  bool operator==(const Order &other) const;
+  bool operator<(const Order &other) const noexcept;
+  bool operator>(const Order &other) const noexcept;
+  bool operator==(const Order &other) const noexcept;
 private:
   /**
    * @brief Execute sell order (maker selling, taker buying)
