@@ -101,11 +101,6 @@ public:
    * @param inc 
    */
   void update_volume(const int &inc);
-
-  // comparisons
-  bool operator<(const Order &other) const noexcept;
-  bool operator>(const Order &other) const noexcept;
-  bool operator==(const Order &other) const noexcept;
 private:
   
   float price;
