@@ -67,12 +67,20 @@ public:
   Trader &get_maker() const noexcept;
 
   /**
+   * @brief Get the time object
+   * 
+   * @return std::chrono::time_point<std::chrono::steady_clock> 
+   */
+  std::chrono::time_point<std::chrono::steady_clock> get_time() const noexcept;
+
+  /**
    * @brief Execute order (partially or fully)
    * 
    * @param req_vol requested trade volume
    * @return int volume traded
    */
   int make_trade(const int req_vol);
+
 
   // comparisons
   bool operator<(const Order &other) const noexcept;

@@ -20,6 +20,11 @@ int Order::get_volume() const noexcept { return volume; }
 
 Trader &Order::get_maker() const noexcept { return *maker; }
 
+std::chrono::time_point<std::chrono::steady_clock>
+Order::get_time() const noexcept {
+  return timestamp;
+}
+
 int Order::make_trade(const int req_vol) {
   if (req_vol < 0) {
     // taker wants to sell (maker buying)
@@ -51,8 +56,10 @@ int Order::buy_trade(const int req_vol) {
 }
 
 bool Order::operator<(const Order &other) const noexcept {
-  if (this == &other) { return false; }
-  
+  if (this == &other) {
+    return false;
+  }
+
   if (price < other.price) {
     return true;
   }
@@ -63,8 +70,10 @@ bool Order::operator<(const Order &other) const noexcept {
 }
 
 bool Order::operator>(const Order &other) const noexcept {
-  if (this == &other) { return false; }
-  
+  if (this == &other) {
+    return false;
+  }
+
   if (price > other.price) {
     return true;
   }
@@ -75,8 +84,10 @@ bool Order::operator>(const Order &other) const noexcept {
 }
 
 bool Order::operator==(const Order &other) const noexcept {
-  if (this == &other) { return true; }
-  
+  if (this == &other) {
+    return true;
+  }
+
   if (price == other.price && timestamp == other.timestamp) {
     return true;
   }
