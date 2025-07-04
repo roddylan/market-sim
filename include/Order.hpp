@@ -30,9 +30,9 @@ public:
    * 
    * @param _price 
    * @param _volume 
-   * @param _maker 
+   * @param _trader 
    */
-  Order(float _price, int _volume, Trader &_maker);
+  Order(float _price, int _volume, Trader &_trader);
 
   /**
    * @brief Construct a new Order object
@@ -60,11 +60,11 @@ public:
   int get_volume() const noexcept;
   
   /**
-   * @brief Get the maker object
+   * @brief Get the trader object
    * 
    * @return Trader& 
    */
-  const Trader &get_maker() const noexcept;
+  const Trader &get_trader() const noexcept;
 
   /**
    * @brief Get the time object
@@ -111,6 +111,6 @@ private:
   
   float price;
   int volume;
-  Trader* const maker;
+  Trader* const trader;
   const std::chrono::time_point<std::chrono::steady_clock> timestamp; // uint_8 
 };
