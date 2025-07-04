@@ -74,7 +74,7 @@ TEST_F(OrderTest, BuyOrderComparisonTest) {
   auto high_buy = std::make_shared<Order>(high_price, vol, maker, later_time);
   auto low_buy = std::make_shared<Order>(low_price, high_vol, maker, earlier_time);
   
-  // different prices
+  // different prices, but best comes later
   EXPECT_FALSE(buy_compare(high_buy, low_buy));
   EXPECT_TRUE(buy_compare(low_buy, high_buy));
   EXPECT_FALSE(buy_compare(high_buy, high_buy));
@@ -106,10 +106,10 @@ TEST_F(OrderTest, SellOrderComparisonTest) {
   int high_vol{-abs_vol - 50}, vol{-abs_vol};
 
   // buy comparisons
-  auto high_sell = std::make_shared<Order>(high_price, vol, maker, later_time);
-  auto low_sell = std::make_shared<Order>(low_price, high_vol, maker, earlier_time);
+  auto high_sell = std::make_shared<Order>(high_price, vol, maker, earlier_time);
+  auto low_sell = std::make_shared<Order>(low_price, high_vol, maker, later_time);
   
-  // different prices
+  // different prices, but best comes later
   EXPECT_FALSE(sell_compare(low_sell, high_sell));
   EXPECT_TRUE(sell_compare(high_sell, low_sell));
   EXPECT_FALSE(sell_compare(high_sell, high_sell));
