@@ -45,6 +45,15 @@ struct OrderBook {
    */
   OrderBook &operator=(const OrderBook &other);
 
+  /**
+   * @brief Insert order into order book
+   * 
+   * @param order 
+   * @return true successfully added
+   * @return false failed
+   */
+  bool insert(const Order &order);
+
   BuyQueue buy_orders;
   SellQueue sell_orders;
 };
