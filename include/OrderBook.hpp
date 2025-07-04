@@ -7,7 +7,8 @@
 #include "OrderUtils.hpp"
 #include <memory>
 
-struct OrderBook {
+class OrderBook {
+public:
   using BuyQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::BuyOrderCompare>;
   using SellQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::SellOrderCompare>;
   /**
@@ -67,6 +68,7 @@ struct OrderBook {
   float sell_match(int req_vol, const float fair_price);
   float buy_match(int req_vol, const float fair_price);
 
+private:
   BuyQueue buy_orders;
   SellQueue sell_orders;
 };
