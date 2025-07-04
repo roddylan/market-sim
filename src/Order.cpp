@@ -11,7 +11,8 @@ Order::Order(float _price, int _volume, Trader &_maker)
       timestamp{std::chrono::steady_clock::now()} {}
 
 Order::Order(const Order &other)
-    : price{other.price}, volume{other.volume}, maker{other.maker} {}
+    : price{other.price}, volume{other.volume}, maker{other.maker},
+      timestamp{std::chrono::steady_clock::now()} {}
 
 float Order::get_price() const noexcept { return price; }
 

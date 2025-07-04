@@ -37,8 +37,9 @@ public:
   /**
    * @brief Construct a new Order object
    * 
+   * @param other 
    */
-  Order(const Order &);
+  Order(const Order &other);
   
   // deleted assignment operator
   Order &operator=(const Order &) = delete;
