@@ -15,6 +15,7 @@
  */
 class Order {
 public:
+  using Timestamp = std::chrono::time_point<std::chrono::steady_clock>;
   
   // deleted default/empty constructor
   Order() = delete;
@@ -71,8 +72,10 @@ public:
    * 
    * @return std::chrono::time_point<std::chrono::steady_clock> 
    */
-  std::chrono::time_point<std::chrono::steady_clock> get_time() const noexcept;
+  Timestamp get_time() const noexcept;
 
+  
+  void set_time();
 
   /**
    * @brief update volume
@@ -90,5 +93,5 @@ private:
   float price;
   int volume;
   Trader* const trader;
-  const std::chrono::time_point<std::chrono::steady_clock> timestamp; // uint_8 
+  const Timestamp timestamp; // uint_8 
 };

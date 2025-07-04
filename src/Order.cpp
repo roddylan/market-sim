@@ -8,7 +8,7 @@
 
 Order::Order(float _price, int _volume, Trader &_trader)
     : volume{_volume}, trader{&_trader}, timestamp{
-                                           std::chrono::steady_clock::now()} {
+                                             std::chrono::steady_clock::now()} {
   assert(_price > 0);
   price = _price;
 }
@@ -23,10 +23,7 @@ int Order::get_volume() const noexcept { return volume; }
 
 const Trader &Order::get_trader() const noexcept { return *trader; }
 
-std::chrono::time_point<std::chrono::steady_clock>
-Order::get_time() const noexcept {
-  return timestamp;
-}
+Order::Timestamp Order::get_time() const noexcept { return timestamp; }
 
 void Order::update_volume(const int &inc) { volume += inc; }
 
