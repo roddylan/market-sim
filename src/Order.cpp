@@ -13,9 +13,9 @@ Order::Order(float _price, int _volume, Trader &_trader)
   price = _price;
 }
 
-Order::Order(float _price, int _volume, const Trader* const _trader)
+Order::Order(float _price, int _volume, const Trader *const _trader)
     : volume{_volume}, trader{_trader}, timestamp{
-                                             std::chrono::steady_clock::now()} {
+                                            std::chrono::steady_clock::now()} {
   assert(_price > 0);
   price = _price;
 }
@@ -27,7 +27,7 @@ Order::Order(float _price, int _volume, Trader &_trader,
   price = _price;
 }
 
-Order::Order(float _price, int _volume, const Trader* const _trader,
+Order::Order(float _price, int _volume, const Trader *const _trader,
              const Timestamp &_timestamp)
     : volume{_volume}, trader{_trader}, timestamp{_timestamp} {
   assert(_price > 0);
@@ -47,3 +47,12 @@ const Trader &Order::get_trader() const noexcept { return *trader; }
 Order::Timestamp Order::get_time() const noexcept { return timestamp; }
 
 void Order::update_volume(const int &inc) { volume += inc; }
+
+bool Order::operator==(const Order &other) {
+  if (this == &other) {
+    return true;
+  }
+
+  return (this->price == other.price && this->timestamp == other.timestamp &&
+          this->volume == other.volume && this->trader == other.trader);
+}

@@ -101,6 +101,16 @@ public:
    * @param inc 
    */
   void update_volume(const int &inc);
+
+  // comparison ops
+  /**
+   * @brief Equality comparison operator
+   * 
+   * @param other 
+   * @return true 
+   * @return false 
+   */
+  bool operator==(const Order &other);
 private:
   
   float price;
