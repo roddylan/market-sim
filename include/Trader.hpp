@@ -64,7 +64,7 @@ private:
 };
 
 /**
- * @brief Market Maker
+ * @brief Market Maker (Random)
  * 
  */
 class MMakerTrader : public Trader {
@@ -85,7 +85,7 @@ public:
 };
 
 /**
- * @brief Market Taker
+ * @brief Market Taker (Random)
  * 
  */
 class MTakerTrader : public Trader {

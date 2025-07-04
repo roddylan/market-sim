@@ -2,6 +2,7 @@
 #include "Trader.hpp"
 #include <string>
 #include <tuple>
+#include <random>
 
 Trader::Trader(const Trader &other) : name{other.name} {}
 
