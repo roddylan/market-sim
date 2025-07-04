@@ -130,3 +130,11 @@ TEST_F(OrderTest, SellOrderComparisonTest) {
 
 }
 
+TEST_F(OrderTest, EqualityTest) {
+  Order order1(f_price, abs_vol, maker, base_time);
+  Order order2(f_price, abs_vol, maker, base_time);
+
+  EXPECT_EQ(order1, order2);
+  EXPECT_EQ(order2, order1);
+}
+
