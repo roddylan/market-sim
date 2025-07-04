@@ -56,17 +56,15 @@ public:
   bool insert(const Order &order);
 
   
-
   /**
    * @brief Order match logic
    * 
-   * @param req_vol 
-   * @param fair_price 
+   * @param taker_order 
    * @return float execution price (or average if multiple orders)
    */
-  float match(int req_vol, const float fair_price);
-  float sell_match(int req_vol, const float fair_price);
-  float buy_match(int req_vol, const float fair_price);
+  float match(Order &taker_order);
+  float sell_match(Order &taker_order);
+  float buy_match(Order &taker_order);
 
 private:
   BuyQueue buy_orders;

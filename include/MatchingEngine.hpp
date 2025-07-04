@@ -3,13 +3,7 @@
 #pragma once
 #include "Order.hpp"
 
-class MatchingEngine {
-public:
-  /**
-   * @brief Construct a new Matching Engine object
-   *
-   */
-  MatchingEngine() = default;
+namespace MatchingEngine {
 
   /**
    * @brief Execute order (partially or fully)
@@ -19,7 +13,6 @@ public:
    */
   void match_order(Order &maker_order, Order &taker_order);
 
-private:
   /**
    * @brief Execute sell order (maker selling, taker buying)
    *
