@@ -11,13 +11,13 @@ struct BuyOrderCompare {
   bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
     float l_price{left->get_price()}, r_price{right->get_price()};
     // best price, highest bid
-    if (l_price > r_price) {
+    if (l_price < r_price) {
       return true;
     }
     
     auto l_time{left->get_time()}, r_time{right->get_time()};
     // earliest time first
-    if (l_time < r_time) {
+    if (l_time > r_time) {
       return true;
     }
     return false;
@@ -28,7 +28,7 @@ struct SellOrderCompare {
   bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
     float l_price{left->get_price()}, r_price{right->get_price()};
     // best price, lowest ask
-    if (l_price < r_price) {
+    if (l_price > r_price) {
       return true;
     }
     
