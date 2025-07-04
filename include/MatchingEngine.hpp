@@ -16,9 +16,8 @@ public:
    *
    * @param maker_order maker order
    * @param taker_order taker order
-   * @return int volume traded
    */
-  int match_order(const Order &maker_order, const Order &taker_order);
+  void match_order(Order &maker_order, Order &taker_order);
 
 private:
   /**
@@ -26,16 +25,14 @@ private:
    *
    * @param maker_order
    * @param taker_order
-   * @return int volume traded
    */
-  int sell_order(const Order &maker_order, const Order &taker_order);
+  void sell_order(Order &maker_order, Order &taker_order);
 
   /**
    * @brief Execute buy order (maker buying, taker selling)
    *
    * @param maker_order
    * @param taker_order
-   * @return int volume traded
    */
-  int buy_order(const Order &maker_order, const Order &taker_order);
+  void buy_order(Order &maker_order, Order &taker_order);
 };
