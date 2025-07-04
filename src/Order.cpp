@@ -2,6 +2,7 @@
 // Order class implementation
 
 #include "Order.hpp"
+#include <algorithm>
 #include <cassert>
 #include <chrono>
 
@@ -38,12 +39,18 @@ int Order::make_trade(const int req_vol) {
 }
 
 int Order::sell_trade(const int req_vol) {
+  // maker sell, taker buy
+  // req_vol > 0
   assert(volume <= 0);
-  
-  
-  return 0;
+  int avail = std::min(-volume, req_vol);
+  volume += avail;
+  return avail;
 }
 int Order::buy_trade(const int req_vol) {
+  // maker buy, taker sell
+  // req_vol < 0
   assert(volume >= 0);
-  return 0;
+  int avail = std::max(-volume, req_vol);
+  volume += avail;
+  return avail;
 }
