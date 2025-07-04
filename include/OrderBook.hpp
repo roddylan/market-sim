@@ -5,11 +5,11 @@
 #include <vector>
 #include <queue>
 #include "OrderUtils.hpp"
-
+#include <memory>
 
 struct OrderBook {
-  using BuyQueue = std::priority_queue<Order, std::vector<Order>, OrderUtils::BuyOrderCompare>;
-  using SellQueue = std::priority_queue<Order, std::vector<Order>, OrderUtils::SellOrderCompare>;
+  using BuyQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::BuyOrderCompare>;
+  using SellQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::SellOrderCompare>;
   /**
    * @brief Construct a new Order Book object
    *
