@@ -28,36 +28,6 @@ Order::get_time() const noexcept {
   return timestamp;
 }
 
-int Order::make_trade(const int req_vol) {
-  if (req_vol < 0) {
-    // taker wants to sell (maker buying)
-    return buy_trade(req_vol);
-  } else if (req_vol > 0) {
-    // taker wants to buy (maker selling)
-    return sell_trade(req_vol);
-  }
-
-  return 0;
-}
-
-int Order::sell_trade(const int req_vol) {
-  // maker sell, taker buy
-  // req_vol > 0
-  assert(volume <= 0);
-  int avail = std::min(-volume, req_vol);
-  volume += avail;
-  return avail;
-}
-
-int Order::buy_trade(const int req_vol) {
-  // maker buy, taker sell
-  // req_vol < 0
-  assert(volume >= 0);
-  int avail = std::max(-volume, req_vol);
-  volume += avail;
-  return avail;
-}
-
 void Order::update_volume(const int &inc) { volume += inc; }
 
 bool Order::operator<(const Order &other) const noexcept {

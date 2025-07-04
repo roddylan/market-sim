@@ -73,13 +73,6 @@ public:
    */
   std::chrono::time_point<std::chrono::steady_clock> get_time() const noexcept;
 
-  /**
-   * @brief Execute order (partially or fully)
-   * 
-   * @param req_vol requested trade volume
-   * @return int volume traded
-   */
-  int make_trade(const int req_vol);
 
   /**
    * @brief update volume
@@ -93,21 +86,6 @@ public:
   bool operator>(const Order &other) const noexcept;
   bool operator==(const Order &other) const noexcept;
 private:
-  /**
-   * @brief Execute sell order (maker selling, taker buying)
-   * 
-   * @param req_vol 
-   * @return int 
-   */
-  int sell_trade(const int req_vol);
-  
-  /**
-   * @brief Execute buy order (maker buying, taker selling)
-   * 
-   * @param req_vol 
-   * @return int 
-   */
-  int buy_trade(const int req_vol);
   
   float price;
   int volume;
