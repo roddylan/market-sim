@@ -17,10 +17,7 @@ struct BuyOrderCompare {
     
     auto l_time{left->get_time()}, r_time{right->get_time()};
     // earliest time first
-    if (l_time > r_time) {
-      return true;
-    }
-    return false;
+    return l_time > r_time;
   }
 };
 
@@ -38,10 +35,7 @@ struct SellOrderCompare {
     
     auto l_time{left->get_time()}, r_time{right->get_time()};
     // earliest first
-    if (l_time < r_time) {
-      return true;
-    }
-    return false;
+    return l_time > r_time;
   }
 };
 
