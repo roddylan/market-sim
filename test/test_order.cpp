@@ -10,15 +10,16 @@ using Duration = std::chrono::nanoseconds;
 using Clock = std::chrono::steady_clock;
 using Time = std::chrono::time_point<std::chrono::steady_clock>;
 
+const float f_price = 100;
+const int abs_vol = 100;
+const Time base_time = std::chrono::time_point<Clock>(Duration(10000));
+const Time early_time = base_time - Duration(100);
+const Time late_time = base_time + Duration(100);
+
 class OrderTest : public ::testing::Test {
 protected:
   Trader *maker;
   Trader *taker;
-  const float f_price = 100;
-  const int abs_vol = 100;
-  const Time base_time = std::chrono::time_point<Clock>(Duration(10000));
-  const Time early_time = base_time - Duration(100);
-  const Time late_time = base_time + Duration(100);
 
   void SetUp() override {
     maker = new MMakerTrader("test");
