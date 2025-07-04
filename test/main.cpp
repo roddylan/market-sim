@@ -95,18 +95,32 @@ int main() {
   auto price_na = book.match(taker_buy1);
   std::cout << price_na << std::endl << std::endl;
   
-  // assert(book.get_buy_orders().size() == 2);
-  // assert(book.get_sell_orders().size() == 2);
-  // print_book(book);
-  
+  assert(book.get_buy_orders().size() == 2);
+  assert(book.get_sell_orders().size() == 2);
+  print_book(book);
 
-  // std::cout << "--------REAL BUY-------\n";
-  // Order taker_buy2(11.0, 250, taker1);
-  // auto price_1 = book.match(taker_buy2);
-  // std::cout << price_1 << std::endl;
-  // print_book(book);
+  Order taker_sell1(11.0, -250, taker1);
+  price_na = book.match(taker_sell1);
+  std::cout << price_na << std::endl << std::endl;
+  assert(book.get_buy_orders().size() == 2);
+  assert(book.get_sell_orders().size() == 2);
+  print_book(book);
+
+  std::cout << "--------REAL BUY-------\n";
+  Order taker_buy2(11.0, 250, taker1);
+  auto price_1 = book.match(taker_buy2);
+  std::cout << price_1 << std::endl;
+  print_book(book);
   
-  // assert(book.get_buy_orders().size() == 2);
-  // assert(book.get_sell_orders().size() == 2);
+  assert(book.get_buy_orders().size() == 2);
+  assert(book.get_sell_orders().size() == 0);
   
+  std::cout << "--------REAL SELL-------\n";
+  Order taker_sell2(7.0, -150, taker1);
+  price_1 = book.match(taker_sell2);
+  std::cout << price_1 << std::endl;
+  print_book(book);
+  
+  assert(book.get_buy_orders().size() == 1);
+  assert(book.get_sell_orders().size() == 0);
 }
