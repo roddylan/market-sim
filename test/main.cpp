@@ -30,29 +30,29 @@ void print_book(const OrderBook &book) {
 int main() {
   // trader tests
   std::cout << "-----TRADER-----\n";
-  Trader maker1 = MMakerTrader("1");
-  Trader maker2 = MMakerTrader("2");
-  Trader maker3 = MMakerTrader("3");
+  Trader *maker1 = new MMakerTrader("1");
+  Trader *maker2 = new MMakerTrader("2");
+  Trader *maker3 = new MMakerTrader("3");
 
-  Trader taker1 = MTakerTrader("1");
-  Trader taker2 = MTakerTrader("2");
-  Trader taker3 = MTakerTrader("3");
+  Trader *taker1 = new MTakerTrader("1");
+  Trader *taker2 = new MTakerTrader("2");
+  Trader *taker3 = new MTakerTrader("3");
 
-  Trader test_trader = MMakerTrader("TEST");
+  Trader *test_trader = new MMakerTrader("TEST");
 
-  std::cout << maker1.get_name() << std::endl;
-  std::cout << maker2.get_name() << std::endl;
-  std::cout << maker3.get_name() << std::endl;
+  std::cout << maker1->get_name() << std::endl;
+  std::cout << maker2->get_name() << std::endl;
+  std::cout << maker3->get_name() << std::endl;
 
-  std::cout << taker1.get_name() << std::endl;
-  std::cout << taker2.get_name() << std::endl;
-  std::cout << taker3.get_name() << std::endl;
+  std::cout << taker1->get_name() << std::endl;
+  std::cout << taker2->get_name() << std::endl;
+  std::cout << taker3->get_name() << std::endl;
 
-  std::cout << test_trader.get_name() << std::endl;
+  std::cout << test_trader->get_name() << std::endl;
   
   // test_order
   std::cout << "-----ORDER TEST-----\n";
-  Order test_buy(10.0, 100, test_trader);
+  Order test_buy(10.0, 100, *test_trader);
   std::cout << test_buy.get_volume() << std::endl;
   test_buy.update_volume(-5);
   std::cout << test_buy.get_volume() << std::endl;
@@ -61,10 +61,10 @@ int main() {
   std::cout << "-----ORDERBOOK-----\n";
   // order book
   // maker orders
-  Order make_buy1(10.0, 100, maker1);
-  Order make_sell1(11.0, -100, maker1);
-  Order make_buy2(9.5, 100, maker1);
-  Order make_sell2(10.5, -100, maker1);
+  Order make_buy1(10.0, 100, *maker1);
+  Order make_sell1(11.0, -100, *maker1);
+  Order make_buy2(9.5, 100, *maker1);
+  Order make_sell2(10.5, -100, *maker1);
 
   OrderBook book{};
 
@@ -91,7 +91,7 @@ int main() {
   print_book(book);
   
   
-  Order taker_buy1(5.0, 50, taker1);
+  Order taker_buy1(5.0, 50, *taker1);
   auto price_na = book.match(taker_buy1);
   std::cout << price_na << std::endl << std::endl;
   
@@ -99,7 +99,7 @@ int main() {
   assert(book.get_sell_orders().size() == 2);
   print_book(book);
 
-  Order taker_sell1(11.0, -250, taker1);
+  Order taker_sell1(11.0, -250, *taker1);
   price_na = book.match(taker_sell1);
   std::cout << price_na << std::endl << std::endl;
   assert(book.get_buy_orders().size() == 2);
@@ -107,7 +107,7 @@ int main() {
   print_book(book);
 
   std::cout << "--------REAL BUY-------\n";
-  Order taker_buy2(11.0, 250, taker1);
+  Order taker_buy2(11.0, 250, *taker1);
   auto price_1 = book.match(taker_buy2);
   std::cout << price_1 << std::endl;
   print_book(book);
@@ -116,11 +116,20 @@ int main() {
   assert(book.get_sell_orders().size() == 0);
   
   std::cout << "--------REAL SELL-------\n";
-  Order taker_sell2(7.0, -150, taker1);
+  Order taker_sell2(7.0, -150, *taker1);
   price_1 = book.match(taker_sell2);
   std::cout << price_1 << std::endl;
   print_book(book);
   
   assert(book.get_buy_orders().size() == 1);
   assert(book.get_sell_orders().size() == 0);
+
+
+  delete maker1;
+  delete maker2;
+  delete maker3;
+  delete taker1;
+  delete taker2;
+  delete taker3;
+  delete test_trader;
 }
