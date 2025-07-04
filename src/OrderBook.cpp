@@ -32,3 +32,35 @@ bool OrderBook::insert(const Order &order) {
   }
   return true;
 }
+
+float OrderBook::match(int req_vol) {
+  if (req_vol == 0) { return -1; }
+  if (req_vol < 0) {
+    return sell_match(req_vol);
+  } else {
+    return buy_match(req_vol);
+  }
+}
+
+
+float OrderBook::buy_match(int req_vol) {
+  // match buy order to request
+  // (maker buying, taker selling)
+  if (buy_orders.empty()) { return -1; }
+  const float buy_price = buy_orders.top().get_price();
+  const float sell_price = !sell_orders.empty() ? sell_orders.top().get_price() : buy_price;
+  const float base_price = (buy_price + sell_price) / 2;
+  
+  return -1;
+}
+
+float OrderBook::sell_match(int req_vol) {
+  // match buy order to request
+  // (maker buying, taker selling)
+  if (sell_orders.empty()) { return -1; }
+  const float sell_price = sell_orders.top().get_price();
+  const float buy_price = !buy_orders.empty() ? buy_orders.top().get_price() : sell_price;
+  const float base_price = (buy_price + sell_price) / 2;
+  
+  return -1;
+}

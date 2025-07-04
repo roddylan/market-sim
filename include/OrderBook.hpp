@@ -54,6 +54,17 @@ struct OrderBook {
    */
   bool insert(const Order &order);
 
+  
+  /**
+   * @brief Order match logic
+   * 
+   * @param req_vol 
+   * @return float execution price (or average if multiple orders)
+   */
+  float match(int req_vol);
+  float sell_match(int req_vol);
+  float buy_match(int req_vol);
+
   BuyQueue buy_orders;
   SellQueue sell_orders;
 };
