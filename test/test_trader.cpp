@@ -36,3 +36,5 @@ TEST_F(TraderTest, TraderNameTest) {
   EXPECT_EQ(maker->get_name(), std::string("test2"));
   EXPECT_EQ(taker->get_name(), std::string("test2"));
 }
+
+// TODO: strategy
