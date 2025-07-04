@@ -50,7 +50,7 @@ int Order::buy_trade(const int req_vol) {
   return avail;
 }
 
-bool Order::operator<(const Order &other) {
+bool Order::operator<(const Order &other) const {
   if (this == &other) { return false; }
   
   if (price < other.price) {
@@ -62,7 +62,7 @@ bool Order::operator<(const Order &other) {
   return false;
 }
 
-bool Order::operator>(const Order &other) {
+bool Order::operator>(const Order &other) const {
   if (this == &other) { return false; }
   
   if (price > other.price) {
@@ -74,7 +74,7 @@ bool Order::operator>(const Order &other) {
   return false;
 }
 
-bool Order::operator==(const Order &other) {
+bool Order::operator==(const Order &other) const {
   if (this == &other) { return true; }
   
   if (price == other.price && timestamp == other.timestamp) {
