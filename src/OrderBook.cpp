@@ -70,7 +70,8 @@ float OrderBook::buy_match(Order &taker_order) {
     float book_price = buy_orders.top()->get_price();
     if (fair_price > book_price) {
       // taker wont want to sell, too low
-      return res;
+      // return res;
+      continue;
     } else {
       res = book_price;
     }
@@ -100,7 +101,8 @@ float OrderBook::sell_match(Order &taker_order) {
     float book_price = sell_orders.top()->get_price();
     if (fair_price < book_price) {
       // taker wont want to sell, too high
-      return res;
+      // return res;
+      continue;
     } else {
       res = book_price;
     }
