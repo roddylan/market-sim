@@ -21,6 +21,9 @@ void Trader::set_name(const std::string &_name) { name = _name; }
 
 std::tuple<float, int> Trader::trade() const { return std::make_tuple(0., 0); }
 
+MMakerTrader::MMakerTrader(const std::string &_name) : Trader("maker_" + _name) {}
+MTakerTrader::MTakerTrader(const std::string &_name) : Trader("taker_" + _name) {}
+
 std::tuple<float, int> MMakerTrader::trade() const {
   // TODO: placeholder
   return std::make_tuple(0., 0);
