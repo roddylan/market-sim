@@ -53,6 +53,8 @@ public:
    * @param _timestamp 
    */
   Order(float _price, int _volume, Trader &_trader, const Timestamp &_timestamp);
+  
+  Order(float _price, int _volume, Trader* const _trader, const Timestamp &_timestamp);
 
   /**
    * @brief Construct a new Order object
