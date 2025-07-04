@@ -7,41 +7,40 @@
 struct OrderBook {
   /**
    * @brief Construct a new Order Book object
-   * 
+   *
    */
   OrderBook() = default;
-  
+
   /**
    * @brief Destroy the Order Book object
-   * 
+   *
    */
   ~OrderBook() = default;
-  
+
   /**
    * @brief Construct a new Order Book object
-   * 
-   * @param _buys 
-   * @param _sells 
+   *
+   * @param _buys
+   * @param _sells
    */
   OrderBook(const std::vector<Order> &_buys = {},
-            const std::vector<Order> &_sells = {})
-      : buy_orders(_buys), sell_orders(_sells) {}
-  
+            const std::vector<Order> &_sells = {});
+
   /**
    * @brief Construct a new Order Book object
-   * 
-   * @param other 
+   *
+   * @param other
    */
   OrderBook(const OrderBook &other);
-  
+
   /**
    * @brief Copy assignment
-   * 
-   * @param other 
-   * @return OrderBook& 
+   *
+   * @param other
+   * @return OrderBook&
    */
   OrderBook &operator=(const OrderBook &other);
-  
+
   std::vector<Order> buy_orders;
   std::vector<Order> sell_orders;
 };
