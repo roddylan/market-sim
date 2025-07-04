@@ -5,6 +5,5 @@
 
 int main() {
   // order tests
-  // MMakerTrader maker{};
-  maker.set_name("test");
+  MMakerTrader maker("1");
 }

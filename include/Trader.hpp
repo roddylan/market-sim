@@ -68,13 +68,14 @@ private:
  * 
  */
 class MMakerTrader : public Trader {
+public:
   /**
    * @brief Construct a new MMakerTrader object
    * 
    * @param _name 
    */
   MMakerTrader(const std::string &_name);
-  
+
   /**
    * @brief Let Trader make trade
    * 
@@ -88,6 +89,7 @@ class MMakerTrader : public Trader {
  * 
  */
 class MTakerTrader : public Trader {
+public:
   /**
    * @brief Construct a new MTakerTrader object
    * 
