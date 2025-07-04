@@ -55,15 +55,17 @@ struct OrderBook {
   bool insert(const Order &order);
 
   
+
   /**
    * @brief Order match logic
    * 
    * @param req_vol 
+   * @param fair_price 
    * @return float execution price (or average if multiple orders)
    */
-  float match(int req_vol);
-  float sell_match(int req_vol);
-  float buy_match(int req_vol);
+  float match(int req_vol, const float fair_price);
+  float sell_match(int req_vol, const float fair_price);
+  float buy_match(int req_vol, const float fair_price);
 
   BuyQueue buy_orders;
   SellQueue sell_orders;
