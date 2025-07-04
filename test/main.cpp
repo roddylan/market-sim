@@ -49,15 +49,16 @@ int main() {
   std::cout << taker3.get_name() << std::endl;
 
   std::cout << test_trader.get_name() << std::endl;
-  std::cout << "-----ORDERBOOK-----\n";
-
+  
   // test_order
+  std::cout << "-----ORDER TEST-----\n";
   Order test_buy(10.0, 100, test_trader);
-  std::cout << test_buy.get_price() << std::endl;
+  std::cout << test_buy.get_volume() << std::endl;
   test_buy.update_volume(-5);
   std::cout << test_buy.get_volume() << std::endl;
-
-
+  
+  
+  std::cout << "-----ORDERBOOK-----\n";
   // order book
   // maker orders
   Order make_buy1(10.0, 100, maker1);
