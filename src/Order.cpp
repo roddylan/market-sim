@@ -2,7 +2,9 @@
 // Order class implementation
 
 #include "Order.hpp"
+#include <cassert>
 #include <chrono>
+
 
 Order::Order(float _price, int _volume, Trader &_maker)
     : price{_price}, volume{_volume}, maker{&_maker}, timestamp{std::chrono::steady_clock::now()} {}
@@ -22,3 +24,26 @@ Trader &Order::get_maker() const noexcept {
   return *maker;
 }
 
+int Order::make_trade(const int req_vol) {
+  if (req_vol < 0) {
+    // taker wants to sell (maker buying)
+    return buy_trade(req_vol);
+  } else if (req_vol > 0) {
+    // taker wants to buy (maker selling)
+    return sell_trade(req_vol);
+  }
+
+  return 0;
+
+}
+
+int Order::sell_trade(const int req_vol) {
+  assert(volume <= 0);
+  
+  
+  return 0;
+}
+int Order::buy_trade(const int req_vol) {
+  assert(volume >= 0);
+  return 0;
+}

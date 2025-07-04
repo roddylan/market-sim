@@ -71,12 +71,28 @@ public:
    * @param req_vol requested trade volume
    * @return int volume traded
    */
-  int make_trade(int req_vol);
+  int make_trade(const int req_vol);
 private:
+  /**
+   * @brief Execute sell order (maker selling, taker buying)
+   * 
+   * @param req_vol 
+   * @return int 
+   */
+  int sell_trade(const int req_vol);
+  
+  /**
+   * @brief Execute buy order (maker buying, taker selling)
+   * 
+   * @param req_vol 
+   * @return int 
+   */
+  int buy_trade(const int req_vol);
+  
   float price;
   int volume;
   Trader* const maker;
-  const std::chrono::time_point<std::chrono::steady_clock> timestamp;
+  const std::chrono::time_point<std::chrono::steady_clock> timestamp; // uint_8 
 };
 
 #endif
