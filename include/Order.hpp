@@ -23,7 +23,7 @@ public:
    * @brief Destroy the Order object (default)
    * 
    */
-  ~Order();
+  ~Order() = default;
   
   /**
    * @brief Construct a new Order object
