@@ -5,10 +5,24 @@
 #include "Trader.hpp"
 
 class OrderTest : public ::testing::Test {
+protected:
+  Trader *maker;
+  Trader *taker;
+  Order *test_buy_order_m;
+  Order *test_sell_order_m;
+  
   void SetUp() override {
-    MMakerTrader maker("test");
-    MTakerTrader taker("test");
-    Order buy_order(49.5, 100, maker);
-    Order sell_order(50.5, -100, maker);
+    maker = new MMakerTrader("test");
+    taker = new MTakerTrader("test");
+    test_buy_order_m = new Order(49.5, 100, maker);
+    test_sell_order_m = new Order(50.5, -100, maker);
+  }
+
+  void TearDown() override {
+    delete maker;
+    delete taker;
+
+    delete test_buy_order_m;
+    delete test_sell_order_m;
   }
 };
