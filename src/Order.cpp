@@ -7,8 +7,11 @@
 #include <chrono>
 
 Order::Order(float _price, int _volume, Trader &_maker)
-    : price{_price}, volume{_volume}, maker{&_maker},
-      timestamp{std::chrono::steady_clock::now()} {}
+    : volume{_volume}, maker{&_maker},
+      timestamp{std::chrono::steady_clock::now()} {
+        assert(price > 0);
+        price = _price;
+      }
 
 Order::Order(const Order &other)
     : price{other.price}, volume{other.volume}, maker{other.maker},
