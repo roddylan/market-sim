@@ -40,5 +40,13 @@ protected:
 
 
 TEST_F(OrderBookTest, BuyInsertion) {
-  Order buy_1(fair_price+0.5, 100, maker1);
+  Order buy_1(fair_price+1, 100, maker1);
+  Order buy_2(fair_price+0.5, 100, maker1);
+  Order buy_3(fair_price+1.5, 100, maker1);
+
+  book.insert(buy_1);
+  EXPECT_EQ(book.get_buy_orders().size(), 1);
+  EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_1.get_price());
+  // EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_1.get_price());
+  book.insert(buy_2);
 }
