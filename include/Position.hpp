@@ -1,6 +1,5 @@
 // Position.hpp
-#ifndef _POSITION_HPP
-#define _POSITION_HPP
+#pragma once
 namespace {
   using size_t = unsigned int;
   struct Position {
@@ -12,4 +11,3 @@ namespace {
 
 };
 
-#endif

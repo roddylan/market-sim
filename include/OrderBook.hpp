@@ -1,6 +1,6 @@
 // OrderBook.hpp
-#ifndef _ORDER_BOOK_HPP
-#define _ORDER_BOOK_HPP
+#pragma once
+
 #include "Order.hpp"
 #include <vector>
 #include <queue>
@@ -72,5 +72,3 @@ private:
   BuyQueue buy_orders;
   SellQueue sell_orders;
 };
-
-#endif

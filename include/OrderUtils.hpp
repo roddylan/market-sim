@@ -1,6 +1,5 @@
 // utils.hpp
-#ifndef _ORDER_UTILS_HPP
-#define _ORDER_UTILS_HPP
+#pragma once
 #include "Order.hpp"
 #include <memory>
 namespace OrderUtils {
@@ -44,4 +43,3 @@ struct SellOrderCompare {
 
 } // namespace OrderUtils
 
-#endif

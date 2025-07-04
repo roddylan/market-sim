@@ -1,7 +1,7 @@
 // Order.hpp
 // Order object
-#ifndef _ORDER_HPP
-#define _ORDER_HPP
+#pragma once
+
 #include "Trader.hpp"
 #include <memory>
 #include <chrono>
@@ -108,5 +108,3 @@ private:
   Trader* const maker;
   const std::chrono::time_point<std::chrono::steady_clock> timestamp; // uint_8 
 };
-
-#endif

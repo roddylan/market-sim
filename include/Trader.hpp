@@ -1,6 +1,5 @@
 // Trader.hpp
-#ifndef _TRADER_HPP
-#define _TRADER_HPP
+#pragma once
 #include <string>
 #include <unordered_map>
 #include <tuple>
@@ -14,11 +13,14 @@ public:
 
   Trader(const Trader &);
   Trader &operator=(const Trader &);
+
+  /**
+   * @brief Let Trader make trade
+   * 
+   * @return std::tuple<float, int> 
+   */
+  virtual std::tuple<float, int> trade();
 private:
   std::string name;
-  std::unordered_map<SYMBOL, std::tuple<size_t, float>> positions;
 };
 
-
-
-#endif
