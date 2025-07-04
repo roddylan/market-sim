@@ -1,6 +1,7 @@
 # compile commands
 compile_commands.json
 build/
+.cache
 
 # Prerequisites
 *.d
