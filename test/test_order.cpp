@@ -6,48 +6,51 @@
 #include "OrderUtils.hpp"
 #include <memory>
 #include <chrono>
+using Duration = std::chrono::nanoseconds;
+using Clock = std::chrono::steady_clock;
+using Time = std::chrono::time_point<std::chrono::steady_clock>;
 
 class OrderTest : public ::testing::Test {
 protected:
   Trader *maker;
   Trader *taker;
-  Order *test_buy_order_m;
-  Order *test_sell_order_m;
-  
+  const float f_price = 100;
+  const int abs_vol = 100;
+  const Time base_time = std::chrono::time_point<Clock>(Duration(10000));
+  const Time early_time = base_time - Duration(100);
+  const Time late_time = base_time + Duration(100);
+
   void SetUp() override {
     maker = new MMakerTrader("test");
     taker = new MTakerTrader("test");
-    test_buy_order_m = new Order(49.5, 100, maker);
-    test_sell_order_m = new Order(50.5, -100, maker);
+    return;
   }
 
   void TearDown() override {
     delete maker;
     delete taker;
-
-    delete test_buy_order_m;
-    delete test_sell_order_m;
   }
 };
 
-
+// test getters 
 TEST_F(OrderTest, OrderGettersTest) {
-  EXPECT_EQ(test_buy_order_m->get_trader().get_name(), std::string("maker_test"));
-  EXPECT_EQ(test_sell_order_m->get_trader().get_name(), std::string("maker_test"));
+  Order buy_order_maker(f_price, abs_vol, maker);
+  Order sell_order_maker(f_price, -abs_vol, maker);
+
+  EXPECT_EQ(buy_order_maker.get_trader().get_name(), std::string("maker_test"));
+  EXPECT_EQ(sell_order_maker.get_trader().get_name(), std::string("maker_test"));
+
 }
 
 TEST_F(OrderTest, BuyOrderComparisonTest) {
-  using Duration = std::chrono::nanoseconds;
-  using Clock = std::chrono::steady_clock;
-  
   // true if need to swap
   OrderUtils::BuyOrderCompare buy_compare; // buy -> best bid (highest), earliest time
   auto current_time = std::chrono::steady_clock::now();
   auto later_time = std::chrono::time_point<Clock>(Duration(10000));
   auto earlier_time = std::chrono::time_point<Clock>(Duration(9000));
 
-  float high_price{101}, low_price{99}, f_price{100};
-  int high_vol{150}, vol{100};
+  float high_price{f_price+1}, low_price{f_price-1};
+  int high_vol{abs_vol+50}, vol{abs_vol};
 
   // buy comparisons
   auto high_buy = std::make_shared<Order>(high_price, vol, maker, later_time);
@@ -75,17 +78,14 @@ TEST_F(OrderTest, BuyOrderComparisonTest) {
 
 
 TEST_F(OrderTest, SellOrderComparisonTest) {
-  using Duration = std::chrono::nanoseconds;
-  using Clock = std::chrono::steady_clock;
-  
   // true if need to swap
   OrderUtils::SellOrderCompare sell_compare; // sell -> best ask (lowest), earliest time
   auto current_time = std::chrono::steady_clock::now();
   auto later_time = std::chrono::time_point<Clock>(Duration(10000));
   auto earlier_time = std::chrono::time_point<Clock>(Duration(9000));
 
-  float high_price{101}, low_price{99}, f_price{100};
-  int high_vol{-150}, vol{-100};
+  float high_price{f_price+1}, low_price{f_price-1};
+  int high_vol{-abs_vol - 50}, vol{-abs_vol};
 
   // buy comparisons
   auto high_sell = std::make_shared<Order>(high_price, vol, maker, later_time);
