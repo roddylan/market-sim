@@ -9,6 +9,7 @@
 using Duration = std::chrono::nanoseconds;
 using Clock = std::chrono::steady_clock;
 using Time = std::chrono::time_point<std::chrono::steady_clock>;
+
 const float fair_price{100};
 const int default_abs_vol{100};
 const Time base_time = std::chrono::time_point<Clock>(Duration(10000));
