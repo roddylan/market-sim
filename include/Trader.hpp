@@ -8,11 +8,12 @@ using SYMBOL = std::string;
 
 class Trader {
 public:
-  Trader();
-  ~Trader();
+  Trader() = default;
+  ~Trader() = default;
 
-  Trader(const Trader &);
-  Trader &operator=(const Trader &);
+  Trader(const std::string &_name);
+  Trader(const Trader &other);
+  Trader &operator=(const Trader &rhs);
 
   /**
    * @brief Let Trader make trade
