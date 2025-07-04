@@ -47,6 +47,20 @@ public:
   OrderBook &operator=(const OrderBook &other);
 
   /**
+   * @brief Get the buy orders object
+   * 
+   * @return const BuyQueue& 
+   */
+  const BuyQueue &get_buy_orders() const;
+  
+  /**
+   * @brief Get the sell orders object
+   * 
+   * @return const SellQueue& 
+   */
+  const SellQueue &get_sell_orders() const;
+
+  /**
    * @brief Insert order into order book
    * 
    * @param order 
@@ -63,10 +77,11 @@ public:
    * @return float execution price (or average if multiple orders)
    */
   float match(Order &taker_order);
-  float sell_match(Order &taker_order);
-  float buy_match(Order &taker_order);
+  
 
 private:
+  float sell_match(Order &taker_order);
+  float buy_match(Order &taker_order);
   BuyQueue buy_orders;
   SellQueue sell_orders;
 };
