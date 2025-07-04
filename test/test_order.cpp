@@ -26,3 +26,8 @@ protected:
     delete test_sell_order_m;
   }
 };
+
+
+TEST_F(OrderTest, OrderGettersTest) {
+  
+}
