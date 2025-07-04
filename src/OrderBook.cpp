@@ -79,31 +79,31 @@ float OrderBook::buy_match(Order &taker_order) {
 }
 
 float OrderBook::sell_match(Order &taker_order) {
-  // match buy order to request
+  // match sell order to request
   // (maker selling, taker buying)
   if (sell_orders.empty()) {
     return 0;
   }
-  const float sell_price = sell_orders.top()->get_price();
-  const float buy_price =
-      !buy_orders.empty() ? buy_orders.top()->get_price() : sell_price;
-  const float base_price = (buy_price + sell_price) / 2;
+  const float fair_price = taker_order.get_price();
+  float res{};
 
-  while (req_vol > 0) {
+  while (taker_order.get_volume() > 0) {
     // todo: dont pop, access order directly since only volume updating
     float book_price = sell_orders.top()->get_price();
     if (fair_price < book_price) {
       // taker wont want to sell, too high
-      return 0;
+      return res;
+    } else {
+      res = book_price;
     }
 
-    auto sell_order = sell_orders.top();
+    auto best_order = sell_orders.top();
     sell_orders.pop();
-    req_vol -= sell_order->make_trade(req_vol);
-    if (sell_order->get_volume() != 0) {
-      sell_orders.push(sell_order);
+    MatchingEngine::match_order(*best_order, taker_order);
+    if (best_order->get_volume() != 0) {
+      sell_orders.push(best_order);
     }
   }
 
-  return 0;
+  return res;
 }
