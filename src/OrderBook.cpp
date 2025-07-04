@@ -59,7 +59,7 @@ float OrderBook::buy_match(int req_vol, const float fair_price) {
     // todo: dont pop, access order directly since only volume updating
     float book_price = buy_orders.top().get_price();
     if (fair_price > book_price) {
-      // taker wont want to sell
+      // taker wont want to sell, too low
       return 0;
     }
 
@@ -76,7 +76,7 @@ float OrderBook::buy_match(int req_vol, const float fair_price) {
 
 float OrderBook::sell_match(int req_vol, const float fair_price) {
   // match buy order to request
-  // (maker buying, taker selling)
+  // (maker selling, taker buying)
   if (sell_orders.empty()) {
     return 0;
   }
@@ -84,6 +84,22 @@ float OrderBook::sell_match(int req_vol, const float fair_price) {
   const float buy_price =
       !buy_orders.empty() ? buy_orders.top().get_price() : sell_price;
   const float base_price = (buy_price + sell_price) / 2;
+
+  while (req_vol > 0) {
+    // todo: dont pop, access order directly since only volume updating
+    float book_price = sell_orders.top().get_price();
+    if (fair_price < book_price) {
+      // taker wont want to sell, too high
+      return 0;
+    }
+
+    auto sell_order = sell_orders.top();
+    sell_orders.pop();
+    req_vol -= sell_order.make_trade(req_vol);
+    if (sell_order.get_volume() != 0) {
+      sell_orders.push(sell_order);
+    }
+  }
 
   return 0;
 }
