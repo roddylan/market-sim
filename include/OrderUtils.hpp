@@ -28,13 +28,12 @@ struct SellOrderCompare {
   bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
     float l_price{left->get_price()}, r_price{right->get_price()};
     // best price, lowest ask
-    if (l_price > r_price) {
-      return true;
+    if (l_price != r_price) {
+      return l_price > r_price;
     }
     
-    auto l_time{left->get_time()}, r_time{right->get_time()};
-    // earliest first
-    return l_time > r_time;
+    // earliest time first
+    return left->get_time() > right->get_time();
   }
 };
 
