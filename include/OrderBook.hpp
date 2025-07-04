@@ -3,6 +3,7 @@
 #define _ORDER_BOOK_HPP
 #include "Order.hpp"
 #include <vector>
+#include <queue>
 
 struct OrderBook {
   /**
