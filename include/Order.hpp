@@ -64,7 +64,7 @@ public:
    * 
    * @return Trader& 
    */
-  Trader &get_maker() const noexcept;
+  const Trader &get_maker() const noexcept;
 
   /**
    * @brief Get the time object

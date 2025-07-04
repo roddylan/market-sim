@@ -21,7 +21,7 @@ float Order::get_price() const noexcept { return price; }
 
 int Order::get_volume() const noexcept { return volume; }
 
-Trader &Order::get_maker() const noexcept { return *maker; }
+const Trader &Order::get_maker() const noexcept { return *maker; }
 
 std::chrono::time_point<std::chrono::steady_clock>
 Order::get_time() const noexcept {
