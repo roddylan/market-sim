@@ -8,11 +8,35 @@ using SYMBOL = std::string;
 
 class Trader {
 public:
+  /**
+   * @brief Construct a new Trader object
+   * 
+   */
   Trader() = default;
+  /**
+   * @brief Destroy the Trader object
+   * 
+   */
   ~Trader() = default;
 
+  /**
+   * @brief Construct a new Trader object
+   * 
+   * @param _name 
+   */
   Trader(const std::string &_name);
+  /**
+   * @brief Construct a new Trader object
+   * 
+   * @param other 
+   */
   Trader(const Trader &other);
+  /**
+   * @brief Assignment
+   * 
+   * @param rhs 
+   * @return Trader& 
+   */
   Trader &operator=(const Trader &rhs);
 
   /**
@@ -24,4 +48,31 @@ public:
 private:
   std::string name;
 };
+
+/**
+ * @brief Market Maker
+ * 
+ */
+class MMakerTrader : public Trader {
+  /**
+   * @brief Let Trader make trade
+   * 
+   * @return std::tuple<float, int> 
+   */
+  std::tuple<float, int> trade() override;
+};
+
+/**
+ * @brief Market Taker
+ * 
+ */
+class MTakerTrader : public Trader {
+  /**
+   * @brief Let Trader make trade
+   * 
+   * @return std::tuple<float, int> 
+   */
+  std::tuple<float, int> trade() override;
+};
+
 
