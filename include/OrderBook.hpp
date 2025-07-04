@@ -18,14 +18,7 @@ struct OrderBook {
    */
   ~OrderBook() = default;
 
-  /**
-   * @brief Construct a new Order Book object
-   *
-   * @param _buys
-   * @param _sells
-   */
-  OrderBook(const std::vector<Order> &_buys = {},
-            const std::vector<Order> &_sells = {});
+  // TODO: value initializer
 
   /**
    * @brief Construct a new Order Book object
@@ -42,8 +35,8 @@ struct OrderBook {
    */
   OrderBook &operator=(const OrderBook &other);
 
-  std::vector<Order> buy_orders;
-  std::vector<Order> sell_orders;
+  std::priority_queue<Order> buy_orders;
+  std::priority_queue<Order> sell_orders;
 };
 
 #endif
