@@ -22,7 +22,13 @@ struct OrderBook {
    */
   ~OrderBook() = default;
 
-  // TODO: value initializer
+  /**
+   * @brief Construct a new Order Book object
+   * 
+   * @param _buys 
+   * @param _sells 
+   */
+  OrderBook(const BuyQueue &_buys, const SellQueue &_sells);
 
   /**
    * @brief Construct a new Order Book object

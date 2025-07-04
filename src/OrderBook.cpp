@@ -4,6 +4,9 @@
 #include "OrderBook.hpp"
 
 
+OrderBook::OrderBook(const BuyQueue &_buys, const SellQueue &_sells)
+    : buy_orders(_buys), sell_orders(_sells) {}
+
 OrderBook::OrderBook(const OrderBook &other)
     : buy_orders(other.buy_orders), sell_orders(other.sell_orders) {}
 
