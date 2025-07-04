@@ -25,14 +25,25 @@ void MatchingEngine::sell_order(Order &maker_order, Order &taker_order) {
   assert(maker_vol <= 0);
   assert(taker_vol >= 0);
 
-  int avail = std::min(-maker_vol, taker_vol);
-  maker_order.update_volume(avail);
-  taker_order.update_volume(-avail);
+  // how much taker can buy (+)
+  int order_vol = std::min(-maker_vol, taker_vol);
+  // maker vol += avail 
+  maker_order.update_volume(order_vol);
+  // taker vol -= avail
+  taker_order.update_volume(-order_vol);
 }
 
 void MatchingEngine::buy_order(Order &maker_order, Order &taker_order) {
   // maker buy, taker sell
   // taker vol < 0
-  assert(maker_order.get_volume() >= 0);
-  assert(taker_order.get_volume() <= 0);
+  const int maker_vol{maker_order.get_volume()}, taker_vol{taker_order.get_volume()};
+  assert(maker_vol >= 0);
+  assert(taker_vol <= 0);
+
+  // how much taker can sell (-)
+  int order_vol = std::max(-maker_vol, taker_vol);
+  // maker vol += avail 
+  maker_order.update_volume(order_vol);
+  // taker vol -= avail
+  taker_order.update_volume(-order_vol);
 }
