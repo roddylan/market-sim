@@ -7,11 +7,11 @@
 #include <chrono>
 
 Order::Order(float _price, int _volume, Trader &_maker)
-    : volume{_volume}, maker{&_maker},
-      timestamp{std::chrono::steady_clock::now()} {
-        assert(price > 0);
-        price = _price;
-      }
+    : volume{_volume}, maker{&_maker}, timestamp{
+                                           std::chrono::steady_clock::now()} {
+  assert(price > 0);
+  price = _price;
+}
 
 Order::Order(const Order &other)
     : price{other.price}, volume{other.volume}, maker{other.maker},
@@ -57,6 +57,8 @@ int Order::buy_trade(const int req_vol) {
   volume += avail;
   return avail;
 }
+
+void Order::update_volume(const int &inc) { volume += inc; }
 
 bool Order::operator<(const Order &other) const noexcept {
   if (this == &other) {
