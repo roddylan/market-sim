@@ -40,11 +40,25 @@ public:
   Trader &operator=(const Trader &rhs);
 
   /**
+   * @brief Get the name object
+   * 
+   * @return const std::string& 
+   */
+  const std::string &get_name() const;
+  
+  /**
+   * @brief Set the name object
+   * 
+   * @param _name 
+   */
+  void set_name(const std::string &_name);
+
+  /**
    * @brief Let Trader make trade
    * 
    * @return std::tuple<float, int> 
    */
-  virtual std::tuple<float, int> trade();
+  virtual std::tuple<float, int> trade() const;
 private:
   std::string name;
 };
@@ -59,7 +73,7 @@ class MMakerTrader : public Trader {
    * 
    * @return std::tuple<float, int> 
    */
-  std::tuple<float, int> trade() override;
+  std::tuple<float, int> trade() const override;
 };
 
 /**
@@ -72,7 +86,7 @@ class MTakerTrader : public Trader {
    * 
    * @return std::tuple<float, int> 
    */
-  std::tuple<float, int> trade() override;
+  std::tuple<float, int> trade() const override;
 };
 
 
