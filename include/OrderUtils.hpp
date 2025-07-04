@@ -24,6 +24,10 @@ struct BuyOrderCompare {
   }
 };
 
+/**
+ * @brief Comparator for Sell Orders
+ * 
+ */
 struct SellOrderCompare {
   bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
     float l_price{left->get_price()}, r_price{right->get_price()};
