@@ -49,9 +49,9 @@ float OrderBook::match(Order &taker_order) {
     return 0;
   }
   if (taker_vol < 0) {
-    return sell_match(taker_order);
-  } else {
     return buy_match(taker_order);
+  } else {
+    return sell_match(taker_order);
   }
 }
 
