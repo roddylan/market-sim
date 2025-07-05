@@ -7,8 +7,13 @@
 
 class Exchange {
 public:
+  Exchange();
+  ~Exchange();
+
+  void run();
 private:
   std::vector<std::unique_ptr<Trader>> makers;
   std::vector<std::unique_ptr<Trader>> takers;
 
+  
 };
