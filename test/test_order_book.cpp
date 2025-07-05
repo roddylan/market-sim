@@ -52,9 +52,6 @@ protected:
     book.insert(sell_3);
     book.insert(sell_4);
     book.insert(sell_5);
-
-    
-    
   }
 
   void TearDown() override {
