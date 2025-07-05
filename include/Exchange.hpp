@@ -1,6 +1,7 @@
 // Exchange.hpp
 // Simulate exchange
 #pragma once
+#include "OrderBook.hpp"
 #include "Trader.hpp"
 #include <vector>
 #include <memory>
@@ -14,6 +15,6 @@ public:
 private:
   std::vector<std::unique_ptr<Trader>> makers;
   std::vector<std::unique_ptr<Trader>> takers;
-
+  OrderBook book;
   
 };
