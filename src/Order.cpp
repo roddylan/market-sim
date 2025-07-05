@@ -48,7 +48,7 @@ Order::Timestamp Order::get_time() const noexcept { return timestamp; }
 
 void Order::update_volume(const int &inc) { volume += inc; }
 
-bool Order::operator==(const Order &other) {
+bool Order::operator==(const Order &other) const {
   if (this == &other) {
     return true;
   }
