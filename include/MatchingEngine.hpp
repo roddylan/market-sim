@@ -10,22 +10,25 @@ namespace MatchingEngine {
    *
    * @param maker_order maker order
    * @param taker_order taker order
+   * @return int volume traded
    */
-  void match_order(Order &maker_order, Order &taker_order);
+  int match_order(Order &maker_order, Order &taker_order);
 
   /**
    * @brief Execute sell order (maker selling, taker buying)
    *
    * @param maker_order
    * @param taker_order
+   * @return int volume traded
    */
-  void sell_order(Order &maker_order, Order &taker_order);
+  int sell_order(Order &maker_order, Order &taker_order);
 
   /**
    * @brief Execute buy order (maker buying, taker selling)
    *
    * @param maker_order
    * @param taker_order
+   * @return int volume traded
    */
-  void buy_order(Order &maker_order, Order &taker_order);
+  int buy_order(Order &maker_order, Order &taker_order);
 };

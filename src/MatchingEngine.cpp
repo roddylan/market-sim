@@ -2,23 +2,24 @@
 #include "MatchingEngine.hpp"
 #include <algorithm>
 
-void MatchingEngine::match_order(Order &maker_order, Order &taker_order) {
+int MatchingEngine::match_order(Order &maker_order, Order &taker_order) {
   const int requested_vol = taker_order.get_volume();
 
   if (requested_vol < 0) {
     // taker wants to sell
     // maker buys, taker sells
-    buy_order(maker_order, taker_order);
+    return buy_order(maker_order, taker_order);
   }
   if (requested_vol > 0) {
     // taker wants to buy
     // maker sells, taker buys
-    sell_order(maker_order, taker_order);
+    return sell_order(maker_order, taker_order);
   }
+  return 0;
 }
 
 
-void MatchingEngine::sell_order(Order &maker_order, Order &taker_order) {
+int MatchingEngine::sell_order(Order &maker_order, Order &taker_order) {
   // maker sell, taker buy
   // taker vol > 0
   const int maker_vol{maker_order.get_volume()}, taker_vol{taker_order.get_volume()};
@@ -31,9 +32,11 @@ void MatchingEngine::sell_order(Order &maker_order, Order &taker_order) {
   maker_order.update_volume(order_vol);
   // taker vol -= avail
   taker_order.update_volume(-order_vol);
+  
+  return order_vol;
 }
 
-void MatchingEngine::buy_order(Order &maker_order, Order &taker_order) {
+int MatchingEngine::buy_order(Order &maker_order, Order &taker_order) {
   // maker buy, taker sell
   // taker vol < 0
   const int maker_vol{maker_order.get_volume()}, taker_vol{taker_order.get_volume()};
@@ -46,4 +49,6 @@ void MatchingEngine::buy_order(Order &maker_order, Order &taker_order) {
   maker_order.update_volume(order_vol);
   // taker vol -= avail
   taker_order.update_volume(-order_vol);
+  
+  return order_vol;
 }
