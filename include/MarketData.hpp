@@ -3,19 +3,9 @@
 #pragma once
 #include "Order.hpp"
 
-/**
- * @brief Current market data
- * 
- */
-struct MarketData {
-  MarketData() = default;
-  ~MarketData() = default;
-  MarketData(float _market_price);
+class MarketData {
+public:
 
-
-  // market price
-  float market_price;
-  Order::Timestamp timestamp;
-
+private:
 
 };
