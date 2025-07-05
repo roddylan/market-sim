@@ -63,8 +63,6 @@ TEST_F(OrderBookTest, BuyInsertion) {
   EXPECT_EQ(*book.get_buy_orders().top(), buy_4);
 }
 
-
-
 TEST_F(OrderBookTest, SellInsertion) {
   Order sell_1(fair_price-1, -100, maker1, base_time);
   Order sell_2(fair_price-0.5, -100, maker1, base_time);
