@@ -98,3 +98,10 @@ TEST_F(EmptyOrderBookTest, SellInsertion) {
 }
 
 
+TEST_F(EmptyOrderBookTest, EmptyExecute) {
+  Order sell(fair_price-10, -100, taker1);
+  Order buy(fair_price+10, 100, taker2);
+  EXPECT_FLOAT_EQ(book.match(sell), 0);
+  EXPECT_FLOAT_EQ(book.match(buy), 0);
+}
+
