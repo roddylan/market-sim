@@ -73,7 +73,6 @@ protected:
     delete taker1;
     delete taker2;
 
-
     delete buy_1;
     delete buy_2;
     delete buy_3;
