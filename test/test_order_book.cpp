@@ -40,13 +40,25 @@ protected:
 
 
 TEST_F(OrderBookTest, BuyInsertion) {
-  Order buy_1(fair_price+1, 100, maker1);
-  Order buy_2(fair_price+0.5, 100, maker1);
-  Order buy_3(fair_price+1.5, 100, maker1);
+  Order buy_1(fair_price+1, 100, maker1, base_time);
+  Order buy_2(fair_price+0.5, 100, maker1, base_time);
+  Order buy_3(fair_price+1.5, 100, maker1, base_time);
+  Order buy_4(fair_price+1.5, 100, maker1, base_time - Duration(10));
+  Order buy_5(fair_price+1.5, 100, maker1, base_time + Duration(10));
 
   book.insert(buy_1);
   EXPECT_EQ(book.get_buy_orders().size(), 1);
   EXPECT_EQ(*book.get_buy_orders().top(), buy_1);
-  // EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_1.get_price());
-  // book.insert(buy_2);
+  book.insert(buy_2);
+  EXPECT_EQ(book.get_buy_orders().size(), 2);
+  EXPECT_EQ(*book.get_buy_orders().top(), buy_1);
+  book.insert(buy_3);
+  EXPECT_EQ(book.get_buy_orders().size(), 3);
+  EXPECT_EQ(*book.get_buy_orders().top(), buy_3);
+  book.insert(buy_4);
+  EXPECT_EQ(book.get_buy_orders().size(), 4);
+  EXPECT_EQ(*book.get_buy_orders().top(), buy_4);
+  book.insert(buy_5);
+  EXPECT_EQ(book.get_buy_orders().size(), 5);
+  EXPECT_EQ(*book.get_buy_orders().top(), buy_5);
 }
