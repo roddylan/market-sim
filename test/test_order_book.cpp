@@ -22,6 +22,7 @@ protected:
   Trader *taker2;
   OrderBook book;
 
+  // pointers to track orders, still copied during insertion
   Order *buy_1;
   Order *buy_2;
   Order *buy_3;
