@@ -4,6 +4,7 @@
 #include "Trader.hpp"
 
 class TestTrade : public ::testing::Test {
+protected:
   Trader maker;
   Trader taker;
   void SetUp() override {
@@ -16,3 +17,11 @@ class TestTrade : public ::testing::Test {
   }
 };
 
+TEST_F(TestTrade, PointerConstructor) {
+  auto ptr_maker = &maker;
+  auto ptr_taker = &taker;
+
+  Trade trade(maker, taker, 100);
+  
+
+}
