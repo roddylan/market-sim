@@ -42,7 +42,7 @@ protected:
 TEST_F(OrderBookTest, BuyInsertion) {
   Order buy_1(fair_price+1, 100, maker1, base_time);
   Order buy_2(fair_price+0.5, 100, maker1, base_time);
-  Order buy_3(fair_price+1.5, 100, maker1, base_time);
+  Order buy_3(fair_price+1.5, 10, maker1, base_time);
   Order buy_4(fair_price+1.5, 100, maker1, base_time - Duration(10));
   Order buy_5(fair_price+1.5, 100, maker1, base_time + Duration(10));
 
