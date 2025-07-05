@@ -48,13 +48,13 @@ protected:
     sell_3 = new Order(fair_price+2, -10, maker2, base_time);
     sell_4 = new Order(fair_price+2, -100, maker1, base_time - Duration(10));
     sell_2 = new Order(fair_price+1, -100, maker2, base_time);
-    sell_1 = new Order(fair_price+1, -100, maker1, base_time);
+    sell_1 = new Order(fair_price+1, -100, maker2, base_time);
     // fairprice
     buy_1 = new Order(fair_price-1, 100, maker1, base_time);
     buy_2 = new Order(fair_price-1, 100, maker2, base_time);
     buy_4 = new Order(fair_price-2, 100, maker1, base_time - Duration(10));
     buy_3 = new Order(fair_price-2, 10, maker2, base_time);
-    buy_5 = new Order(fair_price-2, 100, maker1, base_time + Duration(10));
+    buy_5 = new Order(fair_price-2, 100, maker2, base_time + Duration(10));
     
     book.insert(*buy_1);
     book.insert(*buy_2);
@@ -110,6 +110,7 @@ TEST_F(OrderBookTest, BuyExecution) {
   EXPECT_EQ(book.get_sell_orders().size(), 5);
   EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_4->get_price());
   EXPECT_EQ(book.get_buy_orders().top()->get_volume(), 50);
+  EXPECT_EQ(book.get_buy_orders().top()->get_trader(), buy_4->get_trader());
   EXPECT_EQ(book.get_buy_orders().top()->get_time(), buy_4->get_time());
   
 

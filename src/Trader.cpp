@@ -34,3 +34,9 @@ std::tuple<float, int> MTakerTrader::trade() const {
   // TODO: placeholder
   return std::make_tuple(0., 0);
 }
+
+
+bool Trader::operator==(const Trader &other) const {
+  if (this == &other) { return true; }
+  return (this->name == other.name);
+}

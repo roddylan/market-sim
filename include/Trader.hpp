@@ -59,6 +59,15 @@ public:
    * @return std::tuple<float, int> 
    */
   virtual std::tuple<float, int> trade() const;
+
+  /**
+   * @brief Equality operator
+   * 
+   * @param other 
+   * @return true 
+   * @return false 
+   */
+  bool operator==(const Trader &other) const;
 private:
   std::string name;
 };
