@@ -59,6 +59,8 @@ public:
    * @return std::tuple<float, int> 
    */
   virtual std::tuple<float, int> trade() const;
+  
+  virtual float fair_price() const;
 
   /**
    * @brief Equality operator
