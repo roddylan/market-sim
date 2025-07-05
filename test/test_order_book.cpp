@@ -139,7 +139,7 @@ TEST_F(OrderBookTest, SellExecution) {
   EXPECT_EQ(book.get_buy_orders().size(), 5);
   EXPECT_EQ(book.get_sell_orders().size(), 3);
   EXPECT_EQ(book.get_sell_orders().top()->get_price(), sell_4->get_price());
-  EXPECT_EQ(book.get_sell_orders().top()->get_volume(), 50);
+  EXPECT_EQ(book.get_sell_orders().top()->get_volume(), -50);
   EXPECT_EQ(book.get_sell_orders().top()->get_trader(), sell_4->get_trader());
   EXPECT_EQ(book.get_sell_orders().top()->get_time(), sell_4->get_time());
   
