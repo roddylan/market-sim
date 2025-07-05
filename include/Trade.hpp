@@ -1,6 +1,7 @@
 // Trade.hpp
 #pragma once
 #include "Trader.hpp"
+#include "MarketUtils.hpp"
 
 /**
  * @brief Executed trade
@@ -18,4 +19,5 @@ struct Trade {
   const Trader* const maker;
   const Trader* const taker;
   const float price;
+  const MarketUtils::Timestamp timestamp;
 };
