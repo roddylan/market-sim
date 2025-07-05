@@ -10,10 +10,10 @@
 struct MarketData {
   MarketData() = default;
   ~MarketData() = default;
-  MarketData(float _price);
+  MarketData(float _market_price);
 
 
-  float price;
+  // market price
   float market_price;
   Order::Timestamp timestamp;
 
