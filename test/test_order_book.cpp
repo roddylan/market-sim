@@ -113,6 +113,11 @@ TEST_F(OrderBookTest, BuyExecution) {
   EXPECT_EQ(book.get_buy_orders().top()->get_trader(), buy_4->get_trader());
   EXPECT_EQ(book.get_buy_orders().top()->get_time(), buy_4->get_time());
   
+  Order taker_sell3(fair_price-2, -200, taker1);
+  book.match(taker_sell3);
+  EXPECT_EQ(book.get_buy_orders().size(), 0);
+  EXPECT_EQ(book.get_sell_orders().size(), 5);
+  
 
 
 
