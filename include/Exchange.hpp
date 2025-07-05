@@ -9,7 +9,7 @@
 
 class Exchange {
 public:
-  Exchange();
+  Exchange() = delete;
   ~Exchange();
 
   void run();
