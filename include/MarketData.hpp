@@ -13,6 +13,15 @@ public:
   
   Trade *get_last_trade();
   float get_last_price();
+
+  /**
+   * @brief 
+   * 
+   * @param maker 
+   * @param taker 
+   * @param vwap 
+   */
+  void add_trade(Trader &maker, Trader &taker, float vwap);
 private:
   // stack containing trade history
   std::vector<std::unique_ptr<Trade>> trade_history;
