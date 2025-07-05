@@ -30,23 +30,24 @@ protected:
     taker2 = new MTakerTrader("2");
     book = OrderBook();
     
-    Order buy_1(fair_price+1, 100, maker1, base_time);
-    Order buy_2(fair_price+0.5, 100, maker1, base_time);
-    Order buy_3(fair_price+1.5, 10, maker1, base_time);
-    Order buy_4(fair_price+1.5, 100, maker1, base_time - Duration(10));
-    Order buy_5(fair_price+1.5, 100, maker1, base_time + Duration(10));
+    Order buy_1(fair_price-1, 100, maker1, base_time);
+    Order buy_2(fair_price-1, 100, maker2, base_time);
+    Order buy_3(fair_price-2, 10, maker2, base_time);
+    Order buy_4(fair_price-2, 100, maker1, base_time - Duration(10));
+    Order buy_5(fair_price-2, 100, maker1, base_time + Duration(10));
 
-    Order sell_1(fair_price-1, -100, maker2, base_time);
-    Order sell_2(fair_price-0.5, -100, maker2, base_time);
-    Order sell_3(fair_price-1.5, -10, maker2, base_time);
-    Order sell_4(fair_price-1.5, -100, maker2, base_time - Duration(10));
-    Order sell_5(fair_price-1.5, -100, maker2, base_time + Duration(10));
+    Order sell_1(fair_price+1, -100, maker1, base_time);
+    Order sell_2(fair_price+1, -100, maker2, base_time);
+    Order sell_3(fair_price+2, -10, maker2, base_time);
+    Order sell_4(fair_price+2, -100, maker1, base_time - Duration(10));
+    Order sell_5(fair_price+2, -100, maker1, base_time + Duration(10));
     
     book.insert(buy_1);
     book.insert(buy_2);
     book.insert(buy_3);
     book.insert(buy_4);
     book.insert(buy_5);
+
     book.insert(sell_1);
     book.insert(sell_2);
     book.insert(sell_3);
@@ -62,3 +63,6 @@ protected:
   }
 };
 
+TEST_F(OrderBookTest, BuyExecution) {
+  // Order taker_buy();
+}
