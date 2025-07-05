@@ -22,6 +22,17 @@ protected:
   Trader *taker2;
   OrderBook book;
 
+  Order *buy_1;
+  Order *buy_2;
+  Order *buy_3;
+  Order *buy_4;
+  Order *buy_5;
+
+  Order *sell_1;
+  Order *sell_2;
+  Order *sell_3;
+  Order *sell_4;
+  Order *sell_5;
 
   void SetUp() override {
     maker1 = new MMakerTrader("1");
@@ -30,29 +41,29 @@ protected:
     taker2 = new MTakerTrader("2");
     book = OrderBook();
     
-    Order buy_1(fair_price-1, 100, maker1, base_time);
-    Order buy_2(fair_price-1, 100, maker2, base_time);
-    Order buy_3(fair_price-2, 10, maker2, base_time);
-    Order buy_4(fair_price-2, 100, maker1, base_time - Duration(10));
-    Order buy_5(fair_price-2, 100, maker1, base_time + Duration(10));
+    buy_1 = new Order(fair_price-1, 100, maker1, base_time);
+    buy_2 = new Order(fair_price-1, 100, maker2, base_time);
+    buy_3 = new Order(fair_price-2, 10, maker2, base_time);
+    buy_4 = new Order(fair_price-2, 100, maker1, base_time - Duration(10));
+    buy_5 = new Order(fair_price-2, 100, maker1, base_time + Duration(10));
 
-    Order sell_1(fair_price+1, -100, maker1, base_time);
-    Order sell_2(fair_price+1, -100, maker2, base_time);
-    Order sell_3(fair_price+2, -10, maker2, base_time);
-    Order sell_4(fair_price+2, -100, maker1, base_time - Duration(10));
-    Order sell_5(fair_price+2, -100, maker1, base_time + Duration(10));
+    sell_1 = new Order(fair_price+1, -100, maker1, base_time);
+    sell_2 = new Order(fair_price+1, -100, maker2, base_time);
+    sell_3 = new Order(fair_price+2, -10, maker2, base_time);
+    sell_4 = new Order(fair_price+2, -100, maker1, base_time - Duration(10));
+    sell_5 = new Order(fair_price+2, -100, maker1, base_time + Duration(10));
     
-    book.insert(buy_1);
-    book.insert(buy_2);
-    book.insert(buy_3);
-    book.insert(buy_4);
-    book.insert(buy_5);
+    book.insert(*buy_1);
+    book.insert(*buy_2);
+    book.insert(*buy_3);
+    book.insert(*buy_4);
+    book.insert(*buy_5);
 
-    book.insert(sell_1);
-    book.insert(sell_2);
-    book.insert(sell_3);
-    book.insert(sell_4);
-    book.insert(sell_5);
+    book.insert(*sell_1);
+    book.insert(*sell_2);
+    book.insert(*sell_3);
+    book.insert(*sell_4);
+    book.insert(*sell_5);
   }
 
   void TearDown() override {
@@ -60,6 +71,19 @@ protected:
     delete maker2;
     delete taker1;
     delete taker2;
+
+
+    delete buy_1;
+    delete buy_2;
+    delete buy_3;
+    delete buy_4;
+    delete buy_5;
+
+    delete sell_1;
+    delete sell_2;
+    delete sell_3;
+    delete sell_4;
+    delete sell_5;
   }
 };
 
