@@ -62,3 +62,30 @@ TEST_F(OrderBookTest, BuyInsertion) {
   EXPECT_EQ(book.get_buy_orders().size(), 5);
   EXPECT_EQ(*book.get_buy_orders().top(), buy_4);
 }
+
+
+
+TEST_F(OrderBookTest, SellInsertion) {
+  Order sell_1(fair_price-1, -100, maker1, base_time);
+  Order sell_2(fair_price-0.5, -100, maker1, base_time);
+  Order sell_3(fair_price-1.5, -10, maker1, base_time);
+  Order sell_4(fair_price-1.5, -100, maker1, base_time - Duration(10));
+  Order sell_5(fair_price-1.5, -100, maker1, base_time + Duration(10));
+
+  book.insert(sell_1);
+  EXPECT_EQ(book.get_sell_orders().size(), 1);
+  EXPECT_EQ(*book.get_sell_orders().top(), sell_1);
+  book.insert(sell_2);
+  EXPECT_EQ(book.get_sell_orders().size(), 2);
+  EXPECT_EQ(*book.get_sell_orders().top(), sell_1);
+  book.insert(sell_3);
+  EXPECT_EQ(book.get_sell_orders().size(), 3);
+  EXPECT_EQ(*book.get_sell_orders().top(), sell_3);
+  book.insert(sell_4);
+  EXPECT_EQ(book.get_sell_orders().size(), 4);
+  EXPECT_EQ(*book.get_sell_orders().top(), sell_4);
+  book.insert(sell_5);
+  EXPECT_EQ(book.get_sell_orders().size(), 5);
+  EXPECT_EQ(*book.get_sell_orders().top(), sell_4);
+}
+
