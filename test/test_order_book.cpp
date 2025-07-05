@@ -14,7 +14,7 @@ const float fair_price{100};
 const int default_abs_vol{100};
 const Time base_time = std::chrono::time_point<Clock>(Duration(10000));
 
-class OrderBookTest : public ::testing::Test {
+class EmptyOrderBookTest : public ::testing::Test {
 protected:
   Trader *maker1;
   Trader *maker2;
@@ -39,7 +39,7 @@ protected:
 };
 
 
-TEST_F(OrderBookTest, BuyInsertion) {
+TEST_F(EmptyOrderBookTest, BuyInsertion) {
   Order buy_1(fair_price+1, 100, maker1, base_time);
   Order buy_2(fair_price+0.5, 100, maker1, base_time);
   Order buy_3(fair_price+1.5, 10, maker1, base_time);
@@ -63,7 +63,7 @@ TEST_F(OrderBookTest, BuyInsertion) {
   EXPECT_EQ(*book.get_buy_orders().top(), buy_4);
 }
 
-TEST_F(OrderBookTest, SellInsertion) {
+TEST_F(EmptyOrderBookTest, SellInsertion) {
   Order sell_1(fair_price-1, -100, maker2, base_time);
   Order sell_2(fair_price-0.5, -100, maker2, base_time);
   Order sell_3(fair_price-1.5, -10, maker2, base_time);
