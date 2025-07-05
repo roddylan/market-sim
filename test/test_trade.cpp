@@ -17,11 +17,16 @@ protected:
   }
 };
 
-TEST_F(TestTrade, PointerConstructor) {
+TEST_F(TestTrade, PointerRefConstructorTraders) {
   auto ptr_maker = &maker;
   auto ptr_taker = &taker;
 
-  Trade trade(maker, taker, 100);
-  
+  Trade ptr_construct(ptr_maker, ptr_taker, 100);
+  Trade ref_construct(maker, taker, 100);
+
+  EXPECT_EQ(ptr_construct.maker, ref_construct.maker);
+  EXPECT_EQ(ptr_construct.taker, ref_construct.taker);
+
+
 
 }
