@@ -97,14 +97,14 @@ TEST_F(OrderBookTest, BuyExecution) {
   auto top = *book.get_buy_orders().top();
   EXPECT_TRUE(top == *buy_1 || top == *buy_2);
   
-  Order taker_sell1(fair_price-2, 150, taker1);
+  Order taker_sell1(fair_price-2, -150, taker1);
   book.match(taker_sell1);
   EXPECT_EQ(book.get_buy_orders().size(), 4);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
   EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_2->get_price());
   EXPECT_EQ(book.get_buy_orders().top()->get_volume(), 50);
   
-  Order taker_sell2(fair_price-2, 100, taker1);
+  Order taker_sell2(fair_price-2, -100, taker1);
   book.match(taker_sell2);
   EXPECT_EQ(book.get_buy_orders().size(), 3);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
