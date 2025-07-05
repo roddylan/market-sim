@@ -83,7 +83,9 @@ float OrderBook::buy_match(Order &taker_order) {
     
     int traded_vol = MatchingEngine::match_order(*best_order, taker_order);
     size_t abs_vol = std::abs(traded_vol);
+    
     res += book_price * abs_vol;
+    total_vol += abs_vol;
 
     if (best_order->get_volume() != 0) {
       buy_orders.push(best_order);
