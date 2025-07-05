@@ -110,7 +110,7 @@ public:
    * @return true 
    * @return false 
    */
-  bool operator==(const Order &other);
+  bool operator==(const Order &other) const;
 private:
   
   float price;

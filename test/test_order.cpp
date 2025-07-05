@@ -131,10 +131,28 @@ TEST_F(OrderTest, SellOrderComparisonTest) {
 }
 
 TEST_F(OrderTest, EqualityTest) {
+  // identical orders
   Order order1(f_price, abs_vol, maker, base_time);
   Order order2(f_price, abs_vol, maker, base_time);
 
   EXPECT_EQ(order1, order2);
-  EXPECT_EQ(order2, order1);
+  EXPECT_EQ(order1, order1);
+  EXPECT_EQ(order2, order2);
+
+  // different time only
+  Order order3(f_price, abs_vol, maker);
+  EXPECT_NE(order1, order3);
+
+  // different trader only
+  Order order4(f_price, abs_vol, taker, base_time);
+  EXPECT_NE(order1, order4);
+
+  // different volume only (sell vs buy)
+  Order order5(f_price, -abs_vol, maker, base_time);
+  EXPECT_NE(order1, order5);
+
+  // different price only
+  Order order6(f_price+1, abs_vol, maker, base_time);
+  EXPECT_NE(order1, order6);
 }
 
