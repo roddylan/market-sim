@@ -154,5 +154,9 @@ TEST_F(OrderTest, EqualityTest) {
   // different price only
   Order order6(f_price+1, abs_vol, maker, base_time);
   EXPECT_NE(order1, order6);
+
+  // different everything
+  Order order7(f_price+100, abs_vol+10, taker);
+  EXPECT_NE(order1, order7);
 }
 
