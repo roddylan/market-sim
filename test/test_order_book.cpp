@@ -149,7 +149,7 @@ TEST_F(OrderBookTest, SellExecution) {
   EXPECT_EQ(book.get_sell_orders().top()->get_volume(), -50);
   EXPECT_EQ(book.get_sell_orders().top()->get_trader(), sell_4->get_trader());
   EXPECT_EQ(book.get_sell_orders().top()->get_time(), sell_4->get_time());
-  EXPECT_FLOAT_EQ(price, ((fair_price+1) + (fair_price+1)) / 2);
+  EXPECT_FLOAT_EQ(price, ((fair_price+1) + (fair_price+2)) / 2);
   
   Order taker_buy3(fair_price+2, 200, taker2);
   book.match(taker_buy3);
