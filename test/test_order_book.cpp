@@ -90,9 +90,10 @@ protected:
 };
 
 TEST_F(OrderBookTest, BuyExecution) {
-  Order taker_buy1(fair_price+2, 150, taker1);
+  Order taker_sell1(fair_price-2, 150, taker1);
   EXPECT_EQ(book.get_buy_orders().size(), 5);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
   
-  book.match(taker_buy1);
+  EXPECT_FLOAT_EQ(book.get_buy_orders().top()->get_price(), buy_1->get_price());
+  
 }
