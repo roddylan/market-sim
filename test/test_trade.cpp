@@ -31,11 +31,10 @@ TEST_F(TestTrade, PointerRefConstructorTraders) {
 TEST_F(TestTrade, Constructor) {
   auto ptr_maker = &maker;
   auto ptr_taker = &taker;
-  EXPECT_ANY_THROW(Trade(maker, taker, -10));
-  EXPECT_ANY_THROW(Trade(ptr_maker, ptr_taker, -10));
-  EXPECT_ANY_THROW(Trade(maker, taker, 0));
-  EXPECT_ANY_THROW(Trade(ptr_maker, ptr_taker, 0));
-
+  EXPECT_DEATH(Trade(maker, taker, -10), ".*");
+  EXPECT_DEATH(Trade(ptr_maker, ptr_taker, -10), ".*");
+  EXPECT_DEATH(Trade(maker, taker, 0), ".*");
+  EXPECT_DEATH(Trade(ptr_maker, ptr_taker, 0), ".*");
   Trade ptr_construct(ptr_maker, ptr_taker, 100);
   Trade ref_construct(maker, taker, 100);
   Trade copy_ptr(ptr_construct);
