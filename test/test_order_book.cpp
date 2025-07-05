@@ -97,21 +97,25 @@ TEST_F(OrderBookTest, BuyExecution) {
   auto top = *book.get_buy_orders().top();
   EXPECT_TRUE(top == *buy_1 || top == *buy_2);
   
+  float price;
+  
   Order taker_sell1(fair_price-2, -150, taker1);
-  book.match(taker_sell1);
+  price = book.match(taker_sell1);
   EXPECT_EQ(book.get_buy_orders().size(), 4);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
-  EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_2->get_price());
+  EXPECT_FLOAT_EQ(book.get_buy_orders().top()->get_price(), buy_2->get_price());
   EXPECT_EQ(book.get_buy_orders().top()->get_volume(), 50);
+  EXPECT_FLOAT_EQ(price, (fair_price-1));
   
   Order taker_sell2(fair_price-2, -100, taker1);
-  book.match(taker_sell2);
+  price = book.match(taker_sell2);
   EXPECT_EQ(book.get_buy_orders().size(), 3);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
-  EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_4->get_price());
+  EXPECT_FLOAT_EQ(book.get_buy_orders().top()->get_price(), buy_4->get_price());
   EXPECT_EQ(book.get_buy_orders().top()->get_volume(), 50);
   EXPECT_EQ(book.get_buy_orders().top()->get_trader(), buy_4->get_trader());
   EXPECT_EQ(book.get_buy_orders().top()->get_time(), buy_4->get_time());
+  EXPECT_FLOAT_EQ(price, ((fair_price-1) + (fair_price-2))/2);
   
   Order taker_sell3(fair_price-2, -200, taker1);
   book.match(taker_sell3);
@@ -126,22 +130,26 @@ TEST_F(OrderBookTest, SellExecution) {
   EXPECT_FLOAT_EQ(book.get_sell_orders().top()->get_price(), sell_1->get_price());
   auto top = *book.get_sell_orders().top();
   EXPECT_TRUE(top == *sell_1 || top == *sell_2);
+
+  float price;
   
   Order taker_buy1(fair_price+2, 150, taker2);
-  book.match(taker_buy1);
+  price = book.match(taker_buy1);
   EXPECT_EQ(book.get_buy_orders().size(), 5);
   EXPECT_EQ(book.get_sell_orders().size(), 4);
-  EXPECT_EQ(book.get_sell_orders().top()->get_price(), sell_2->get_price());
+  EXPECT_FLOAT_EQ(book.get_sell_orders().top()->get_price(), sell_2->get_price());
   EXPECT_EQ(book.get_sell_orders().top()->get_volume(), -50);
+  EXPECT_FLOAT_EQ(price, (fair_price+1));
   
   Order taker_buy2(fair_price+2, 100, taker2);
-  book.match(taker_buy2);
+  price = book.match(taker_buy2);
   EXPECT_EQ(book.get_buy_orders().size(), 5);
   EXPECT_EQ(book.get_sell_orders().size(), 3);
-  EXPECT_EQ(book.get_sell_orders().top()->get_price(), sell_4->get_price());
+  EXPECT_FLOAT_EQ(book.get_sell_orders().top()->get_price(), sell_4->get_price());
   EXPECT_EQ(book.get_sell_orders().top()->get_volume(), -50);
   EXPECT_EQ(book.get_sell_orders().top()->get_trader(), sell_4->get_trader());
   EXPECT_EQ(book.get_sell_orders().top()->get_time(), sell_4->get_time());
+  EXPECT_FLOAT_EQ(price, ((fair_price+1) + (fair_price+1)) / 2);
   
   Order taker_buy3(fair_price+2, 200, taker2);
   book.match(taker_buy3);
