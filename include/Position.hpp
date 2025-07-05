@@ -1,4 +1,5 @@
 // Position.hpp
+// not used right now
 #pragma once
 namespace {
   using size_t = unsigned int;
