@@ -36,7 +36,7 @@ Order::Order(float _price, int _volume, const Trader *const _trader,
 
 Order::Order(const Order &other)
     : price{other.price}, volume{other.volume}, trader{other.trader},
-      timestamp{std::chrono::steady_clock::now()} {}
+      timestamp{other.timestamp} {}
 
 float Order::get_price() const noexcept { return price; }
 

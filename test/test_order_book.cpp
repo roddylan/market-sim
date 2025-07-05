@@ -46,7 +46,7 @@ TEST_F(OrderBookTest, BuyInsertion) {
 
   book.insert(buy_1);
   EXPECT_EQ(book.get_buy_orders().size(), 1);
-  EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_1.get_price());
+  EXPECT_EQ(*book.get_buy_orders().top(), buy_1);
   // EXPECT_EQ(book.get_buy_orders().top()->get_price(), buy_1.get_price());
   // book.insert(buy_2);
 }
