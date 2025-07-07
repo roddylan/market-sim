@@ -99,7 +99,7 @@ int main(int argc, char* argv[]) {
   
   auto end_ms = Clock::now();
 
-  auto duration_ms = std::chrono::duration_cast<std::chrono::microseconds>(end_pq-start_pq);
+  auto duration_ms = std::chrono::duration_cast<std::chrono::microseconds>(end_ms-start_ms);
 
   std::cout << "ORDER_BOOK (MS) | ELAPSED TIME = " << duration_ms.count() << " µs" << std::endl;
   
