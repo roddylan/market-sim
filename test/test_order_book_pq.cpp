@@ -14,7 +14,7 @@ const float fair_price{100};
 const int default_abs_vol{100};
 const Time base_time = std::chrono::time_point<Clock>(Duration(10000));
 
-class OrderBookTest : public ::testing::Test {
+class OrderBookTestPQ : public ::testing::Test {
 protected:
   Trader *maker1;
   Trader *maker2;
@@ -89,7 +89,7 @@ protected:
   }
 };
 
-TEST_F(OrderBookTest, BuyExecution) {
+TEST_F(OrderBookTestPQ, BuyExecution) {
   EXPECT_EQ(book.get_buy_orders().size(), 5);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
   
@@ -123,7 +123,7 @@ TEST_F(OrderBookTest, BuyExecution) {
   EXPECT_EQ(book.get_sell_orders().size(), 5);
 }
 
-TEST_F(OrderBookTest, SellExecution) {
+TEST_F(OrderBookTestPQ, SellExecution) {
   EXPECT_EQ(book.get_buy_orders().size(), 5);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
   
