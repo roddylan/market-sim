@@ -3,11 +3,11 @@
 #include "Trade.hpp"
 #include <memory>
 
-Trade *MarketData::get_last_trade() {
+Trade *MarketData::get_last_trade() const {
   return trade_history.back().get();
 }
 
-float MarketData::get_last_price() {
+float MarketData::get_last_price() const {
   return price_history.back();
 }
 
