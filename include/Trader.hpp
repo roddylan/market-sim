@@ -63,7 +63,7 @@ public:
    * @param fair_price
    * @return Order
    */
-  virtual Order make_order(float fair_price) const;
+  virtual Order make_order(float fair_price) const = 0;
 
   /**
    * @brief generate fair price from orderbook
@@ -71,7 +71,7 @@ public:
    * @param book OrderBook
    * @return float 
    */
-  virtual float fair_price(const OrderBook &book) const;
+  virtual float fair_price(const OrderBook &book) const = 0;
 
   /**
    * @brief Equality operator
