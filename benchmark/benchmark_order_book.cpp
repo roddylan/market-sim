@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
   std::vector<Order> sell_orders;
   size_t n_orders = 10000;
 
-  if (argc > 0) {
+  if (argc > 1) {
     try {
       n_orders = std::stoul(argv[0]);
     } catch (...) {
