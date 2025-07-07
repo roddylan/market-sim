@@ -79,7 +79,7 @@ float OrderBook::buy_match(Order &taker_order) {
     } 
 
     auto best_order = (*buy_orders.begin());
-    buy_orders.erase(best_order);
+    buy_orders.erase(buy_orders.begin());
     
     int traded_vol = MatchingEngine::match_order(*best_order, taker_order);
     size_t abs_vol = std::abs(traded_vol);
@@ -117,7 +117,7 @@ float OrderBook::sell_match(Order &taker_order) {
     } 
 
     auto best_order = *sell_orders.begin();
-    sell_orders.erase(best_order);
+    sell_orders.erase(sell_orders.begin());
     
     int traded_vol = MatchingEngine::match_order(*best_order, taker_order);
     size_t abs_vol = std::abs(traded_vol);
