@@ -66,6 +66,14 @@ public:
   virtual Order make_order(float fair_price) const;
 
   /**
+   * @brief generate fair price from orderbook
+   * 
+   * @param book OrderBook
+   * @return float 
+   */
+  virtual float fair_price(const OrderBook &book) const;
+
+  /**
    * @brief Equality operator
    * 
    * @param other 
@@ -97,6 +105,14 @@ public:
    * @return Order
    */
   Order make_order(float fair_price) const override;
+
+  /**
+   * @brief generate fair price from orderbook
+   * 
+   * @param book OrderBook
+   * @return float 
+   */
+  float fair_price(const OrderBook &book) const override;
 };
 
 /**
@@ -119,6 +135,14 @@ public:
    * @return Order
    */
   Order make_order(float fair_price) const override;
+
+  /**
+   * @brief generate fair price from orderbook
+   * 
+   * @param book OrderBook
+   * @return float 
+   */
+  float fair_price(const OrderBook &book) const override;
 };
 
 
