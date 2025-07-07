@@ -1,6 +1,7 @@
 // MatchingEngine.cpp
 #include "MatchingEngine.hpp"
 #include <algorithm>
+#include "Order.hpp"
 
 int MatchingEngine::match_order(Order &maker_order, Order &taker_order) {
   const int requested_vol = taker_order.get_volume();
