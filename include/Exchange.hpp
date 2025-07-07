@@ -13,6 +13,9 @@ public:
   Exchange(float _starting_price = 100);
   ~Exchange();
 
+  void add_maker(const Trader &maker);
+  void add_taker(const Trader &taker);
+
   const OrderBook &get_book() const;
   const MarketData &get_market_data() const;
   float get_starting_price() const;
@@ -20,8 +23,8 @@ public:
   void run();
 private:
   // traders
-  std::vector<std::unique_ptr<Trader>> makers;
-  std::vector<std::unique_ptr<Trader>> takers;
+  std::vector<std::shared_ptr<Trader>> makers;
+  std::vector<std::shared_ptr<Trader>> takers;
   // order book
   std::unique_ptr<OrderBook> book;
   // market data (trade/price history, etc.)
