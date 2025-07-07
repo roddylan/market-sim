@@ -28,6 +28,14 @@ MMakerTrader::MMakerTrader(const std::string &_name)
 MTakerTrader::MTakerTrader(const std::string &_name)
     : Trader("taker_" + _name) {}
 
+bool Trader::operator==(const Trader &other) const {
+  if (this == &other) {
+    return true;
+  }
+  return (this->name == other.name);
+}
+
+
 float MMakerTrader::fair_price(const Exchange *exchange) const {
   // mid price
   const OrderBook &book = exchange->get_book();
@@ -74,9 +82,3 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   return price;
 }
 
-bool Trader::operator==(const Trader &other) const {
-  if (this == &other) {
-    return true;
-  }
-  return (this->name == other.name);
-}
