@@ -71,7 +71,7 @@ public:
    * @param exchange Exchange
    * @return float 
    */
-  virtual float fair_price(const Exchange &exchange) const = 0;
+  virtual float fair_price(const Exchange *exchange) const = 0;
 
   /**
    * @brief Equality operator
@@ -112,7 +112,7 @@ public:
    * @param exchange Exchange
    * @return float 
    */
-  float fair_price(const Exchange &exchange) const override;
+  float fair_price(const Exchange *exchange) const override;
 };
 
 /**
@@ -142,7 +142,7 @@ public:
    * @param exchange Exchange
    * @return float 
    */
-  float fair_price(const Exchange &exchange) const override;
+  float fair_price(const Exchange *exchange) const override;
 };
 
 
