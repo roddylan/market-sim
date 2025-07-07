@@ -10,6 +10,7 @@
 class Exchange {
 public:
   Exchange() = delete;
+  Exchange(float _starting_price = 100);
   ~Exchange();
 
   const OrderBook &get_book() const;
