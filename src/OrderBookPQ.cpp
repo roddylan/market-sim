@@ -1,18 +1,18 @@
-// OrderBook.cpp
-// OrderBook implementation
+// OrderBookPQ.cpp
+// OrderBookPQ implementation
 
 #include "OrderBookPQ.hpp"
 #include "MatchingEngine.hpp"
 #include <cassert>
 #include <memory>
 
-OrderBook::OrderBook(const BuyQueue &_buys, const SellQueue &_sells)
+OrderBookPQ::OrderBookPQ(const BuyQueue &_buys, const SellQueue &_sells)
     : buy_orders(_buys), sell_orders(_sells) {}
 
-OrderBook::OrderBook(const OrderBook &other)
+OrderBookPQ::OrderBookPQ(const OrderBookPQ &other)
     : buy_orders(other.buy_orders), sell_orders(other.sell_orders) {}
 
-OrderBook &OrderBook::operator=(const OrderBook &other) {
+OrderBookPQ &OrderBookPQ::operator=(const OrderBookPQ &other) {
   if (this == &other) {
     return *this;
   }
@@ -21,15 +21,15 @@ OrderBook &OrderBook::operator=(const OrderBook &other) {
   return *this;
 }
 
-const OrderBook::BuyQueue &OrderBook::get_buy_orders() const {
+const OrderBookPQ::BuyQueue &OrderBookPQ::get_buy_orders() const {
   return buy_orders;
 }
 
-const OrderBook::SellQueue &OrderBook::get_sell_orders() const {
+const OrderBookPQ::SellQueue &OrderBookPQ::get_sell_orders() const {
   return sell_orders;
 }
 
-bool OrderBook::insert(const Order &order) {
+bool OrderBookPQ::insert(const Order &order) {
   if (order.get_volume() == 0) {
     return false;
   }
@@ -44,7 +44,7 @@ bool OrderBook::insert(const Order &order) {
   return true;
 }
 
-float OrderBook::match(Order &taker_order) {
+float OrderBookPQ::match(Order &taker_order) {
   const int taker_vol{taker_order.get_volume()};
   if (taker_vol == 0) {
     return 0;
@@ -56,7 +56,7 @@ float OrderBook::match(Order &taker_order) {
   }
 }
 
-float OrderBook::buy_match(Order &taker_order) {
+float OrderBookPQ::buy_match(Order &taker_order) {
   // match buy order to request
   // (maker buying, taker selling)
   if (buy_orders.empty()) {
@@ -96,7 +96,7 @@ float OrderBook::buy_match(Order &taker_order) {
   // return res;
 }
 
-float OrderBook::sell_match(Order &taker_order) {
+float OrderBookPQ::sell_match(Order &taker_order) {
   // match sell order to request
   // (maker selling, taker buying)
   if (sell_orders.empty()) {

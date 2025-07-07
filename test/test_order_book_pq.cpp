@@ -20,7 +20,7 @@ protected:
   Trader *maker2;
   Trader *taker1;
   Trader *taker2;
-  OrderBook book;
+  OrderBookPQ book;
 
   // pointers to track orders, still copied during insertion
   Order *buy_1;
@@ -40,10 +40,10 @@ protected:
     maker2 = new MMakerTrader("2");
     taker1 = new MTakerTrader("1");
     taker2 = new MTakerTrader("2");
-    book = OrderBook();
+    book = OrderBookPQ();
     
 
-    // orderbook ordering
+    // OrderBookPQ ordering
     sell_5 = new Order(fair_price+2, -100, maker1, base_time + Duration(10));
     sell_3 = new Order(fair_price+2, -10, maker2, base_time);
     sell_4 = new Order(fair_price+2, -100, maker1, base_time - Duration(10));

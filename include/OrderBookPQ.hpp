@@ -1,4 +1,4 @@
-// OrderBook.hpp
+// OrderBookPQ.hpp
 #pragma once
 
 #include "Order.hpp"
@@ -7,7 +7,7 @@
 #include "OrderUtils.hpp"
 #include <memory>
 
-class OrderBook {
+class OrderBookPQ {
 public:
   using BuyQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::BuyOrderComparePQ>;
   using SellQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::SellOrderComparePQ>;
@@ -15,13 +15,13 @@ public:
    * @brief Construct a new Order Book object
    *
    */
-  OrderBook() = default;
+  OrderBookPQ() = default;
 
   /**
    * @brief Destroy the Order Book object
    *
    */
-  ~OrderBook() = default;
+  ~OrderBookPQ() = default;
 
   /**
    * @brief Construct a new Order Book object
@@ -29,22 +29,22 @@ public:
    * @param _buys 
    * @param _sells 
    */
-  OrderBook(const BuyQueue &_buys, const SellQueue &_sells);
+  OrderBookPQ(const BuyQueue &_buys, const SellQueue &_sells);
 
   /**
    * @brief Construct a new Order Book object
    *
    * @param other
    */
-  OrderBook(const OrderBook &other);
+  OrderBookPQ(const OrderBookPQ &other);
 
   /**
    * @brief Copy assignment
    *
    * @param other
-   * @return OrderBook&
+   * @return OrderBookPQ&
    */
-  OrderBook &operator=(const OrderBook &other);
+  OrderBookPQ &operator=(const OrderBookPQ &other);
 
   /**
    * @brief Get the buy orders object
