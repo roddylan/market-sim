@@ -61,9 +61,10 @@ public:
    * @brief Let Trader make trade
    * 
    * @param fair_price
+   * @param is_long
    * @return Order
    */
-  virtual Order make_order(float fair_price) const = 0;
+  virtual Order make_order(float fair_price, bool is_long = false) const = 0;
 
   /**
    * @brief generate fair price from exchange
@@ -102,9 +103,10 @@ public:
    * @brief Let Trader make trade
    * 
    * @param fair_price
+   * @param is_long
    * @return Order
    */
-  Order make_order(float fair_price) const override;
+  Order make_order(float fair_price, bool is_long = false) const override;
 
   /**
    * @brief generate fair price from exchange
@@ -132,9 +134,10 @@ public:
    * @brief Let Trader make trade
    * 
    * @param fair_price
+   * @param is_long
    * @return Order
    */
-  Order make_order(float fair_price) const override;
+  Order make_order(float fair_price, bool is_long = false) const override;
 
   /**
    * @brief generate fair price from exchange

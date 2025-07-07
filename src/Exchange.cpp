@@ -27,6 +27,8 @@ float Exchange::get_starting_price() const { return starting_price; }
 
 void Exchange::run() {
   for (const auto maker : makers) {
-    maker->fair_price(this);
+    float price = maker->fair_price(this);
+    book->insert(maker->make_order(price, true));
+    book->insert(maker->make_order(price, false));
   }
 }
