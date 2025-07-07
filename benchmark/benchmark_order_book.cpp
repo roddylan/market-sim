@@ -51,22 +51,27 @@ int main(int argc, char* argv[]) {
     );
   }
   using Clock = std::chrono::high_resolution_clock;
+  size_t n_it = 1000;
 
   // pq
   auto start_pq = Clock::now();
   OrderBookPQ book_pq;
-  for (const Order &order : buy_orders) {
-    book_pq.insert(order);
+  
+  for (int it = 0; it < n_it; ++it) {
+    for (const Order &order : buy_orders) {
+      book_pq.insert(order);
+    }
+    for (const Order &order : sell_orders) {
+      book_pq.insert(order);
+    }
+    for (Order &order : taker_buy) {
+      book_pq.match(order);
+    }
+    for (Order &order : taker_sell) {
+      book_pq.match(order);
+    }
   }
-  for (const Order &order : sell_orders) {
-    book_pq.insert(order);
-  }
-  for (Order &order : taker_buy) {
-    book_pq.match(order);
-  }
-  for (Order &order : taker_sell) {
-    book_pq.match(order);
-  }
+
   auto end_pq = Clock::now();
 
   auto duration_pq = std::chrono::duration_cast<std::chrono::microseconds>(end_pq-start_pq);
@@ -76,18 +81,22 @@ int main(int argc, char* argv[]) {
   // pq
   auto start_ms = Clock::now();
   OrderBookPQ book_ms;
-  for (const Order &order : buy_orders) {
-    book_ms.insert(order);
+
+  for (int it = 0; it < n_it; ++it) {
+    for (const Order &order : buy_orders) {
+      book_ms.insert(order);
+    }
+    for (const Order &order : sell_orders) {
+      book_ms.insert(order);
+    }
+    for (Order &order : taker_buy) {
+      book_ms.match(order);
+    }
+    for (Order &order : taker_sell) {
+      book_ms.match(order);
+    }
   }
-  for (const Order &order : sell_orders) {
-    book_ms.insert(order);
-  }
-  for (Order &order : taker_buy) {
-    book_ms.match(order);
-  }
-  for (Order &order : taker_sell) {
-    book_ms.match(order);
-  }
+  
   auto end_ms = Clock::now();
 
   auto duration_ms = std::chrono::duration_cast<std::chrono::microseconds>(end_pq-start_pq);
