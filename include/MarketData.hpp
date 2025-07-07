@@ -11,7 +11,18 @@ public:
   MarketData() = default;
   ~MarketData() = default;
   
+  /**
+   * @brief Get the last trade (most recent)
+   * 
+   * @return Trade* 
+   */
   Trade *get_last_trade();
+  
+  /**
+   * @brief Get the last price
+   * 
+   * @return float 
+   */
   float get_last_price();
 
   /**
@@ -19,7 +30,7 @@ public:
    * 
    * @param maker 
    * @param taker 
-   * @param vwap 
+   * @param vwap volume weighted average price
    */
   void add_trade(Trader &maker, Trader &taker, float vwap);
 private:
