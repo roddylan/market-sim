@@ -6,9 +6,11 @@
 #include "OrderUtils.hpp"
 #include <memory>
 #include <chrono>
-using Duration = std::chrono::nanoseconds;
-using Clock = std::chrono::steady_clock;
-using Time = std::chrono::time_point<std::chrono::steady_clock>;
+#include "MarketUtils.hpp"
+
+using Duration = MarketUtils::Duration;
+using Clock = MarketUtils::Clock;
+using Time = MarketUtils::Time;
 
 const float f_price = 100;
 const int abs_vol = 100;
