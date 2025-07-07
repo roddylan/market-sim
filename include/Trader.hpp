@@ -64,7 +64,7 @@ public:
    * @param is_long
    * @return Order
    */
-  virtual Order make_order(float fair_price, bool is_long = false) const = 0;
+  virtual Order make_order(float fair_price, bool is_long = false) const;
 
   /**
    * @brief generate fair price from exchange
@@ -72,7 +72,7 @@ public:
    * @param exchange Exchange
    * @return float 
    */
-  virtual float fair_price(const Exchange *exchange) const = 0;
+  virtual float fair_price(const Exchange *exchange) const;
 
   /**
    * @brief Equality operator
