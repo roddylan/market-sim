@@ -61,7 +61,7 @@ TEST_F(OrderTest, OrderVolumeUpdateTest) {
 
 }
 
-TEST_F(OrderTest, BuyOrderComparisonTest) {
+TEST_F(OrderTest, BuyOrderComparisonTestPQ) {
   // true if need to swap
   OrderUtils::BuyOrderComparePQ buy_compare; // buy -> best bid (highest), earliest time
   auto current_time = std::chrono::steady_clock::now();
@@ -96,7 +96,7 @@ TEST_F(OrderTest, BuyOrderComparisonTest) {
 }
 
 
-TEST_F(OrderTest, SellOrderComparisonTest) {
+TEST_F(OrderTest, SellOrderComparisonTestPQ) {
   // true if need to swap
   OrderUtils::SellOrderComparePQ sell_compare; // sell -> best ask (lowest), earliest time
   auto current_time = std::chrono::steady_clock::now();
@@ -127,6 +127,75 @@ TEST_F(OrderTest, SellOrderComparisonTest) {
   auto same_sell2 = std::make_shared<Order>(f_price, high_vol, maker, current_time);
   EXPECT_FALSE(sell_compare(same_sell1, same_sell2));
   EXPECT_FALSE(sell_compare(same_sell2, same_sell1));
+
+}
+
+TEST_F(OrderTest, BuyOrderComparisonTest) {
+  // false if need to swap, true if ordering correct
+  OrderUtils::BuyOrderCompare buy_compare; // buy -> best bid (highest), earliest time
+  auto current_time = std::chrono::steady_clock::now();
+  auto later_time = std::chrono::time_point<Clock>(Duration(10000));
+  auto earlier_time = std::chrono::time_point<Clock>(Duration(9000));
+
+  float high_price{f_price+1}, low_price{f_price-1};
+  int high_vol{abs_vol+50}, vol{abs_vol};
+
+  // buy comparisons
+  auto high_buy = std::make_shared<Order>(high_price, vol, maker, later_time);
+  auto low_buy = std::make_shared<Order>(low_price, high_vol, maker, earlier_time);
+  
+  // different prices, but best comes later
+  EXPECT_TRUE(buy_compare(high_buy, low_buy));
+  EXPECT_FALSE(buy_compare(low_buy, high_buy));
+  EXPECT_TRUE(buy_compare(high_buy, high_buy));
+  EXPECT_TRUE(buy_compare(low_buy, low_buy));
+
+  // equal prices, different time
+  auto buy_early = std::make_shared<Order>(f_price, vol, maker, earlier_time);
+  auto buy_late = std::make_shared<Order>(f_price, high_vol, maker, later_time);
+  EXPECT_TRUE(buy_compare(buy_early, buy_late));
+  EXPECT_FALSE(buy_compare(buy_late, buy_early));
+
+  // equal prices, equal time, diff vol
+  auto same_buy1 = std::make_shared<Order>(f_price, vol, maker, current_time);
+  auto same_buy2 = std::make_shared<Order>(f_price, high_vol, maker, current_time);
+  EXPECT_TRUE(buy_compare(same_buy1, same_buy2));
+  EXPECT_TRUE(buy_compare(same_buy2, same_buy1));
+
+}
+
+
+TEST_F(OrderTest, SellOrderComparisonTest) {
+  // false if need to swap, true if ordering correct
+  OrderUtils::SellOrderComparePQ sell_compare; // sell -> best ask (lowest), earliest time
+  auto current_time = std::chrono::steady_clock::now();
+  auto later_time = std::chrono::time_point<Clock>(Duration(10000));
+  auto earlier_time = std::chrono::time_point<Clock>(Duration(9000));
+
+  float high_price{f_price+1}, low_price{f_price-1};
+  int high_vol{-abs_vol - 50}, vol{-abs_vol};
+
+  // buy comparisons
+  auto high_sell = std::make_shared<Order>(high_price, vol, maker, earlier_time);
+  auto low_sell = std::make_shared<Order>(low_price, high_vol, maker, later_time);
+  
+  // different prices, but best comes later
+  EXPECT_TRUE(sell_compare(low_sell, high_sell));
+  EXPECT_FALSE(sell_compare(high_sell, low_sell));
+  EXPECT_TRUE(sell_compare(high_sell, high_sell));
+  EXPECT_TRUE(sell_compare(low_sell, low_sell));
+
+  // equal prices, different time
+  auto sell_early = std::make_shared<Order>(f_price, vol, maker, earlier_time);
+  auto sell_late = std::make_shared<Order>(f_price, high_vol, maker, later_time);
+  EXPECT_TRUE(sell_compare(sell_early, sell_late));
+  EXPECT_FALSE(sell_compare(sell_late, sell_early));
+
+  // equal prices, equal time, diff vol
+  auto same_sell1 = std::make_shared<Order>(f_price, vol, maker, current_time);
+  auto same_sell2 = std::make_shared<Order>(f_price, high_vol, maker, current_time);
+  EXPECT_TRUE(sell_compare(same_sell1, same_sell2));
+  EXPECT_TRUE(sell_compare(same_sell2, same_sell1));
 
 }
 
