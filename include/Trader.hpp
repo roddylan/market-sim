@@ -2,9 +2,13 @@
 #pragma once
 #include <string>
 #include <unordered_map>
-#include <tuple>
 
 using SYMBOL = std::string;
+
+// forward declaring Order and OrderBook
+// avoid circular dependency
+class Order;
+class OrderBook;
 
 class Trader {
 public:
@@ -56,9 +60,10 @@ public:
   /**
    * @brief Let Trader make trade
    * 
-   * @return std::tuple<float, int> 
+   * @param fair_price
+   * @return Order
    */
-  virtual std::tuple<float, int> trade() const;
+  virtual Order make_order(float fair_price) const;
 
   /**
    * @brief Equality operator
@@ -88,9 +93,10 @@ public:
   /**
    * @brief Let Trader make trade
    * 
-   * @return std::tuple<float, int> 
+   * @param fair_price
+   * @return Order
    */
-  std::tuple<float, int> trade() const override;
+  Order make_order(float fair_price) const override;
 };
 
 /**
@@ -109,9 +115,10 @@ public:
   /**
    * @brief Let Trader make trade
    * 
-   * @return std::tuple<float, int> 
+   * @param fair_price
+   * @return Order
    */
-  std::tuple<float, int> trade() const override;
+  Order make_order(float fair_price) const override;
 };
 
 
