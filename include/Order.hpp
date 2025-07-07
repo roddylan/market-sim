@@ -90,7 +90,7 @@ public:
   /**
    * @brief Get the time object
    * 
-   * @return std::chrono::time_point<std::chrono::steady_clock> 
+   * @return MarketUtils::Timestamp
    */
   MarketUtils::Timestamp get_time() const noexcept;
 

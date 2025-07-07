@@ -10,8 +10,6 @@
 
 class OrderBook {
 public:
-  // using BuyQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::BuyOrderComparePQ>;
-  // using SellQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::SellOrderComparePQ>;
   using BuyQueue = std::multiset<std::shared_ptr<Order>, OrderUtils::BuyOrderCompare>;
   using SellQueue = std::multiset<std::shared_ptr<Order>, OrderUtils::SellOrderCompare>;
   /**
