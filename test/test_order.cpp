@@ -63,7 +63,7 @@ TEST_F(OrderTest, OrderVolumeUpdateTest) {
 
 TEST_F(OrderTest, BuyOrderComparisonTest) {
   // true if need to swap
-  OrderUtils::BuyOrderCompare buy_compare; // buy -> best bid (highest), earliest time
+  OrderUtils::BuyOrderComparePQ buy_compare; // buy -> best bid (highest), earliest time
   auto current_time = std::chrono::steady_clock::now();
   auto later_time = std::chrono::time_point<Clock>(Duration(10000));
   auto earlier_time = std::chrono::time_point<Clock>(Duration(9000));
@@ -98,7 +98,7 @@ TEST_F(OrderTest, BuyOrderComparisonTest) {
 
 TEST_F(OrderTest, SellOrderComparisonTest) {
   // true if need to swap
-  OrderUtils::SellOrderCompare sell_compare; // sell -> best ask (lowest), earliest time
+  OrderUtils::SellOrderComparePQ sell_compare; // sell -> best ask (lowest), earliest time
   auto current_time = std::chrono::steady_clock::now();
   auto later_time = std::chrono::time_point<Clock>(Duration(10000));
   auto earlier_time = std::chrono::time_point<Clock>(Duration(9000));
