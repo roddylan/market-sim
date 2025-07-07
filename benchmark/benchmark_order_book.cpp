@@ -103,6 +103,8 @@ int main(int argc, char* argv[]) {
 
   std::cout << "ORDER_BOOK (MS) | ELAPSED TIME = " << duration_ms.count() << " µs" << std::endl;
   
+  delete maker;
+  delete taker;
 
   
   
