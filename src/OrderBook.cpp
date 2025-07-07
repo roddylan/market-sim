@@ -36,10 +36,10 @@ bool OrderBook::insert(const Order &order) {
 
   if (order.get_volume() < 0) {
     // sell order
-    sell_orders.push(std::make_shared<Order>(order));
+    sell_orders.insert(std::make_shared<Order>(order));
   } else if (order.get_volume() > 0) {
     // buy order
-    buy_orders.push(std::make_shared<Order>(order));
+    buy_orders.insert(std::make_shared<Order>(order));
   }
   return true;
 }
@@ -69,7 +69,7 @@ float OrderBook::buy_match(Order &taker_order) {
 
   while (taker_order.get_volume() < 0 && !buy_orders.empty()) {
     // todo: dont pop, access order directly since only volume updating
-    float book_price = buy_orders.top()->get_price();
+    float book_price = (*buy_orders.begin())->get_price();
     
     if (fair_price > book_price) {
       // taker wont want to sell, too low
@@ -78,8 +78,8 @@ float OrderBook::buy_match(Order &taker_order) {
       // continue;
     } 
 
-    auto best_order = buy_orders.top();
-    buy_orders.pop();
+    auto best_order = (*buy_orders.begin());
+    buy_orders.erase(best_order);
     
     int traded_vol = MatchingEngine::match_order(*best_order, taker_order);
     size_t abs_vol = std::abs(traded_vol);
@@ -88,7 +88,7 @@ float OrderBook::buy_match(Order &taker_order) {
     total_vol += abs_vol;
 
     if (best_order->get_volume() != 0) {
-      buy_orders.push(best_order);
+      buy_orders.insert(best_order);
     }
   }
 
@@ -108,7 +108,7 @@ float OrderBook::sell_match(Order &taker_order) {
 
   while (taker_order.get_volume() > 0 && !sell_orders.empty()) {
     // todo: dont pop, access order directly since only volume updating
-    float book_price = sell_orders.top()->get_price();
+    float book_price = (*sell_orders.begin())->get_price();
     if (fair_price < book_price) {
       // taker wont want to buy, too high
       break;
@@ -116,8 +116,8 @@ float OrderBook::sell_match(Order &taker_order) {
       // continue;
     } 
 
-    auto best_order = sell_orders.top();
-    sell_orders.pop();
+    auto best_order = *sell_orders.begin();
+    sell_orders.erase(best_order);
     
     int traded_vol = MatchingEngine::match_order(*best_order, taker_order);
     size_t abs_vol = std::abs(traded_vol);
@@ -126,7 +126,7 @@ float OrderBook::sell_match(Order &taker_order) {
     total_vol += abs_vol;
 
     if (best_order->get_volume() != 0) {
-      sell_orders.push(best_order);
+      sell_orders.insert(best_order);
     }
   }
 

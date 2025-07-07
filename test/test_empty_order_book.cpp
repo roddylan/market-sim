@@ -48,23 +48,23 @@ TEST_F(EmptyOrderBookTest, BuyInsertion) {
 
   book.insert(buy_1);
   EXPECT_EQ(book.get_buy_orders().size(), 1);
-  EXPECT_EQ(*book.get_buy_orders().top(), buy_1);
+  EXPECT_EQ(*book.get_buy_orders().begin(), &buy_1);
   EXPECT_EQ(book.get_sell_orders().size(), 0);
   book.insert(buy_2);
   EXPECT_EQ(book.get_buy_orders().size(), 2);
-  EXPECT_EQ(*book.get_buy_orders().top(), buy_1);
+  EXPECT_EQ(*book.get_buy_orders().begin(), &buy_1);
   EXPECT_EQ(book.get_sell_orders().size(), 0);
   book.insert(buy_3);
   EXPECT_EQ(book.get_buy_orders().size(), 3);
-  EXPECT_EQ(*book.get_buy_orders().top(), buy_3);
+  EXPECT_EQ(*book.get_buy_orders().begin(), &buy_3);
   EXPECT_EQ(book.get_sell_orders().size(), 0);
   book.insert(buy_4);
   EXPECT_EQ(book.get_buy_orders().size(), 4);
-  EXPECT_EQ(*book.get_buy_orders().top(), buy_4);
+  EXPECT_EQ(*book.get_buy_orders().begin(), &buy_4);
   EXPECT_EQ(book.get_sell_orders().size(), 0);
   book.insert(buy_5);
   EXPECT_EQ(book.get_buy_orders().size(), 5);
-  EXPECT_EQ(*book.get_buy_orders().top(), buy_4);
+  EXPECT_EQ(*book.get_buy_orders().begin(), &buy_4);
   EXPECT_EQ(book.get_sell_orders().size(), 0);
 }
 
@@ -77,23 +77,23 @@ TEST_F(EmptyOrderBookTest, SellInsertion) {
 
   book.insert(sell_1);
   EXPECT_EQ(book.get_sell_orders().size(), 1);
-  EXPECT_EQ(*book.get_sell_orders().top(), sell_1);
+  EXPECT_EQ(*book.get_sell_orders().begin(), &sell_1);
   EXPECT_EQ(book.get_buy_orders().size(), 0);
   book.insert(sell_2);
   EXPECT_EQ(book.get_sell_orders().size(), 2);
-  EXPECT_EQ(*book.get_sell_orders().top(), sell_1);
+  EXPECT_EQ(*book.get_sell_orders().begin(), &sell_1);
   EXPECT_EQ(book.get_buy_orders().size(), 0);
   book.insert(sell_3);
   EXPECT_EQ(book.get_sell_orders().size(), 3);
-  EXPECT_EQ(*book.get_sell_orders().top(), sell_3);
+  EXPECT_EQ(*book.get_sell_orders().begin(), &sell_3);
   EXPECT_EQ(book.get_buy_orders().size(), 0);
   book.insert(sell_4);
   EXPECT_EQ(book.get_sell_orders().size(), 4);
-  EXPECT_EQ(*book.get_sell_orders().top(), sell_4);
+  EXPECT_EQ(*book.get_sell_orders().begin(), &sell_4);
   EXPECT_EQ(book.get_buy_orders().size(), 0);
   book.insert(sell_5);
   EXPECT_EQ(book.get_sell_orders().size(), 5);
-  EXPECT_EQ(*book.get_sell_orders().top(), sell_4);
+  EXPECT_EQ(*book.get_sell_orders().begin(), &sell_4);
   EXPECT_EQ(book.get_buy_orders().size(), 0);
 }
 
