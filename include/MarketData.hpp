@@ -26,7 +26,7 @@ public:
   float get_last_price();
 
   /**
-   * @brief 
+   * @brief add trade to history (and update price history)
    * 
    * @param maker 
    * @param taker 
