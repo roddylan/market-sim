@@ -5,10 +5,10 @@
 
 using SYMBOL = std::string;
 
-// forward declaring Order and OrderBook
+// forward declaring Order and Exchange
 // avoid circular dependency
 class Order;
-class OrderBook;
+class Exchange;
 
 class Trader {
 public:
@@ -66,12 +66,12 @@ public:
   virtual Order make_order(float fair_price) const = 0;
 
   /**
-   * @brief generate fair price from orderbook
+   * @brief generate fair price from exchange
    * 
-   * @param book OrderBook
+   * @param exchange Exchange
    * @return float 
    */
-  virtual float fair_price(const OrderBook &book) const = 0;
+  virtual float fair_price(const Exchange &exchange) const = 0;
 
   /**
    * @brief Equality operator
@@ -107,12 +107,12 @@ public:
   Order make_order(float fair_price) const override;
 
   /**
-   * @brief generate fair price from orderbook
+   * @brief generate fair price from exchange
    * 
-   * @param book OrderBook
+   * @param exchange Exchange
    * @return float 
    */
-  float fair_price(const OrderBook &book) const override;
+  float fair_price(const Exchange &exchange) const override;
 };
 
 /**
@@ -137,12 +137,12 @@ public:
   Order make_order(float fair_price) const override;
 
   /**
-   * @brief generate fair price from orderbook
+   * @brief generate fair price from exchange
    * 
-   * @param book OrderBook
+   * @param exchange Exchange
    * @return float 
    */
-  float fair_price(const OrderBook &book) const override;
+  float fair_price(const Exchange &exchange) const override;
 };
 
 

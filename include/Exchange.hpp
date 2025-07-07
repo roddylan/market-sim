@@ -12,6 +12,9 @@ public:
   Exchange() = delete;
   ~Exchange();
 
+  const OrderBook &get_book();
+  const MarketData &get_market_data();
+
   void run();
 private:
   // traders
@@ -21,5 +24,7 @@ private:
   std::unique_ptr<OrderBook> book;
   // market data (trade/price history, etc.)
   std::unique_ptr<MarketData> market_data;
+
+  float starting_price;
   
 };

@@ -3,6 +3,8 @@
 #include <string>
 #include <tuple>
 #include <random>
+#include "Exchange.hpp"
+#include "Order.hpp"
 
 Trader::Trader(const Trader &other) : name{other.name} {}
 
@@ -24,7 +26,13 @@ void Trader::set_name(const std::string &_name) { name = _name; }
 MMakerTrader::MMakerTrader(const std::string &_name) : Trader("maker_" + _name) {}
 MTakerTrader::MTakerTrader(const std::string &_name) : Trader("taker_" + _name) {}
 
+float MMakerTrader::fair_price(const Exchange &book) const {
+  return 0;
+}
 
+float MTakerTrader::fair_price(const Exchange &book) const {
+  return 0;
+}
 
 
 bool Trader::operator==(const Trader &other) const {
