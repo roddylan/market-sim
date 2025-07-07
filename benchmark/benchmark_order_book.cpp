@@ -14,7 +14,8 @@ int main(int argc, char* argv[]) {
   Trader *maker = new MMakerTrader("bench");
   Trader *taker = new MTakerTrader("bench");
 
-  std::vector<Order> orders;
+  std::vector<Order> buy_orders;
+  std::vector<Order> sell_orders;
   size_t n_orders = 10000;
 
   if (argc > 0) {
@@ -25,7 +26,28 @@ int main(int argc, char* argv[]) {
       return 1;
     }
   }
+  // setup
+  float price = 10 * n_orders;
+  size_t abs_vol = 100;
 
-  
+  for (int i = 0; i < n_orders; ++i) {
+    buy_orders.push_back(
+      Order(price-i, abs_vol, maker)
+    );
+    sell_orders.push_back(
+      Order(price+i, -abs_vol, maker)
+    );
+  }
+
+  std::vector<Order> taker_buy, taker_sell;
+
+  for (int i = 0; i < n_orders; ++i) {
+    taker_buy.push_back(
+      Order(price-i-1, abs_vol + 30, taker)
+    );
+    taker_sell.push_back(
+      Order(price+i+1, -abs_vol - 30, taker)
+    );
+  }
   
 }
