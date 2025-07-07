@@ -50,7 +50,27 @@ float MMakerTrader::fair_price(const Exchange &exchange) const {
   return price;
 }
 
-float MTakerTrader::fair_price(const Exchange &exchange) const { return 0; }
+float MTakerTrader::fair_price(const Exchange &exchange) const {
+  const OrderBook &book = exchange.get_book();
+  const MarketData &data = exchange.get_market_data();
+  float price = exchange.get_starting_price();
+
+  if (data.get_last_price() == 0 ||
+      (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
+    return price;
+  }
+
+  if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
+    price = ((*book.get_buy_orders().begin())->get_price() +
+             (*book.get_sell_orders().begin())->get_price()) /
+            2;
+  } else if (!book.get_buy_orders().empty()) {
+    price = (*book.get_buy_orders().begin())->get_price();
+  } else {
+    price = (*book.get_sell_orders().begin())->get_price();
+  }
+  return price;
+}
 
 bool Trader::operator==(const Trader &other) const {
   if (this == &other) {
