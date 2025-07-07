@@ -15,14 +15,14 @@ public:
    * 
    * @return Trade* 
    */
-  Trade *get_last_trade();
+  Trade *get_last_trade() const;
   
   /**
    * @brief Get the last price
    * 
    * @return float 
    */
-  float get_last_price();
+  float get_last_price() const;
 
   /**
    * @brief add trade to history (and update price history)

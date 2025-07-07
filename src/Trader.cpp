@@ -1,10 +1,11 @@
 // Trader.cpp
 #include "Trader.hpp"
+#include "Exchange.hpp"
+#include "MarketData.hpp"
+#include "Order.hpp"
+#include <random>
 #include <string>
 #include <tuple>
-#include <random>
-#include "Exchange.hpp"
-#include "Order.hpp"
 
 Trader::Trader(const Trader &other) : name{other.name} {}
 
@@ -22,20 +23,29 @@ const std::string &Trader::get_name() const { return name; }
 
 void Trader::set_name(const std::string &_name) { name = _name; }
 
-
-MMakerTrader::MMakerTrader(const std::string &_name) : Trader("maker_" + _name) {}
-MTakerTrader::MTakerTrader(const std::string &_name) : Trader("taker_" + _name) {}
+MMakerTrader::MMakerTrader(const std::string &_name)
+    : Trader("maker_" + _name) {}
+MTakerTrader::MTakerTrader(const std::string &_name)
+    : Trader("taker_" + _name) {}
 
 float MMakerTrader::fair_price(const Exchange &exchange) const {
+  const OrderBook &book = exchange.get_book();
+  const MarketData &data = exchange.get_market_data();
+  float price = exchange.get_starting_price();
+
+  if (data.get_last_price() == 0 ||
+      (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
+    return price;
+  }
+
   return 0;
 }
 
-float MTakerTrader::fair_price(const Exchange &exchange) const {
-  return 0;
-}
-
+float MTakerTrader::fair_price(const Exchange &exchange) const { return 0; }
 
 bool Trader::operator==(const Trader &other) const {
-  if (this == &other) { return true; }
+  if (this == &other) {
+    return true;
+  }
   return (this->name == other.name);
 }

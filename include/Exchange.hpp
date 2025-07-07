@@ -12,8 +12,9 @@ public:
   Exchange() = delete;
   ~Exchange();
 
-  const OrderBook &get_book();
-  const MarketData &get_market_data();
+  const OrderBook &get_book() const;
+  const MarketData &get_market_data() const;
+  float get_starting_price() const;
 
   void run();
 private:
