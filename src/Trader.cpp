@@ -29,6 +29,7 @@ MTakerTrader::MTakerTrader(const std::string &_name)
     : Trader("taker_" + _name) {}
 
 float MMakerTrader::fair_price(const Exchange &exchange) const {
+  // mid price
   const OrderBook &book = exchange.get_book();
   const MarketData &data = exchange.get_market_data();
   float price = exchange.get_starting_price();
@@ -51,6 +52,7 @@ float MMakerTrader::fair_price(const Exchange &exchange) const {
 }
 
 float MTakerTrader::fair_price(const Exchange &exchange) const {
+  // mid price
   const OrderBook &book = exchange.get_book();
   const MarketData &data = exchange.get_market_data();
   float price = exchange.get_starting_price();
