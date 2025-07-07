@@ -21,13 +21,17 @@ FetchContent_MakeAvailable(googletest)
 file(GLOB_RECURSE SRC "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 list(REMOVE_ITEM SRC "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
 file(GLOB_RECURSE TEST_SRC "test/*.cpp")
+set(MAIN "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp")
+set(BENCH_ORDER_BOOK "${CMAKE_CURRENT_SOURCE_DIR}/benchmark/benchmark_order_book.cpp")
 
-add_executable(sim "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp" ${SRC})
+add_executable(sim ${MAIN} ${SRC})
 add_executable(test ${TEST_SRC} ${SRC})
+add_executable(benchmark_order_book ${BENCH_ORDER_BOOK} ${SRC})
 
 
 target_include_directories(sim PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(test PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include" "${gtest_SOURCE_DIR}/googletest/include")
+target_include_directories(benchmark_order_book PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 target_link_libraries(test PRIVATE gtest_main)
 
