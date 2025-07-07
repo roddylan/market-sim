@@ -1,7 +1,9 @@
 // MatchingEngine.cpp
 // Matching and Trade execution
 #pragma once
-#include "Order.hpp"
+
+// forward declare Order
+class Order;
 
 namespace MatchingEngine {
 

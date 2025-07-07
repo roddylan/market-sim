@@ -1,7 +1,6 @@
 // MarketData.hpp
 // Market state info and other data
 #pragma once
-#include "Order.hpp"
 #include "Trade.hpp"
 #include <memory>
 #include <vector>
