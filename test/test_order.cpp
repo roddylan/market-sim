@@ -167,7 +167,7 @@ TEST_F(OrderTest, BuyOrderComparisonTest) {
 
 TEST_F(OrderTest, SellOrderComparisonTest) {
   // false if need to swap, true if ordering correct
-  OrderUtils::SellOrderComparePQ sell_compare; // sell -> best ask (lowest), earliest time
+  OrderUtils::SellOrderCompare sell_compare; // sell -> best ask (lowest), earliest time
   auto current_time = std::chrono::steady_clock::now();
   auto later_time = std::chrono::time_point<Clock>(Duration(10000));
   auto earlier_time = std::chrono::time_point<Clock>(Duration(9000));
