@@ -47,11 +47,11 @@ namespace OrderUtils {
       float l_price{left->get_price()}, r_price{right->get_price()};
       // best price, highest bid
       if (l_price != r_price) {
-        return l_price < r_price;
+        return l_price > r_price;
       }
       
       // earliest time first
-      return left->get_time() > right->get_time();
+      return left->get_time() < right->get_time();
     }
   };
 
@@ -64,11 +64,11 @@ namespace OrderUtils {
       float l_price{left->get_price()}, r_price{right->get_price()};
       // best price, lowest ask
       if (l_price != r_price) {
-        return l_price > r_price;
+        return l_price < r_price;
       }
       
       // earliest time first
-      return left->get_time() > right->get_time();
+      return left->get_time() < right->get_time();
     }
   };
 
