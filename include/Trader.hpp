@@ -21,7 +21,7 @@ public:
    * @brief Destroy the Trader object
    * 
    */
-  ~Trader() = default;
+  virtual ~Trader() = default;
 
   /**
    * @brief Construct a new Trader object
