@@ -51,7 +51,7 @@ int main(int argc, char* argv[]) {
     );
   }
   using Clock = std::chrono::high_resolution_clock;
-  size_t n_it = 1000;
+  size_t n_it = 1;
 
   // pq
   auto start_pq = Clock::now();
