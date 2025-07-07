@@ -5,6 +5,7 @@
 #include "Trader.hpp"
 #include <memory>
 #include <chrono>
+#include "MarketUtils.hpp"
 
 /**
  * @class Order
@@ -15,8 +16,6 @@
  */
 class Order {
 public:
-  using Timestamp = std::chrono::time_point<std::chrono::steady_clock>;
-  
   // deleted default/empty constructor
   Order() = delete;
   
@@ -52,9 +51,9 @@ public:
    * @param _trader 
    * @param _timestamp 
    */
-  Order(float _price, int _volume, Trader &_trader, const Timestamp &_timestamp);
+  Order(float _price, int _volume, Trader &_trader, const MarketUtils::Timestamp &_timestamp);
   
-  Order(float _price, int _volume, const Trader* const _trader, const Timestamp &_timestamp);
+  Order(float _price, int _volume, const Trader* const _trader, const MarketUtils::Timestamp &_timestamp);
 
   /**
    * @brief Construct a new Order object
@@ -93,7 +92,7 @@ public:
    * 
    * @return std::chrono::time_point<std::chrono::steady_clock> 
    */
-  Timestamp get_time() const noexcept;
+  MarketUtils::Timestamp get_time() const noexcept;
 
   /**
    * @brief update volume
@@ -116,5 +115,5 @@ private:
   float price;
   int volume;
   const Trader* const trader;
-  const Timestamp timestamp; // uint_8 
+  const MarketUtils::Timestamp timestamp; // uint_8 
 };
