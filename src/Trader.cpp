@@ -82,3 +82,11 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   return price;
 }
 
+Order MMakerTrader::make_order(float fair_price, bool is_long) const {
+  // PLACEHOLDER
+  return Order(fair_price, 100, this);
+}
+Order MTakerTrader::make_order(float fair_price, bool is_long) const {
+  // PLACEHOLDER
+  return Order(fair_price, 100, this);
+}
