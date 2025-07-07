@@ -35,7 +35,7 @@ namespace OrderUtils {
       // earliest time first
       return left->get_time() > right->get_time();
     }
-};
+  };
 
 } // namespace OrderUtils
 
