@@ -38,7 +38,16 @@ float MMakerTrader::fair_price(const Exchange &exchange) const {
     return price;
   }
 
-  return 0;
+  if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
+    price = ((*book.get_buy_orders().begin())->get_price() +
+             (*book.get_sell_orders().begin())->get_price()) /
+            2;
+  } else if (!book.get_buy_orders().empty()) {
+    price = (*book.get_buy_orders().begin())->get_price();
+  } else {
+    price = (*book.get_sell_orders().begin())->get_price();
+  }
+  return price;
 }
 
 float MTakerTrader::fair_price(const Exchange &exchange) const { return 0; }
