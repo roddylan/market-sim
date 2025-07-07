@@ -8,7 +8,7 @@ namespace OrderUtils {
   *
   */
   struct BuyOrderComparePQ {
-    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
+    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) const {
       float l_price{left->get_price()}, r_price{right->get_price()};
       // best price, highest bid
       if (l_price != r_price) {
@@ -25,7 +25,7 @@ namespace OrderUtils {
   * 
   */
   struct SellOrderComparePQ {
-    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
+    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) const {
       float l_price{left->get_price()}, r_price{right->get_price()};
       // best price, lowest ask
       if (l_price != r_price) {
@@ -43,7 +43,7 @@ namespace OrderUtils {
   *
   */
   struct BuyOrderCompare {
-    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
+    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) const {
       float l_price{left->get_price()}, r_price{right->get_price()};
       // best price, highest bid
       if (l_price != r_price) {
@@ -60,7 +60,7 @@ namespace OrderUtils {
   * 
   */
   struct SellOrderCompare {
-    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) {
+    bool operator()(const std::shared_ptr<Order> &left, const std::shared_ptr<Order> &right) const {
       float l_price{left->get_price()}, r_price{right->get_price()};
       // best price, lowest ask
       if (l_price != r_price) {
