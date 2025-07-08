@@ -108,4 +108,9 @@ TEST_F(ExchangeTest, RunTest) {
     EXPECT_FLOAT_EQ(price, trade_price);
   }
 
+  const size_t n_it = 50;
+  for (size_t i = 0; i < n_it; ++i) {
+    exchange->run();
+  }
+
 }

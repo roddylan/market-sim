@@ -50,7 +50,7 @@ public:
   void set_starting_price(float price);
   float get_starting_price() const;
 
-  void run();
+  void run(); // TODO: add zero price check; end sim if 0
 private:
   // traders
   Traders makers;
