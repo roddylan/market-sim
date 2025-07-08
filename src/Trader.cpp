@@ -119,7 +119,7 @@ Order MMakerTrader::make_order(const Exchange *exchange, bool is_long) const {
 Order MTakerTrader::make_order(const Exchange *exchange, bool is_long) const {
   // TODO: go back to random noise orders
   std::uniform_int_distribution<size_t> distr(0, 1);
-  std::uniform_int_distribution<size_t> vol_distr(5, 15);
+  std::uniform_int_distribution<size_t> vol_distr(15, 25);
   const size_t abs_vol = vol_distr(gen) * 10;
   int vol{100};
   const int sign = (distr(gen) * 2) - 1;

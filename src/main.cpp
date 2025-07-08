@@ -8,14 +8,16 @@
 
 int main(int argc, char** argv) {
   Exchange exchange;
-  exchange.add_maker<MMakerTrader>();
-  exchange.add_maker<MMakerTrader>();
-  exchange.add_maker<MMakerTrader>();
-  exchange.add_taker<MTakerTrader>();
-  exchange.add_taker<MTakerTrader>();
-  exchange.add_taker<MTakerTrader>();
 
-  const size_t n_it = 100;
+  size_t n_makers{5}, n_takers{20};
+  for (size_t i = 0; i < n_makers; ++i) {
+    exchange.add_maker<MMakerTrader>();
+  }
+  for (size_t i = 0; i < n_takers; ++i) {
+    exchange.add_taker<MTakerTrader>();
+  }
+
+  const size_t n_it = 10000;
 
   for (size_t i = 0; i < n_it; ++i) {
     exchange.run();
@@ -27,11 +29,10 @@ int main(int argc, char** argv) {
     return 1;
   }
   size_t i = 0;
-  file << "price,\n";
+  file << "price\n";
   for (const auto &price : exchange.get_market_data().get_prices()) {
-    std::cout << price << "\n";
     if (i < (exchange.get_market_data().get_prices().size() - 1)){
-      file << price << ",\n";
+      file << price << "\n";
     }
     ++i;
   }
