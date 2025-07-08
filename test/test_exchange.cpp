@@ -1,22 +1,25 @@
 // test_exchange.cpp
 #include "gtest/gtest.h"
 #include "Exchange.hpp"
+#include "Trader.hpp"
 
 class ExchangeTest : public ::testing::Test {
 protected:
-  Exchange exchange;
+  Exchange *exchange;
   void SetUp() override {
+    exchange = new Exchange();
     return;
   }
 
   void TearDown() override {
+    delete exchange;
     return;
   }
 };
 
 
 TEST_F(ExchangeTest, DefaultInitialization) {
-  EXPECT_FLOAT_EQ(exchange.get_starting_price(), 100);
+  EXPECT_FLOAT_EQ(exchange->get_starting_price(), 100);
   Exchange ex1;
   EXPECT_FLOAT_EQ(ex1.get_starting_price(), 100);
   EXPECT_EQ(ex1.get_book().get_buy_orders().size(), 0);
@@ -34,10 +37,26 @@ TEST_F(ExchangeTest, ValueInitialization) {
 }
 
 TEST_F(ExchangeTest, StartingPrice) {
-  EXPECT_FLOAT_EQ(exchange.get_starting_price(), 100);
-  exchange.set_starting_price(1000);
-  EXPECT_FLOAT_EQ(exchange.get_starting_price(), 1000);
-  EXPECT_DEATH(exchange.set_starting_price(0), ".*");
-  EXPECT_DEATH(exchange.set_starting_price(-1), ".*");
+  EXPECT_FLOAT_EQ(exchange->get_starting_price(), 100);
+  exchange->set_starting_price(1000);
+  EXPECT_FLOAT_EQ(exchange->get_starting_price(), 1000);
+  EXPECT_DEATH(exchange->set_starting_price(0), ".*");
+  EXPECT_DEATH(exchange->set_starting_price(-1), ".*");
 }
 
+TEST_F(ExchangeTest, AddTraderParam) {
+  EXPECT_TRUE(exchange->get_makers().empty());
+  EXPECT_TRUE(exchange->get_takers().empty());
+  auto maker = MMakerTrader("test");
+  exchange->add_maker(maker);
+  EXPECT_EQ(exchange->get_makers().size(), 1);
+  EXPECT_TRUE(exchange->get_takers().empty());
+  auto taker = MTakerTrader("test");
+  exchange->add_taker(taker);
+  EXPECT_EQ(exchange->get_makers().size(), 1);
+  EXPECT_EQ(exchange->get_takers().size(), 1);
+  
+  EXPECT_EQ(*exchange->get_makers()[0], maker);
+  EXPECT_EQ(*exchange->get_takers()[0], taker);
+
+}
