@@ -35,7 +35,7 @@ target_include_directories(sim PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(run_test PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include" "${gtest_SOURCE_DIR}/googletest/include")
 target_include_directories(benchmark_order_book PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-target_link_libraries(run_tet PRIVATE gtest_main)
+target_link_libraries(run_test PRIVATE gtest_main)
 
 include(GoogleTest)
 gtest_discover_tests(run_test)
