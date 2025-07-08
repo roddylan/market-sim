@@ -114,7 +114,7 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
 }
 Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   const int sign = (is_long * 2) - 1;
-  const size_t abs_vol = 100;
+  const size_t abs_vol = 150;
   const float std = 0.0125f;
 
   std::normal_distribution<float> distr(0.f, std);
