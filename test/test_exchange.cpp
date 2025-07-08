@@ -22,3 +22,10 @@ TEST_F(ExchangeTest, DefaultInitialization) {
   EXPECT_EQ(ex1.get_book().get_buy_orders().size(), 0);
   EXPECT_EQ(ex1.get_book().get_sell_orders().size(), 0);
 }
+
+TEST_F(ExchangeTest, ValueInitialization) {
+  Exchange ex1(150);
+  EXPECT_EQ(ex1.get_starting_price(), 150);
+  EXPECT_EQ(ex1.get_book().get_buy_orders().size(), 0);
+  EXPECT_EQ(ex1.get_book().get_sell_orders().size(), 0);
+}
