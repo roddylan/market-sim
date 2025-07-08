@@ -64,7 +64,7 @@ public:
    */
   template <DerivedTrader T>
   void add_maker() {
-    makers.push_back(std::make_shared<T>(std::to_string(makers.size()+1)));
+    makers.push_back(std::make_unique<T>(std::to_string(makers.size()+1)));
   }
   
   /**
@@ -74,7 +74,7 @@ public:
    */
   template <DerivedTrader T>
   void add_taker() {
-    takers.push_back(std::make_shared<T>(std::to_string(takers.size()+1)));
+    takers.push_back(std::make_unique<T>(std::to_string(takers.size()+1)));
   }
 
   /**
