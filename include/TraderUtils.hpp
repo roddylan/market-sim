@@ -6,6 +6,7 @@
 #include <string>
 
 /**
+ * @class TraderHash
  * @brief Hash function for Trader
  * 
  */

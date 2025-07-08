@@ -11,6 +11,11 @@ using SYMBOL = std::string;
 class Order;
 class Exchange;
 
+/**
+ * @class Trader
+ * @brief Trader base class
+ * 
+ */
 class Trader {
 public:
   /**
