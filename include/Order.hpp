@@ -113,6 +113,7 @@ public:
 private:
   
   float price;
+  // todo: expiry
   int volume;
   const Trader* const trader;
   const MarketUtils::Timestamp timestamp; // uint_8 
