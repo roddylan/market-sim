@@ -7,6 +7,14 @@
 #include "OrderUtils.hpp"
 #include <memory>
 
+/**
+ * @class OrderBookPQ
+ * @brief (**deprecated**) Order book storing market maker limit orders; handles match and make
+ * logic. Uses priority queue.
+ *
+ * Orders stored in ordered priority queue. Buys sorted by best bid (highest) and
+ * earliest time. Sells sorted by best ask (lowest) and earliest time
+ */
 class OrderBookPQ {
 public:
   using BuyQueue = std::priority_queue<std::shared_ptr<Order>, std::vector<std::shared_ptr<Order>>, OrderUtils::BuyOrderComparePQ>;
