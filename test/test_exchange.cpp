@@ -93,3 +93,19 @@ TEST_F(ExchangeTest, AddTrader) {
   EXPECT_EQ(exchange->get_makers().back()->get_name(), "maker_4");
   EXPECT_EQ(exchange->get_takers().back()->get_name(), "taker_4");
 }
+
+TEST_F(ExchangeTest, RunTest) {
+  exchange->add_maker<MMakerTrader>();
+  exchange->add_taker<MTakerTrader>();
+  exchange->run();
+  EXPECT_TRUE(!exchange->get_book().get_buy_orders().empty() || !exchange->get_book().get_sell_orders().empty());
+  if (exchange->get_market_data().get_trade_history().empty()) {
+    EXPECT_EQ(exchange->get_book().get_buy_orders().size(), 1);
+    EXPECT_EQ(exchange->get_book().get_sell_orders().size(), 1);
+  } else {
+    float price = exchange->get_market_data().get_last_price();
+    float trade_price = exchange->get_market_data().get_last_trade()->price;
+    EXPECT_FLOAT_EQ(price, trade_price);
+  }
+
+}
