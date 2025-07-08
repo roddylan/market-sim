@@ -24,7 +24,6 @@ const MarketData &Exchange::get_market_data() const { return *market_data; }
 
 float Exchange::get_starting_price() const { return starting_price; }
 
-
 void Exchange::run() {
   for (const auto maker : makers) {
     float price = maker->fair_price(this);
@@ -33,10 +32,19 @@ void Exchange::run() {
   }
 
   for (const auto taker : takers) {
-    if (book->get_buy_orders().empty() && book->get_sell_orders().empty()) { break; }
+    if (book->get_buy_orders().empty() && book->get_sell_orders().empty()) {
+      break;
+    }
     float price = taker->fair_price(this);
     Order order = taker->make_order(price);
-    
-    book->match(order); // TODO: make match (and other stuff that uses taker orders) use universal ref
+
+    float vwap = book->match(order); // TODO: make match (and other stuff that
+                                     // uses taker orders) use universal ref
+    if (vwap == 0) {
+      break;
+    } // TODO: parallelize, continue instead of break. Kinda bad sim for
+      // backtesting if takers have same priority
+    // TODO: get maker for better trade history
+    market_data->add_trade(*taker, *taker, vwap);
   }
 }
