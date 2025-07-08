@@ -59,6 +59,7 @@ float MMakerTrader::fair_price(const Exchange *exchange) const {
   }
 
   if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
+    // calc mid price
     price = ((*book.get_buy_orders().begin())->get_price() +
              (*book.get_sell_orders().begin())->get_price()) /
             2;
@@ -75,7 +76,7 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   const OrderBook &book = exchange->get_book();
   const MarketData &data = exchange->get_market_data();
   float price = exchange->get_starting_price();
-  if (data.get_last_price() == 0 &&
+  if (data.get_last_price() == 0 ||
       (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
     return price;
   }
