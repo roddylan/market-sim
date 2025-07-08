@@ -17,7 +17,7 @@ float MarketData::get_last_price() const {
   return price_history.back();
 }
 
-MarketData::Trades MarketData::get_trade_history() const {
+const MarketData::Trades &MarketData::get_trade_history() const {
   return trade_history;
 }
 

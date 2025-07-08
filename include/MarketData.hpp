@@ -31,7 +31,7 @@ public:
    *
    * @return std::vector<std::unique_ptr<Trade>>
    */
-  Trades get_trade_history() const;
+  const Trades &get_trade_history() const;
 
   /**
    * @brief add trade to history (and update price history)
