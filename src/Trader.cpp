@@ -75,23 +75,24 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   const OrderBook &book = exchange->get_book();
   const MarketData &data = exchange->get_market_data();
   float price = exchange->get_starting_price();
-  if (data.get_last_price() == 0 ||
+  if (data.get_last_price() == 0 &&
   (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
     return price;
   }
-  price = data.get_last_price();
-  return price;
-
-  // if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
-  //   price = ((*book.get_buy_orders().begin())->get_price() +
-  //            (*book.get_sell_orders().begin())->get_price()) /
-  //           2;
-  // } else if (!book.get_buy_orders().empty()) {
-  //   price = (*book.get_buy_orders().begin())->get_price();
-  // } else {
-  //   price = (*book.get_sell_orders().begin())->get_price();
-  // }
+  // price = data.get_last_price();
+  // std::cout << price << std::endl;
   // return price;
+
+  if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
+    price = ((*book.get_buy_orders().begin())->get_price() +
+             (*book.get_sell_orders().begin())->get_price()) /
+            2;
+  } else if (!book.get_buy_orders().empty()) {
+    price = (*book.get_buy_orders().begin())->get_price();
+  } else {
+    price = (*book.get_sell_orders().begin())->get_price();
+  }
+  return price;
 }
 
 Order MMakerTrader::make_order(float fair_price, bool is_long) const {
@@ -118,7 +119,7 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
 Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   const int sign = (is_long * 2) - 1;
   // const size_t abs_vol = 150;
-  const float std = 0.0125f;
+  const float std = 0.02f;
   
   std::normal_distribution<float> distr(0.0f, std);
   std::uniform_int_distribution<size_t> vol_dist(5, 15);
@@ -135,8 +136,6 @@ Order MTakerTrader::make_order(float fair_price, bool is_long) const {
     price += price_multiplier * fair_price;
   }
   price = std::round(price * 100) / 100;
-  std::cout << "price: " << price << std::endl;
-  std::cout << "vol: " << vol << std::endl;
   return Order(price, vol, this);
   
 }
