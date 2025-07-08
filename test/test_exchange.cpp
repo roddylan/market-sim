@@ -38,5 +38,7 @@ TEST_F(ExchangeTest, StartingPrice) {
   EXPECT_FLOAT_EQ(exchange.get_starting_price(), 100);
   exchange.set_starting_price(1000);
   EXPECT_FLOAT_EQ(exchange.get_starting_price(), 1000);
+  EXPECT_DEATH(exchange.set_starting_price(0), ".*");
+  EXPECT_DEATH(exchange.set_starting_price(-1), ".*");
 }
 
