@@ -2,7 +2,7 @@
 #include "MatchingEngine.hpp"
 #include "Order.hpp"
 #include <algorithm>
-#include <cassert>
+// #include <cassert>
 #include <stdexcept>
 
 int MatchingEngine::match_order(Order &maker_order, Order &taker_order) {

@@ -3,7 +3,7 @@
 
 #include "OrderBook.hpp"
 #include "MatchingEngine.hpp"
-#include <cassert>
+// #include <cassert>
 #include <memory>
 
 OrderBook::OrderBook(const BuyQueue &_buys, const SellQueue &_sells)

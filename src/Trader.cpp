@@ -4,8 +4,6 @@
 #include "MarketData.hpp"
 #include "Order.hpp"
 #include <cmath>
-#include <exception>
-#include <iostream>
 #include <random>
 #include <stdexcept>
 #include <string>
