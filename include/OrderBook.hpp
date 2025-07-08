@@ -8,6 +8,9 @@
 #include <memory>
 #include <set>
 
+
+// TODO: order cancelling
+
 class OrderBook {
 public:
   using BuyQueue = std::multiset<std::shared_ptr<Order>, OrderUtils::BuyOrderCompare>;
