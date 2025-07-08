@@ -5,13 +5,15 @@
 #include "Order.hpp"
 #include <cmath>
 #include <exception>
-#include <random>
-#include <string>
 #include <iostream>
+#include <random>
+#include <stdexcept>
+#include <string>
 
 Trader::Trader(const Trader &other) : name{other.name}, gen{other.gen} {}
 
-Trader::Trader(const std::string &_name) : name{_name}, gen{std::random_device{}()} {}
+Trader::Trader(const std::string &_name)
+    : name{_name}, gen{std::random_device{}()} {}
 
 Trader &Trader::operator=(const Trader &rhs) {
   if (this == &rhs) {
@@ -25,9 +27,7 @@ const std::string &Trader::get_name() const { return name; }
 
 void Trader::set_name(const std::string &_name) { name = _name; }
 
-void Trader::set_random(int seed) {
-  gen = std::mt19937(seed);
-}
+void Trader::set_random(int seed) { gen = std::mt19937(seed); }
 
 MMakerTrader::MMakerTrader(const std::string &_name)
     : Trader("maker_" + _name) {}
@@ -76,22 +76,22 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   const MarketData &data = exchange->get_market_data();
   float price = exchange->get_starting_price();
   if (data.get_last_price() == 0 &&
-  (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
+      (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
     return price;
   }
-  // price = data.get_last_price();
-  // std::cout << price << std::endl;
-  // return price;
+  price = data.get_last_price();
+  std::cout << price << std::endl;
+  return price;
 
-  if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
-    price = ((*book.get_buy_orders().begin())->get_price() +
-             (*book.get_sell_orders().begin())->get_price()) /
-            2;
-  } else if (!book.get_buy_orders().empty()) {
-    price = (*book.get_buy_orders().begin())->get_price();
-  } else {
-    price = (*book.get_sell_orders().begin())->get_price();
-  }
+  // if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
+  //   price = ((*book.get_buy_orders().begin())->get_price() +
+  //            (*book.get_sell_orders().begin())->get_price()) /
+  //           2;
+  // } else if (!book.get_buy_orders().empty()) {
+  //   price = (*book.get_buy_orders().begin())->get_price();
+  // } else {
+  //   price = (*book.get_sell_orders().begin())->get_price();
+  // }
   return price;
 }
 
@@ -101,7 +101,7 @@ Order MMakerTrader::make_order(const Exchange *exchange, bool is_long) const {
   const int sign = (is_long * 2) - 1;
   const int vol = abs_vol * sign;
   const float std = 0.01f;
-  
+
   std::normal_distribution<float> distr(0.0f, std);
   const float price_multiplier = std::abs(distr(gen));
   float price = _fair_price;
@@ -118,26 +118,26 @@ Order MMakerTrader::make_order(const Exchange *exchange, bool is_long) const {
 }
 
 Order MTakerTrader::make_order(const Exchange *exchange, bool is_long) const {
-  const float _fair_price = fair_price(exchange);
-  const int sign = (is_long * 2) - 1;
-  // const size_t abs_vol = 150;
-  const float std = 0.02f;
-  float price = _fair_price;
-  
-  std::normal_distribution<float> distr(0.0f, std);
-  std::uniform_int_distribution<size_t> vol_dist(5, 15);
-  
-  const float price_multiplier = std::abs(distr(gen));
-  const int vol = vol_dist(gen) * 10 * sign;
-  
-  if (is_long) {
-    // buying, make offer <= fair
-    price -= price_multiplier * _fair_price;
+  // TODO: go back to random noise orders
+  std::uniform_int_distribution<size_t> distr(0, 1);
+  std::uniform_int_distribution<size_t> vol_distr(5, 15);
+  const size_t abs_vol = vol_distr(gen) * 10;
+  int vol{100};
+  const int sign = (distr(gen) * 2) - 1;
+  float price = fair_price(exchange);
+  if (sign == -1) {
+    // taker sell, take best buy
+    vol = sign * abs_vol;
+    if (!exchange->get_book().get_buy_orders().empty()) {
+      price = exchange->get_book().get_buy_orders().begin()->get()->get_price();
+    }
+  } else if (sign == 1) {
+    vol = sign * abs_vol;
+    if (!exchange->get_book().get_sell_orders().empty()) {
+      price = exchange->get_book().get_sell_orders().begin()->get()->get_price();
+    }
   } else {
-    // selling, make offer >= fair
-    price += price_multiplier * _fair_price;
+    throw std::runtime_error("Bad sign");
   }
-  price = std::round(price * 100) / 100;
   return Order(price, vol, this);
-  
 }
