@@ -3,6 +3,7 @@
 #include "Exchange.hpp"
 #include "MarketData.hpp"
 #include "Order.hpp"
+#include <exception>
 #include <random>
 #include <string>
 
@@ -92,17 +93,40 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
 
 Order MMakerTrader::make_order(float fair_price, bool is_long) const {
   const size_t abs_vol = 100;
-  const int multiplier = (is_long * 2) - 1;
-  const int vol = abs_vol * multiplier;
+  const int sign = (is_long * 2) - 1;
+  const int vol = abs_vol * sign;
   
+  std::normal_distribution<float> distr(0.f, 0.015f);
+  const float price_multiplier = distr(gen);
+  float price = fair_price;
+  // TODO: symmetric pricing from makers
   if (is_long) {
-    // buying, make offer above market
+    // buying, make offer <= fair
+    price -= price_multiplier * fair_price;
+  } else {
+    // selling, make offer >= fair
+    price += price_multiplier * fair_price;
   }
-  // PLACEHOLDER
-  return Order(fair_price, vol, this);
+  return Order(price, vol, this);
   
 }
 Order MTakerTrader::make_order(float fair_price, bool is_long) const {
-  // PLACEHOLDER
-  return Order(fair_price, 100, this);
+  const int sign = (is_long * 2) - 1;
+  
+  std::normal_distribution<float> distr(0.f, 0.02f);
+  std::normal_distribution<size_t> vol_distr(5, 15);
+  
+  const float price_multiplier = distr(gen);
+  const int vol = vol_distr(gen) * 10 * sign;
+  
+  float price = fair_price;
+  if (is_long) {
+    // buying, make offer <= fair
+    price -= price_multiplier * fair_price;
+  } else {
+    // selling, make offer >= fair
+    price += price_multiplier * fair_price;
+  }
+  return Order(price, vol, this);
+  
 }
