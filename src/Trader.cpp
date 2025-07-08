@@ -41,7 +41,7 @@ bool Trader::operator==(const Trader &other) const {
   return (this->name == other.name);
 }
 
-float Trader::fair_price(const Exchange *exchange) const { return 0; }
+float Trader::fair_price(const Exchange *exchange) const { return exchange->get_starting_price(); }
 
 Order Trader::make_order(const Exchange *exchange, bool is_long) const {
   return Order(fair_price(exchange), 100, this);

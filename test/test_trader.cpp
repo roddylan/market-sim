@@ -2,6 +2,7 @@
 // test trader 
 #include <gtest/gtest.h>
 #include "Trader.hpp"
+#include "Exchange.hpp"
 #include <string>
 
 class TraderTest : public ::testing::Test {
@@ -37,5 +38,14 @@ TEST_F(TraderTest, TraderNameTest) {
   EXPECT_EQ(taker->get_name(), std::string("test2"));
 }
 
+TEST_F(TraderTest, MakeOrderTest) {
+  Exchange exch;
+  auto trader_order = trader->make_order(&exch);
+  EXPECT_EQ(trader_order.get_price(), exch.get_starting_price());
+  auto taker_order = taker->make_order(&exch);
+  auto maker_order = maker->make_order(&exch);
+
+
+}
 // TODO: strategy
 // TODO: tests for make_order, fair_price
