@@ -3,6 +3,7 @@
 #include "Order.hpp"
 #include <algorithm>
 #include <cassert>
+#include <stdexcept>
 
 int MatchingEngine::match_order(Order &maker_order, Order &taker_order) {
   const int requested_vol = taker_order.get_volume();
@@ -25,8 +26,14 @@ int MatchingEngine::sell_order(Order &maker_order, Order &taker_order) {
   // taker vol > 0
   const int maker_vol{maker_order.get_volume()},
       taker_vol{taker_order.get_volume()};
-  assert(maker_vol <= 0);
-  assert(taker_vol >= 0);
+  // assert(maker_vol <= 0);
+  // assert(taker_vol >= 0);
+  if (maker_vol > 0) {
+    throw std::invalid_argument("Maker Order volume must be negative (sell)");
+  }
+  if (taker_vol < 0) {
+    throw std::invalid_argument("Maker Order volume must be positive (buy)");
+  }
 
   // how much taker can buy (+)
   int order_vol = std::min(-maker_vol, taker_vol);
@@ -43,8 +50,14 @@ int MatchingEngine::buy_order(Order &maker_order, Order &taker_order) {
   // taker vol < 0
   const int maker_vol{maker_order.get_volume()},
       taker_vol{taker_order.get_volume()};
-  assert(maker_vol >= 0);
-  assert(taker_vol <= 0);
+  // assert(maker_vol >= 0);
+  // assert(taker_vol <= 0);
+  if (maker_vol < 0) {
+    throw std::invalid_argument("Maker Order volume must be positive (buy)");
+  }
+  if (taker_vol > 0) {
+    throw std::invalid_argument("Maker Order volume must be negative (sell)");
+  }
 
   // how much taker can sell (-)
   int order_vol = std::max(-maker_vol, taker_vol);
