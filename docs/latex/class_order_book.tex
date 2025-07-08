@@ -1,0 +1,216 @@
+\doxysection{Order\+Book Class Reference}
+\hypertarget{class_order_book}{}\label{class_order_book}\index{OrderBook@{OrderBook}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_order_book_a8bf1119b6c9acbcb5928f5eea9777fa3}\label{class_order_book_a8bf1119b6c9acbcb5928f5eea9777fa3} 
+using {\bfseries Buy\+Queue} = std\+::multiset$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_order}{Order}}$>$, \mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare}{Order\+Utils\+::\+Buy\+Order\+Compare}}$>$
+\item 
+\Hypertarget{class_order_book_aec16d412ddfec546b2fe80e30ef41fa3}\label{class_order_book_aec16d412ddfec546b2fe80e30ef41fa3} 
+using {\bfseries Sell\+Queue} = std\+::multiset$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_order}{Order}}$>$, \mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare}{Order\+Utils\+::\+Sell\+Order\+Compare}}$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_order_book_ac49a804db195f730535473b5096c8577}\label{class_order_book_ac49a804db195f730535473b5096c8577} 
+{\bfseries Order\+Book} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} Book object. \end{DoxyCompactList}\item 
+\Hypertarget{class_order_book_a34d37e7193ed67fd24bc571c2fe54a1b}\label{class_order_book_a34d37e7193ed67fd24bc571c2fe54a1b} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Order\+Book} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{class_order}{Order} Book object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_book_aa58a0bc18fd44e7329c8aafd75341ec0}{Order\+Book}} (const Buy\+Queue \&\+\_\+buys, const Sell\+Queue \&\+\_\+sells)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} Book object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_book_a7976c80845e7420efadce0861ccc9c70}{Order\+Book}} (const \mbox{\hyperlink{class_order_book}{Order\+Book}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} Book object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_book}{Order\+Book}} \& \mbox{\hyperlink{class_order_book_ababf8bd5a8c94195d2c616d967f15a5f}{operator=}} (const \mbox{\hyperlink{class_order_book}{Order\+Book}} \&other)
+\begin{DoxyCompactList}\small\item\em Copy assignment. \end{DoxyCompactList}\item 
+const Buy\+Queue \& \mbox{\hyperlink{class_order_book_ab09ffbde046131e533706bd98aeffcd3}{get\+\_\+buy\+\_\+orders}} () const
+\begin{DoxyCompactList}\small\item\em Get the buy orders object. \end{DoxyCompactList}\item 
+const Sell\+Queue \& \mbox{\hyperlink{class_order_book_a5e00ab6ae4dd35dca45ff7e3169d73f7}{get\+\_\+sell\+\_\+orders}} () const
+\begin{DoxyCompactList}\small\item\em Get the sell orders object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_order_book_aacd9c657e7592a1142c4157284b5b42b}{insert}} (const \mbox{\hyperlink{class_order}{Order}} \&order)
+\begin{DoxyCompactList}\small\item\em Insert order into order book. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_order_book_abb3dfe61bbb55e145f94e22fb7d2cf09}{match}} (\mbox{\hyperlink{class_order}{Order}} \&taker\+\_\+order)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_order}{Order} match logic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_order_book_acf540d87f30066fa399fcd551194b46f}{sell\+\_\+match}} (\mbox{\hyperlink{class_order}{Order}} \&taker\+\_\+order)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_order}{Order} match logic for sells/shorts. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_order_book_a539c48f2271fa84060ae9c5d4810ea93}{buy\+\_\+match}} (\mbox{\hyperlink{class_order}{Order}} \&taker\+\_\+order)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_order}{Order} match logic for buys/longs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_order_book_ad83286301d5f4c688e795cba1a98d9d8}\label{class_order_book_ad83286301d5f4c688e795cba1a98d9d8} 
+Buy\+Queue {\bfseries buy\+\_\+orders}
+\item 
+\Hypertarget{class_order_book_a71f99f8efe47a7d11b560d9665cfe8a7}\label{class_order_book_a71f99f8efe47a7d11b560d9665cfe8a7} 
+Sell\+Queue {\bfseries sell\+\_\+orders}
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_order_book_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_order_book_aa58a0bc18fd44e7329c8aafd75341ec0}\index{OrderBook@{OrderBook}!OrderBook@{OrderBook}}
+\index{OrderBook@{OrderBook}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{OrderBook()}{OrderBook()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_order_book_aa58a0bc18fd44e7329c8aafd75341ec0} 
+Order\+Book\+::\+Order\+Book (\begin{DoxyParamCaption}\item[{const Buy\+Queue \&}]{\+\_\+buys}{, }\item[{const Sell\+Queue \&}]{\+\_\+sells}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_order}{Order} Book object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+buys} & \\
+\hline
+{\em \+\_\+sells} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_order_book_a7976c80845e7420efadce0861ccc9c70}\index{OrderBook@{OrderBook}!OrderBook@{OrderBook}}
+\index{OrderBook@{OrderBook}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{OrderBook()}{OrderBook()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_order_book_a7976c80845e7420efadce0861ccc9c70} 
+Order\+Book\+::\+Order\+Book (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_order_book}{Order\+Book}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_order}{Order} Book object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_order_book_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_order_book_a539c48f2271fa84060ae9c5d4810ea93}\index{OrderBook@{OrderBook}!buy\_match@{buy\_match}}
+\index{buy\_match@{buy\_match}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{buy\_match()}{buy\_match()}}
+{\footnotesize\ttfamily \label{class_order_book_a539c48f2271fa84060ae9c5d4810ea93} 
+float Order\+Book\+::buy\+\_\+match (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{taker\+\_\+order}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{class_order}{Order} match logic for buys/longs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em taker\+\_\+order} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\Hypertarget{class_order_book_ab09ffbde046131e533706bd98aeffcd3}\index{OrderBook@{OrderBook}!get\_buy\_orders@{get\_buy\_orders}}
+\index{get\_buy\_orders@{get\_buy\_orders}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{get\_buy\_orders()}{get\_buy\_orders()}}
+{\footnotesize\ttfamily \label{class_order_book_ab09ffbde046131e533706bd98aeffcd3} 
+const Order\+Book\+::\+Buy\+Queue \& Order\+Book\+::get\+\_\+buy\+\_\+orders (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the buy orders object. 
+
+\begin{DoxyReturn}{Returns}
+const Buy\+Queue\& 
+\end{DoxyReturn}
+\Hypertarget{class_order_book_a5e00ab6ae4dd35dca45ff7e3169d73f7}\index{OrderBook@{OrderBook}!get\_sell\_orders@{get\_sell\_orders}}
+\index{get\_sell\_orders@{get\_sell\_orders}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{get\_sell\_orders()}{get\_sell\_orders()}}
+{\footnotesize\ttfamily \label{class_order_book_a5e00ab6ae4dd35dca45ff7e3169d73f7} 
+const Order\+Book\+::\+Sell\+Queue \& Order\+Book\+::get\+\_\+sell\+\_\+orders (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the sell orders object. 
+
+\begin{DoxyReturn}{Returns}
+const Sell\+Queue\& 
+\end{DoxyReturn}
+\Hypertarget{class_order_book_aacd9c657e7592a1142c4157284b5b42b}\index{OrderBook@{OrderBook}!insert@{insert}}
+\index{insert@{insert}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{class_order_book_aacd9c657e7592a1142c4157284b5b42b} 
+bool Order\+Book\+::insert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_order}{Order}} \&}]{order}{}\end{DoxyParamCaption})}
+
+
+
+Insert order into order book. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em order} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true successfully added 
+
+false failed 
+\end{DoxyReturn}
+\Hypertarget{class_order_book_abb3dfe61bbb55e145f94e22fb7d2cf09}\index{OrderBook@{OrderBook}!match@{match}}
+\index{match@{match}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{match()}{match()}}
+{\footnotesize\ttfamily \label{class_order_book_abb3dfe61bbb55e145f94e22fb7d2cf09} 
+float Order\+Book\+::match (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{taker\+\_\+order}{}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_order}{Order} match logic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em taker\+\_\+order} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float execution price (or average if multiple orders) 
+\end{DoxyReturn}
+\Hypertarget{class_order_book_ababf8bd5a8c94195d2c616d967f15a5f}\index{OrderBook@{OrderBook}!operator=@{operator=}}
+\index{operator=@{operator=}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_order_book_ababf8bd5a8c94195d2c616d967f15a5f} 
+\mbox{\hyperlink{class_order_book}{Order\+Book}} \& Order\+Book\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_order_book}{Order\+Book}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Copy assignment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_order_book}{Order\+Book}\& 
+\end{DoxyReturn}
+\Hypertarget{class_order_book_acf540d87f30066fa399fcd551194b46f}\index{OrderBook@{OrderBook}!sell\_match@{sell\_match}}
+\index{sell\_match@{sell\_match}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{sell\_match()}{sell\_match()}}
+{\footnotesize\ttfamily \label{class_order_book_acf540d87f30066fa399fcd551194b46f} 
+float Order\+Book\+::sell\+\_\+match (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{taker\+\_\+order}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{class_order}{Order} match logic for sells/shorts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em taker\+\_\+order} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Order\+Book.\+hpp\item 
+src/Order\+Book.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\doxysection{Order\+Utils.\+hpp}
+\hypertarget{_order_utils_8hpp_source}{}\label{_order_utils_8hpp_source}\index{include/OrderUtils.hpp@{include/OrderUtils.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ utils.hpp}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Order.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }OrderUtils\ \{}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare_p_q}{BuyOrderComparePQ}}\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&left,\ \textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&right)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l\_price\{left-\/>get\_price()\},\ r\_price\{right-\/>get\_price()\};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \textcolor{comment}{//\ best\ price,\ highest\ bid}}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\_price\ !=\ r\_price)\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l\_price\ <\ r\_price;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \textcolor{comment}{//\ earliest\ time\ first}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left-\/>get\_time()\ >\ right-\/>get\_time();}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ \ \ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare_p_q}{SellOrderComparePQ}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&left,\ \textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&right)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l\_price\{left-\/>get\_price()\},\ r\_price\{right-\/>get\_price()\};}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \textcolor{comment}{//\ best\ price,\ lowest\ ask}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\_price\ !=\ r\_price)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l\_price\ >\ r\_price;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{comment}{//\ earliest\ time\ first}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left-\/>get\_time()\ >\ right-\/>get\_time();}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare}{BuyOrderCompare}}\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&left,\ \textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&right)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l\_price\{left-\/>get\_price()\},\ r\_price\{right-\/>get\_price()\};}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \textcolor{comment}{//\ best\ price,\ highest\ bid}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\_price\ !=\ r\_price)\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l\_price\ >\ r\_price;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{comment}{//\ earliest\ time\ first}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left-\/>get\_time()\ <=\ right-\/>get\_time();}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare}{SellOrderCompare}}\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator()(\textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&left,\ \textcolor{keyword}{const}\ std::shared\_ptr<Order>\ \&right)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l\_price\{left-\/>get\_price()\},\ r\_price\{right-\/>get\_price()\};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \textcolor{comment}{//\ best\ price,\ lowest\ ask}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\_price\ !=\ r\_price)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l\_price\ <\ r\_price;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \textcolor{comment}{//\ earliest\ time\ first}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ left-\/>get\_time()\ <=\ right-\/>get\_time();}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \}\ \textcolor{comment}{//\ namespace\ OrderUtils}}
+\DoxyCodeLine{00078\ }
+
+\end{DoxyCode}

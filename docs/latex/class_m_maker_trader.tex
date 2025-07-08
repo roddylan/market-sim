@@ -1,0 +1,133 @@
+\doxysection{MMaker\+Trader Class Reference}
+\hypertarget{class_m_maker_trader}{}\label{class_m_maker_trader}\index{MMakerTrader@{MMakerTrader}}
+
+
+Market Maker (Random)  
+
+
+
+
+{\ttfamily \#include $<$Trader.\+hpp$>$}
+
+Inheritance diagram for MMaker\+Trader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_maker_trader}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_maker_trader_aff19d4cbb23070f9f0f8178886fc3668}{MMaker\+Trader}} (const std\+::string \&\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_m_maker_trader}{MMaker\+Trader} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order}{Order}} \mbox{\hyperlink{class_m_maker_trader_a0515782f6a6d43581901fec5e569fb7c}{make\+\_\+order}} (const \mbox{\hyperlink{class_exchange}{Exchange}} \texorpdfstring{$\ast$}{*}exchange, bool is\+\_\+long=false) const override
+\begin{DoxyCompactList}\small\item\em Generate order from trader. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_m_maker_trader_a1f1bf75ef720a37b9c8f3c0a00ae338a}{fair\+\_\+price}} (const \mbox{\hyperlink{class_exchange}{Exchange}} \texorpdfstring{$\ast$}{*}exchange) const override
+\begin{DoxyCompactList}\small\item\em generate fair price from exchange \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_trader}{Trader}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Trader} ()=default
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_trader}{Trader} object. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Trader} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{class_trader}{Trader} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trader_af86f6e83605ee07ba8d8a388c17655ff}{Trader}} (const std\+::string \&\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_trader}{Trader} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trader_a62f980ba807e041af4705e8f054a11cb}{Trader}} (const \mbox{\hyperlink{class_trader}{Trader}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_trader}{Trader} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_trader}{Trader}} \& \mbox{\hyperlink{class_trader_a5390c6a65bd4b4efe0e81eca04fda1a3}{operator=}} (const \mbox{\hyperlink{class_trader}{Trader}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Assignment. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_trader_a59d4e3527b2b5d77dbadc30436a65a50}{get\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em Get the name object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_trader_a80b17dca691794f1ef65ab5830d16740}{set\+\_\+name}} (const std\+::string \&\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Set the name object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_trader_ac2a5c11882b0c26b271bfdefe6d28091}{set\+\_\+random}} (int seed)
+\begin{DoxyCompactList}\small\item\em Set rng seed. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_trader_a83cad62d01dce441864f1f11aa06759f}{operator==}} (const \mbox{\hyperlink{class_trader}{Trader}} \&other) const
+\begin{DoxyCompactList}\small\item\em Equality operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_trader}{Trader}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937 {\bfseries gen}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Market Maker (Random) 
+
+\label{doc-constructors}
+\Hypertarget{class_m_maker_trader_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_m_maker_trader_aff19d4cbb23070f9f0f8178886fc3668}\index{MMakerTrader@{MMakerTrader}!MMakerTrader@{MMakerTrader}}
+\index{MMakerTrader@{MMakerTrader}!MMakerTrader@{MMakerTrader}}
+\doxysubsubsection{\texorpdfstring{MMakerTrader()}{MMakerTrader()}}
+{\footnotesize\ttfamily \label{class_m_maker_trader_aff19d4cbb23070f9f0f8178886fc3668} 
+MMaker\+Trader\+::\+MMaker\+Trader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+name}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_m_maker_trader}{MMaker\+Trader} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+name} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_m_maker_trader_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_maker_trader_a1f1bf75ef720a37b9c8f3c0a00ae338a}\index{MMakerTrader@{MMakerTrader}!fair\_price@{fair\_price}}
+\index{fair\_price@{fair\_price}!MMakerTrader@{MMakerTrader}}
+\doxysubsubsection{\texorpdfstring{fair\_price()}{fair\_price()}}
+{\footnotesize\ttfamily \label{class_m_maker_trader_a1f1bf75ef720a37b9c8f3c0a00ae338a} 
+float MMaker\+Trader\+::fair\+\_\+price (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_exchange}{Exchange}} \texorpdfstring{$\ast$}{*}}]{exchange}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+generate fair price from exchange 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exchange} & \doxylink{class_exchange}{Exchange} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_trader_a0ba0a36d394adf7f7714ac94dec0b0af}{Trader}}.
+
+\Hypertarget{class_m_maker_trader_a0515782f6a6d43581901fec5e569fb7c}\index{MMakerTrader@{MMakerTrader}!make\_order@{make\_order}}
+\index{make\_order@{make\_order}!MMakerTrader@{MMakerTrader}}
+\doxysubsubsection{\texorpdfstring{make\_order()}{make\_order()}}
+{\footnotesize\ttfamily \label{class_m_maker_trader_a0515782f6a6d43581901fec5e569fb7c} 
+\mbox{\hyperlink{class_order}{Order}} MMaker\+Trader\+::make\+\_\+order (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_exchange}{Exchange}} \texorpdfstring{$\ast$}{*}}]{exchange}{, }\item[{bool}]{is\+\_\+long}{ = {\ttfamily false}}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Generate order from trader. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em exchange} & \\
+\hline
+{\em is\+\_\+long} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_order}{Order} 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_trader_a8f7a6543907ea359d043cffae1823771}{Trader}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Trader.\+hpp\item 
+src/Trader.\+cpp\end{DoxyCompactItemize}

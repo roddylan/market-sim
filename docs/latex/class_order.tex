@@ -1,0 +1,260 @@
+\doxysection{Order Class Reference}
+\hypertarget{class_order}{}\label{class_order}\index{Order@{Order}}
+
+
+Represents \doxylink{class_order}{Order}.  
+
+
+
+
+{\ttfamily \#include $<$Order.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_order_a83b60c5e72e0e4e941ae05abf6f0cc09}\label{class_order_a83b60c5e72e0e4e941ae05abf6f0cc09} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Order} ()=default
+\begin{DoxyCompactList}\small\item\em Destroy the \doxylink{class_order}{Order} object (default) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_ad8f9f486ab0a8404867df96fdfaae31c}{Order}} (float \+\_\+price, int \+\_\+volume, \mbox{\hyperlink{class_trader}{Trader}} \&\+\_\+trader)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_ab9144a01c3d2d93e117d2146fe5909bf}{Order}} (float \+\_\+price, int \+\_\+volume, const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}const \+\_\+trader)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_a653d5af59110bed36696c95740134e9f}{Order}} (float \+\_\+price, int \+\_\+volume, \mbox{\hyperlink{class_trader}{Trader}} \&\+\_\+trader, const Market\+Utils\+::\+Timestamp \&\+\_\+timestamp)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_a1be3a05f79c73841aa63268639e8cacb}{Order}} (float \+\_\+price, int \+\_\+volume, const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}const \+\_\+trader, const Market\+Utils\+::\+Timestamp \&\+\_\+timestamp)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_order_a81bc3cc3bef22bae30e19208bf074258}{Order}} (const \mbox{\hyperlink{class_order}{Order}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{class_order}{Order} object. \end{DoxyCompactList}\item 
+\Hypertarget{class_order_a73e07dd6c01ad44d91932f1450d2a098}\label{class_order_a73e07dd6c01ad44d91932f1450d2a098} 
+\mbox{\hyperlink{class_order}{Order}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_order}{Order}} \&)=delete
+\item 
+float \mbox{\hyperlink{class_order_aa8e1b40f3ffb098177b2fbb867ec89e9}{get\+\_\+price}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the bid/ask price of the order. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_order_a9ac926b2ac049359b679f75461d22f9b}{get\+\_\+volume}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the volume of the trade. \texorpdfstring{$<$}{<} 0 if short/sell, \texorpdfstring{$>$}{>} 0 if long/buy. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_trader}{Trader}} \& \mbox{\hyperlink{class_order_ab88ea5d7f04929da2b1317fa6681e800}{get\+\_\+trader}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the trader object. \end{DoxyCompactList}\item 
+Market\+Utils\+::\+Timestamp \mbox{\hyperlink{class_order_ae313b499befa300f4b539888648532e1}{get\+\_\+time}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Get the time object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_order_afa408354a9bc492eaac07e6ff26ed81f}{update\+\_\+volume}} (const int \&inc)
+\begin{DoxyCompactList}\small\item\em update volume \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_order_a6a741363462294bdb4278451798a8781}{operator==}} (const \mbox{\hyperlink{class_order}{Order}} \&other) const
+\begin{DoxyCompactList}\small\item\em Equality comparison operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_order_a9c2f4859d2e6e8bbeded12b36ae1303e}\label{class_order_a9c2f4859d2e6e8bbeded12b36ae1303e} 
+float {\bfseries price}
+\item 
+\Hypertarget{class_order_a203feda7665a750c5ca799b9b79eeca0}\label{class_order_a203feda7665a750c5ca799b9b79eeca0} 
+int {\bfseries volume}
+\item 
+\Hypertarget{class_order_a0116c78f10edd35c19cb0d1937f3c134}\label{class_order_a0116c78f10edd35c19cb0d1937f3c134} 
+const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}const {\bfseries trader}
+\item 
+\Hypertarget{class_order_ad83bed58a27adf1ab881d90e0a7980e8}\label{class_order_ad83bed58a27adf1ab881d90e0a7980e8} 
+const Market\+Utils\+::\+Timestamp {\bfseries timestamp}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents \doxylink{class_order}{Order}. 
+
+Class stores order information, negative volume for short/sell and positive volume for long/buy 
+
+\label{doc-constructors}
+\Hypertarget{class_order_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_order_ad8f9f486ab0a8404867df96fdfaae31c}\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{Order()}{Order()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{class_order_ad8f9f486ab0a8404867df96fdfaae31c} 
+Order\+::\+Order (\begin{DoxyParamCaption}\item[{float}]{\+\_\+price}{, }\item[{int}]{\+\_\+volume}{, }\item[{\mbox{\hyperlink{class_trader}{Trader}} \&}]{\+\_\+trader}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_order}{Order} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+price} & \\
+\hline
+{\em \+\_\+volume} & \\
+\hline
+{\em \+\_\+trader} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_order_ab9144a01c3d2d93e117d2146fe5909bf}\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{Order()}{Order()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{class_order_ab9144a01c3d2d93e117d2146fe5909bf} 
+Order\+::\+Order (\begin{DoxyParamCaption}\item[{float}]{\+\_\+price}{, }\item[{int}]{\+\_\+volume}{, }\item[{const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}const}]{\+\_\+trader}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_order}{Order} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+price} & \\
+\hline
+{\em \+\_\+volume} & \\
+\hline
+{\em \+\_\+trader} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_order_a653d5af59110bed36696c95740134e9f}\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{Order()}{Order()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{class_order_a653d5af59110bed36696c95740134e9f} 
+Order\+::\+Order (\begin{DoxyParamCaption}\item[{float}]{\+\_\+price}{, }\item[{int}]{\+\_\+volume}{, }\item[{\mbox{\hyperlink{class_trader}{Trader}} \&}]{\+\_\+trader}{, }\item[{const Market\+Utils\+::\+Timestamp \&}]{\+\_\+timestamp}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_order}{Order} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+price} & \\
+\hline
+{\em \+\_\+volume} & \\
+\hline
+{\em \+\_\+trader} & \\
+\hline
+{\em \+\_\+timestamp} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_order_a1be3a05f79c73841aa63268639e8cacb}\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{Order()}{Order()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{class_order_a1be3a05f79c73841aa63268639e8cacb} 
+Order\+::\+Order (\begin{DoxyParamCaption}\item[{float}]{\+\_\+price}{, }\item[{int}]{\+\_\+volume}{, }\item[{const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}const}]{\+\_\+trader}{, }\item[{const Market\+Utils\+::\+Timestamp \&}]{\+\_\+timestamp}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_order}{Order} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+price} & \\
+\hline
+{\em \+\_\+volume} & \\
+\hline
+{\em \+\_\+trader} & \\
+\hline
+{\em \+\_\+timestamp} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_order_a81bc3cc3bef22bae30e19208bf074258}\index{Order@{Order}!Order@{Order}}
+\index{Order@{Order}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{Order()}{Order()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{class_order_a81bc3cc3bef22bae30e19208bf074258} 
+Order\+::\+Order (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_order}{Order}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{class_order}{Order} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_order_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_order_aa8e1b40f3ffb098177b2fbb867ec89e9}\index{Order@{Order}!get\_price@{get\_price}}
+\index{get\_price@{get\_price}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{get\_price()}{get\_price()}}
+{\footnotesize\ttfamily \label{class_order_aa8e1b40f3ffb098177b2fbb867ec89e9} 
+float Order\+::get\+\_\+price (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Get the bid/ask price of the order. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\Hypertarget{class_order_ae313b499befa300f4b539888648532e1}\index{Order@{Order}!get\_time@{get\_time}}
+\index{get\_time@{get\_time}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{get\_time()}{get\_time()}}
+{\footnotesize\ttfamily \label{class_order_ae313b499befa300f4b539888648532e1} 
+Market\+Utils\+::\+Timestamp Order\+::get\+\_\+time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Get the time object. 
+
+\begin{DoxyReturn}{Returns}
+Market\+Utils\+::\+Timestamp 
+\end{DoxyReturn}
+\Hypertarget{class_order_ab88ea5d7f04929da2b1317fa6681e800}\index{Order@{Order}!get\_trader@{get\_trader}}
+\index{get\_trader@{get\_trader}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{get\_trader()}{get\_trader()}}
+{\footnotesize\ttfamily \label{class_order_ab88ea5d7f04929da2b1317fa6681e800} 
+const \mbox{\hyperlink{class_trader}{Trader}} \& Order\+::get\+\_\+trader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Get the trader object. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_trader}{Trader}\& 
+\end{DoxyReturn}
+\Hypertarget{class_order_a9ac926b2ac049359b679f75461d22f9b}\index{Order@{Order}!get\_volume@{get\_volume}}
+\index{get\_volume@{get\_volume}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{get\_volume()}{get\_volume()}}
+{\footnotesize\ttfamily \label{class_order_a9ac926b2ac049359b679f75461d22f9b} 
+int Order\+::get\+\_\+volume (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Get the volume of the trade. \texorpdfstring{$<$}{<} 0 if short/sell, \texorpdfstring{$>$}{>} 0 if long/buy. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{class_order_a6a741363462294bdb4278451798a8781}\index{Order@{Order}!operator==@{operator==}}
+\index{operator==@{operator==}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_order_a6a741363462294bdb4278451798a8781} 
+bool Order\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_order}{Order}} \&}]{other}{}\end{DoxyParamCaption}) const}
+
+
+
+Equality comparison operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\Hypertarget{class_order_afa408354a9bc492eaac07e6ff26ed81f}\index{Order@{Order}!update\_volume@{update\_volume}}
+\index{update\_volume@{update\_volume}!Order@{Order}}
+\doxysubsubsection{\texorpdfstring{update\_volume()}{update\_volume()}}
+{\footnotesize\ttfamily \label{class_order_afa408354a9bc492eaac07e6ff26ed81f} 
+void Order\+::update\+\_\+volume (\begin{DoxyParamCaption}\item[{const int \&}]{inc}{}\end{DoxyParamCaption})}
+
+
+
+update volume 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inc} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Order.\+hpp\item 
+src/Order.\+cpp\end{DoxyCompactItemize}

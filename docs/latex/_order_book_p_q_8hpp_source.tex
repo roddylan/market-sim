@@ -1,0 +1,46 @@
+\doxysection{Order\+Book\+PQ.\+hpp}
+\hypertarget{_order_book_p_q_8hpp_source}{}\label{_order_book_p_q_8hpp_source}\index{include/OrderBookPQ.hpp@{include/OrderBookPQ.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ OrderBookPQ.hpp}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Order.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}OrderUtils.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_order_book_p_q_a1526d1fe0df43b590f1b566b618d6dc1}{OrderBookPQ}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \textcolor{keyword}{using\ }BuyQueue\ =\ std::priority\_queue<std::shared\_ptr<Order>,\ std::vector<std::shared\_ptr<Order>>,\ \mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare_p_q}{OrderUtils::BuyOrderComparePQ}}>;}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{using\ }SellQueue\ =\ std::priority\_queue<std::shared\_ptr<Order>,\ std::vector<std::shared\_ptr<Order>>,\ \mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare_p_q}{OrderUtils::SellOrderComparePQ}}>;}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{class_order_book_p_q_a1526d1fe0df43b590f1b566b618d6dc1}{OrderBookPQ}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{class_order_book_p_q_adb6e648dd7ea8120420eb1189c2ab4ff}{\string~OrderBookPQ}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{class_order_book_p_q_a1526d1fe0df43b590f1b566b618d6dc1}{OrderBookPQ}}(\textcolor{keyword}{const}\ BuyQueue\ \&\_buys,\ \textcolor{keyword}{const}\ SellQueue\ \&\_sells);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{class_order_book_p_q_a1526d1fe0df43b590f1b566b618d6dc1}{OrderBookPQ}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book_p_q_a1526d1fe0df43b590f1b566b618d6dc1}{OrderBookPQ}}\ \&other);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{class_order_book_p_q_a1526d1fe0df43b590f1b566b618d6dc1}{OrderBookPQ}}\ \&\mbox{\hyperlink{class_order_book_p_q_aa7638ac5d7ab59c4a2062800891f03c0}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book_p_q_a1526d1fe0df43b590f1b566b618d6dc1}{OrderBookPQ}}\ \&other);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{const}\ BuyQueue\ \&\mbox{\hyperlink{class_order_book_p_q_a345c76f181984a2ac4e1a09dc4f5a7ab}{get\_buy\_orders}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00055\ \ \ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{const}\ SellQueue\ \&\mbox{\hyperlink{class_order_book_p_q_a280696c74eb26e4b819857507337fd77}{get\_sell\_orders}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_order_book_p_q_a45ac025d902f991faba511660bfe272f}{insert}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order}{Order}}\ \&order);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_p_q_a1306f1f7f5161cf45627e0b05d1517cf}{match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
+\DoxyCodeLine{00080\ \ \ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_p_q_ade6b18c4c6c083dbd901a1641fe57921}{sell\_match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
+\DoxyCodeLine{00090\ \ \ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_p_q_a42d3da577c37877da8f6eb251a00b098}{buy\_match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
+\DoxyCodeLine{00098\ \ \ BuyQueue\ buy\_orders;}
+\DoxyCodeLine{00099\ \ \ SellQueue\ sell\_orders;}
+\DoxyCodeLine{00100\ \};}
+
+\end{DoxyCode}

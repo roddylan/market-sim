@@ -1,0 +1,35 @@
+\doxysection{Market\+Data.\+hpp}
+\hypertarget{_market_data_8hpp_source}{}\label{_market_data_8hpp_source}\index{include/MarketData.hpp@{include/MarketData.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ MarketData.hpp}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Market\ state\ info\ and\ other\ data}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Trade.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }MarketData\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{using\ }Trades\ =\ std::vector<std::unique\_ptr<Trade>>;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ MarketData()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00013\ \ \ \string~MarketData()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{struct_trade}{Trade}}\ *\mbox{\hyperlink{class_market_data_abd618e26f7965b4cb6ede2d4beb34e94}{get\_last\_trade}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_market_data_a93cfb1b25a267eaedcf2e770b5d2403f}{get\_last\_price}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{const}\ Trades\ \&\mbox{\hyperlink{class_market_data_a3f4fb9df796196bc8f612d27a225132a}{get\_trade\_history}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{const}\ std::vector<float>\ \&\mbox{\hyperlink{class_market_data_adf5f16e78b26d528ed4185d3cd992d16}{get\_prices}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_market_data_aef7e474750e654b42aa91dfe605cf80c}{add\_trade}}(\mbox{\hyperlink{class_trader}{Trader}}\ \&maker,\ \mbox{\hyperlink{class_trader}{Trader}}\ \&taker,\ \textcolor{keywordtype}{float}\ vwap);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \textcolor{comment}{//\ stack\ containing\ trade\ history}}
+\DoxyCodeLine{00054\ \ \ Trades\ trade\_history;}
+\DoxyCodeLine{00055\ \ \ std::vector<float>\ price\_history;}
+\DoxyCodeLine{00056\ \};}
+
+\end{DoxyCode}

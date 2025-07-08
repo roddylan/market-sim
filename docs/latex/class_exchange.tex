@@ -1,0 +1,208 @@
+\doxysection{Exchange Class Reference}
+\hypertarget{class_exchange}{}\label{class_exchange}\index{Exchange@{Exchange}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_exchange_a7d634ba93c8eff52d0d89f339a070120}\label{class_exchange_a7d634ba93c8eff52d0d89f339a070120} 
+using {\bfseries Traders} = std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_trader}{Trader}}$>$$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_exchange_a5d4a41bf583b47eadd296c975136f748}\label{class_exchange_a5d4a41bf583b47eadd296c975136f748} 
+{\bfseries Exchange} (float \+\_\+starting\+\_\+price=100)
+\item 
+Traders \mbox{\hyperlink{class_exchange_a3ee54812a0447b15972199ae9ece7b37}{get\+\_\+makers}} () const
+\begin{DoxyCompactList}\small\item\em Get market makers. \end{DoxyCompactList}\item 
+Traders \mbox{\hyperlink{class_exchange_abdf815c335de50587898cfc1532aa150}{get\+\_\+takers}} () const
+\begin{DoxyCompactList}\small\item\em Get market takers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_exchange_aa9009b8bb274516ae9a2ee77e86b9ca8}{add\+\_\+maker}} (const \mbox{\hyperlink{class_trader}{Trader}} \&maker)
+\begin{DoxyCompactList}\small\item\em Add market maker. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_exchange_a3cfb1b5f3554a19f605cf544caf597cc}{add\+\_\+taker}} (const \mbox{\hyperlink{class_trader}{Trader}} \&taker)
+\begin{DoxyCompactList}\small\item\em Add market taker. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{concept_derived_trader}{Derived\+Trader}} T$>$ }\\void \mbox{\hyperlink{class_exchange_ab9241a3795a84943690d4207173d33e9}{add\+\_\+maker}} ()
+\begin{DoxyCompactList}\small\item\em autogenerate maker \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{concept_derived_trader}{Derived\+Trader}} T$>$ }\\void \mbox{\hyperlink{class_exchange_aaa59753ef67cdb123c9778f4c01c7bab}{add\+\_\+taker}} ()
+\begin{DoxyCompactList}\small\item\em autogenerate taker \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_order_book}{Order\+Book}} \& \mbox{\hyperlink{class_exchange_a6ef17f4f4a6ea54f612481b1da72e99d}{get\+\_\+book}} () const
+\begin{DoxyCompactList}\small\item\em Get the book object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_market_data}{Market\+Data}} \& \mbox{\hyperlink{class_exchange_aafddc09a52f69d5ff648bf3a9493e72c}{get\+\_\+market\+\_\+data}} () const
+\begin{DoxyCompactList}\small\item\em Get the market data object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_exchange_a5d412fa1873a3693d80d124939865dad}{set\+\_\+starting\+\_\+price}} (float price)
+\begin{DoxyCompactList}\small\item\em Set the starting price. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_exchange_a4eb819e23862645cb513ee8d14f6cfe7}{get\+\_\+starting\+\_\+price}} () const
+\begin{DoxyCompactList}\small\item\em Get the starting price. \end{DoxyCompactList}\item 
+\Hypertarget{class_exchange_a43f9c2579bbf4a795002de9cdf86bd33}\label{class_exchange_a43f9c2579bbf4a795002de9cdf86bd33} 
+void {\bfseries run} ()
+\begin{DoxyCompactList}\small\item\em Run tick. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_exchange_abfaadf21d95694eace732ab7f4a1aa0c}\label{class_exchange_abfaadf21d95694eace732ab7f4a1aa0c} 
+Traders {\bfseries makers}
+\item 
+\Hypertarget{class_exchange_a74391c2793c2c3dc9de8f8abb8785e8f}\label{class_exchange_a74391c2793c2c3dc9de8f8abb8785e8f} 
+Traders {\bfseries takers}
+\item 
+\Hypertarget{class_exchange_a995987c1d8ae52ed2d693fb299ef2e66}\label{class_exchange_a995987c1d8ae52ed2d693fb299ef2e66} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_order_book}{Order\+Book}} $>$ {\bfseries book}
+\item 
+\Hypertarget{class_exchange_aefdbc83975307b2ace6516b8eeab5e99}\label{class_exchange_aefdbc83975307b2ace6516b8eeab5e99} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_market_data}{Market\+Data}} $>$ {\bfseries market\+\_\+data}
+\item 
+\Hypertarget{class_exchange_adecf4533330b0b22e619fcc7cab583cb}\label{class_exchange_adecf4533330b0b22e619fcc7cab583cb} 
+float {\bfseries starting\+\_\+price}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_exchange_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_exchange_ab9241a3795a84943690d4207173d33e9}\index{Exchange@{Exchange}!add\_maker@{add\_maker}}
+\index{add\_maker@{add\_maker}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{add\_maker()}{add\_maker()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_exchange_ab9241a3795a84943690d4207173d33e9} 
+template$<$\mbox{\hyperlink{concept_derived_trader}{Derived\+Trader}} T$>$ \\
+void Exchange\+::add\+\_\+maker (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+autogenerate maker 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & trader subclass \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_exchange_aa9009b8bb274516ae9a2ee77e86b9ca8}\index{Exchange@{Exchange}!add\_maker@{add\_maker}}
+\index{add\_maker@{add\_maker}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{add\_maker()}{add\_maker()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_exchange_aa9009b8bb274516ae9a2ee77e86b9ca8} 
+void Exchange\+::add\+\_\+maker (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_trader}{Trader}} \&}]{maker}{}\end{DoxyParamCaption})}
+
+
+
+Add market maker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maker} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_exchange_aaa59753ef67cdb123c9778f4c01c7bab}\index{Exchange@{Exchange}!add\_taker@{add\_taker}}
+\index{add\_taker@{add\_taker}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{add\_taker()}{add\_taker()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_exchange_aaa59753ef67cdb123c9778f4c01c7bab} 
+template$<$\mbox{\hyperlink{concept_derived_trader}{Derived\+Trader}} T$>$ \\
+void Exchange\+::add\+\_\+taker (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+autogenerate taker 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & trader subclass \\
+\hline
+\end{DoxyTemplParams}
+\Hypertarget{class_exchange_a3cfb1b5f3554a19f605cf544caf597cc}\index{Exchange@{Exchange}!add\_taker@{add\_taker}}
+\index{add\_taker@{add\_taker}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{add\_taker()}{add\_taker()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_exchange_a3cfb1b5f3554a19f605cf544caf597cc} 
+void Exchange\+::add\+\_\+taker (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_trader}{Trader}} \&}]{taker}{}\end{DoxyParamCaption})}
+
+
+
+Add market taker. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em taker} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_exchange_a6ef17f4f4a6ea54f612481b1da72e99d}\index{Exchange@{Exchange}!get\_book@{get\_book}}
+\index{get\_book@{get\_book}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{get\_book()}{get\_book()}}
+{\footnotesize\ttfamily \label{class_exchange_a6ef17f4f4a6ea54f612481b1da72e99d} 
+const \mbox{\hyperlink{class_order_book}{Order\+Book}} \& Exchange\+::get\+\_\+book (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the book object. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_order_book}{Order\+Book}\& 
+\end{DoxyReturn}
+\Hypertarget{class_exchange_a3ee54812a0447b15972199ae9ece7b37}\index{Exchange@{Exchange}!get\_makers@{get\_makers}}
+\index{get\_makers@{get\_makers}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{get\_makers()}{get\_makers()}}
+{\footnotesize\ttfamily \label{class_exchange_a3ee54812a0447b15972199ae9ece7b37} 
+Exchange\+::\+Traders Exchange\+::get\+\_\+makers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get market makers. 
+
+\begin{DoxyReturn}{Returns}
+Traders 
+\end{DoxyReturn}
+\Hypertarget{class_exchange_aafddc09a52f69d5ff648bf3a9493e72c}\index{Exchange@{Exchange}!get\_market\_data@{get\_market\_data}}
+\index{get\_market\_data@{get\_market\_data}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{get\_market\_data()}{get\_market\_data()}}
+{\footnotesize\ttfamily \label{class_exchange_aafddc09a52f69d5ff648bf3a9493e72c} 
+const \mbox{\hyperlink{class_market_data}{Market\+Data}} \& Exchange\+::get\+\_\+market\+\_\+data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the market data object. 
+
+\begin{DoxyReturn}{Returns}
+const \doxylink{class_market_data}{Market\+Data}\& 
+\end{DoxyReturn}
+\Hypertarget{class_exchange_a4eb819e23862645cb513ee8d14f6cfe7}\index{Exchange@{Exchange}!get\_starting\_price@{get\_starting\_price}}
+\index{get\_starting\_price@{get\_starting\_price}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{get\_starting\_price()}{get\_starting\_price()}}
+{\footnotesize\ttfamily \label{class_exchange_a4eb819e23862645cb513ee8d14f6cfe7} 
+float Exchange\+::get\+\_\+starting\+\_\+price (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the starting price. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\Hypertarget{class_exchange_abdf815c335de50587898cfc1532aa150}\index{Exchange@{Exchange}!get\_takers@{get\_takers}}
+\index{get\_takers@{get\_takers}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{get\_takers()}{get\_takers()}}
+{\footnotesize\ttfamily \label{class_exchange_abdf815c335de50587898cfc1532aa150} 
+Exchange\+::\+Traders Exchange\+::get\+\_\+takers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get market takers. 
+
+\begin{DoxyReturn}{Returns}
+Traders 
+\end{DoxyReturn}
+\Hypertarget{class_exchange_a5d412fa1873a3693d80d124939865dad}\index{Exchange@{Exchange}!set\_starting\_price@{set\_starting\_price}}
+\index{set\_starting\_price@{set\_starting\_price}!Exchange@{Exchange}}
+\doxysubsubsection{\texorpdfstring{set\_starting\_price()}{set\_starting\_price()}}
+{\footnotesize\ttfamily \label{class_exchange_a5d412fa1873a3693d80d124939865dad} 
+void Exchange\+::set\+\_\+starting\+\_\+price (\begin{DoxyParamCaption}\item[{float}]{price}{}\end{DoxyParamCaption})}
+
+
+
+Set the starting price. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em price} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Exchange.\+hpp\item 
+src/Exchange.\+cpp\end{DoxyCompactItemize}

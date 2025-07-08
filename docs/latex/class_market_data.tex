@@ -1,0 +1,112 @@
+\doxysection{Market\+Data Class Reference}
+\hypertarget{class_market_data}{}\label{class_market_data}\index{MarketData@{MarketData}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_market_data_a6460abe253c6902ae7fb86e4460791c5}\label{class_market_data_a6460abe253c6902ae7fb86e4460791c5} 
+using {\bfseries Trades} = std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{struct_trade}{Trade}}$>$$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_trade}{Trade}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_market_data_abd618e26f7965b4cb6ede2d4beb34e94}{get\+\_\+last\+\_\+trade}} () const
+\begin{DoxyCompactList}\small\item\em Get the last trade (most recent) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_market_data_a93cfb1b25a267eaedcf2e770b5d2403f}{get\+\_\+last\+\_\+price}} () const
+\begin{DoxyCompactList}\small\item\em Get the last price. \end{DoxyCompactList}\item 
+const Trades \& \mbox{\hyperlink{class_market_data_a3f4fb9df796196bc8f612d27a225132a}{get\+\_\+trade\+\_\+history}} () const
+\begin{DoxyCompactList}\small\item\em Get the trade history object. \end{DoxyCompactList}\item 
+const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{class_market_data_adf5f16e78b26d528ed4185d3cd992d16}{get\+\_\+prices}} () const
+\begin{DoxyCompactList}\small\item\em Get the prices object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_market_data_aef7e474750e654b42aa91dfe605cf80c}{add\+\_\+trade}} (\mbox{\hyperlink{class_trader}{Trader}} \&maker, \mbox{\hyperlink{class_trader}{Trader}} \&taker, float vwap)
+\begin{DoxyCompactList}\small\item\em add trade to history (and update price history) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_market_data_a6c4f0311ab2216011523e852ebae1700}\label{class_market_data_a6c4f0311ab2216011523e852ebae1700} 
+Trades {\bfseries trade\+\_\+history}
+\item 
+\Hypertarget{class_market_data_a15864ead7c4d2425588fafdb8e727e2b}\label{class_market_data_a15864ead7c4d2425588fafdb8e727e2b} 
+std\+::vector$<$ float $>$ {\bfseries price\+\_\+history}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_market_data_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_market_data_aef7e474750e654b42aa91dfe605cf80c}\index{MarketData@{MarketData}!add\_trade@{add\_trade}}
+\index{add\_trade@{add\_trade}!MarketData@{MarketData}}
+\doxysubsubsection{\texorpdfstring{add\_trade()}{add\_trade()}}
+{\footnotesize\ttfamily \label{class_market_data_aef7e474750e654b42aa91dfe605cf80c} 
+void Market\+Data\+::add\+\_\+trade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trader}{Trader}} \&}]{maker}{, }\item[{\mbox{\hyperlink{class_trader}{Trader}} \&}]{taker}{, }\item[{float}]{vwap}{}\end{DoxyParamCaption})}
+
+
+
+add trade to history (and update price history) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maker} & \\
+\hline
+{\em taker} & \\
+\hline
+{\em vwap} & volume weighted average price \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_market_data_a93cfb1b25a267eaedcf2e770b5d2403f}\index{MarketData@{MarketData}!get\_last\_price@{get\_last\_price}}
+\index{get\_last\_price@{get\_last\_price}!MarketData@{MarketData}}
+\doxysubsubsection{\texorpdfstring{get\_last\_price()}{get\_last\_price()}}
+{\footnotesize\ttfamily \label{class_market_data_a93cfb1b25a267eaedcf2e770b5d2403f} 
+float Market\+Data\+::get\+\_\+last\+\_\+price (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the last price. 
+
+\begin{DoxyReturn}{Returns}
+float 
+\end{DoxyReturn}
+\Hypertarget{class_market_data_abd618e26f7965b4cb6ede2d4beb34e94}\index{MarketData@{MarketData}!get\_last\_trade@{get\_last\_trade}}
+\index{get\_last\_trade@{get\_last\_trade}!MarketData@{MarketData}}
+\doxysubsubsection{\texorpdfstring{get\_last\_trade()}{get\_last\_trade()}}
+{\footnotesize\ttfamily \label{class_market_data_abd618e26f7965b4cb6ede2d4beb34e94} 
+\mbox{\hyperlink{struct_trade}{Trade}} \texorpdfstring{$\ast$}{*} Market\+Data\+::get\+\_\+last\+\_\+trade (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the last trade (most recent) 
+
+\begin{DoxyReturn}{Returns}
+Trade\texorpdfstring{$\ast$}{*} 
+\end{DoxyReturn}
+\Hypertarget{class_market_data_adf5f16e78b26d528ed4185d3cd992d16}\index{MarketData@{MarketData}!get\_prices@{get\_prices}}
+\index{get\_prices@{get\_prices}!MarketData@{MarketData}}
+\doxysubsubsection{\texorpdfstring{get\_prices()}{get\_prices()}}
+{\footnotesize\ttfamily \label{class_market_data_adf5f16e78b26d528ed4185d3cd992d16} 
+const std\+::vector$<$ float $>$ \& Market\+Data\+::get\+\_\+prices (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the prices object. 
+
+\begin{DoxyReturn}{Returns}
+const std\+::vector$<$float$>$\& 
+\end{DoxyReturn}
+\Hypertarget{class_market_data_a3f4fb9df796196bc8f612d27a225132a}\index{MarketData@{MarketData}!get\_trade\_history@{get\_trade\_history}}
+\index{get\_trade\_history@{get\_trade\_history}!MarketData@{MarketData}}
+\doxysubsubsection{\texorpdfstring{get\_trade\_history()}{get\_trade\_history()}}
+{\footnotesize\ttfamily \label{class_market_data_a3f4fb9df796196bc8f612d27a225132a} 
+const Market\+Data\+::\+Trades \& Market\+Data\+::get\+\_\+trade\+\_\+history (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the trade history object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::unique\+\_\+ptr$<$\+Trade$>$$>$ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Market\+Data.\+hpp\item 
+src/Market\+Data.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,122 @@
+\doxysection{Trade Struct Reference}
+\hypertarget{struct_trade}{}\label{struct_trade}\index{Trade@{Trade}}
+
+
+Executed trade.  
+
+
+
+
+{\ttfamily \#include $<$Trade.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_trade_aef3694cd5d63638643b3149b569daf32}{Trade}} (const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}\+\_\+maker, const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}\+\_\+taker, float \+\_\+price)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{struct_trade}{Trade} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_trade_a307528a5e3e82b05b16413463b8e2cdd}{Trade}} (\mbox{\hyperlink{class_trader}{Trader}} \&\+\_\+maker, \mbox{\hyperlink{class_trader}{Trader}} \&\+\_\+taker, float \+\_\+price)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{struct_trade}{Trade} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_trade_a0240e383933bdfdfb6a61944000185c6}{Trade}} (const \mbox{\hyperlink{struct_trade}{Trade}} \&other)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxylink{struct_trade}{Trade} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_trade}{Trade}} \& \mbox{\hyperlink{struct_trade_a1ea76a8d01478553c57fed6d6c58add6}{operator=}} (const \mbox{\hyperlink{struct_trade}{Trade}} \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy assignment for \doxylink{struct_trade}{Trade}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_trade_a3186e43988526cf1e6953315be6149e6}\label{struct_trade_a3186e43988526cf1e6953315be6149e6} 
+const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}const {\bfseries maker}
+\item 
+\Hypertarget{struct_trade_a2c937d79a47c7c4aa4f22cc02e19ae2e}\label{struct_trade_a2c937d79a47c7c4aa4f22cc02e19ae2e} 
+const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}const {\bfseries taker}
+\item 
+\Hypertarget{struct_trade_ac293473cc8c8a221e4f2ae4f64caa26e}\label{struct_trade_ac293473cc8c8a221e4f2ae4f64caa26e} 
+const float {\bfseries price}
+\item 
+\Hypertarget{struct_trade_ab4997eed1a1e47e0f321575f0f04eac3}\label{struct_trade_ab4997eed1a1e47e0f321575f0f04eac3} 
+const Market\+Utils\+::\+Timestamp {\bfseries timestamp}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Executed trade. 
+
+\label{doc-constructors}
+\Hypertarget{struct_trade_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_trade_aef3694cd5d63638643b3149b569daf32}\index{Trade@{Trade}!Trade@{Trade}}
+\index{Trade@{Trade}!Trade@{Trade}}
+\doxysubsubsection{\texorpdfstring{Trade()}{Trade()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{struct_trade_aef3694cd5d63638643b3149b569daf32} 
+Trade\+::\+Trade (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}}]{\+\_\+maker}{, }\item[{const \mbox{\hyperlink{class_trader}{Trader}} \texorpdfstring{$\ast$}{*}}]{\+\_\+taker}{, }\item[{float}]{\+\_\+price}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{struct_trade}{Trade} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+maker} & \\
+\hline
+{\em \+\_\+taker} & \\
+\hline
+{\em \+\_\+price} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_trade_a307528a5e3e82b05b16413463b8e2cdd}\index{Trade@{Trade}!Trade@{Trade}}
+\index{Trade@{Trade}!Trade@{Trade}}
+\doxysubsubsection{\texorpdfstring{Trade()}{Trade()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{struct_trade_a307528a5e3e82b05b16413463b8e2cdd} 
+Trade\+::\+Trade (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_trader}{Trader}} \&}]{\+\_\+maker}{, }\item[{\mbox{\hyperlink{class_trader}{Trader}} \&}]{\+\_\+taker}{, }\item[{float}]{\+\_\+price}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{struct_trade}{Trade} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+maker} & \\
+\hline
+{\em \+\_\+taker} & \\
+\hline
+{\em \+\_\+price} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_trade_a0240e383933bdfdfb6a61944000185c6}\index{Trade@{Trade}!Trade@{Trade}}
+\index{Trade@{Trade}!Trade@{Trade}}
+\doxysubsubsection{\texorpdfstring{Trade()}{Trade()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{struct_trade_a0240e383933bdfdfb6a61944000185c6} 
+Trade\+::\+Trade (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_trade}{Trade}} \&}]{other}{}\end{DoxyParamCaption})}
+
+
+
+Construct a new \doxylink{struct_trade}{Trade} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{struct_trade_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_trade_a1ea76a8d01478553c57fed6d6c58add6}\index{Trade@{Trade}!operator=@{operator=}}
+\index{operator=@{operator=}!Trade@{Trade}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{struct_trade_a1ea76a8d01478553c57fed6d6c58add6} 
+\mbox{\hyperlink{struct_trade}{Trade}} \& Trade\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_trade}{Trade}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+Copy assignment for \doxylink{struct_trade}{Trade}. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{struct_trade}{Trade}\& 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Trade.\+hpp\item 
+src/Trade.\+cpp\end{DoxyCompactItemize}
