@@ -2,11 +2,10 @@
 #include "gtest/gtest.h"
 #include "Exchange.hpp"
 
-class ExchangeTest : ::testing::Test {
+class ExchangeTest : public ::testing::Test {
 protected:
   Exchange exchange;
   void SetUp() override {
-    
     return;
   }
 
@@ -14,3 +13,8 @@ protected:
     return;
   }
 };
+
+
+TEST_F(ExchangeTest, DefaultInitialization) {
+  EXPECT_EQ(exchange.get_starting_price(), 100);
+}
