@@ -21,6 +21,10 @@ const MarketData::Trades &MarketData::get_trade_history() const {
   return trade_history;
 }
 
+const std::vector<float> &MarketData::get_prices() const {
+  return price_history;
+}
+
 void MarketData::add_trade(Trader &maker, Trader &taker, float vwap) {
   trade_history.push_back(std::make_unique<Trade>(maker, taker, vwap));
   price_history.push_back(vwap);

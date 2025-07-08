@@ -34,6 +34,13 @@ public:
   const Trades &get_trade_history() const;
 
   /**
+   * @brief Get the prices object
+   * 
+   * @return const std::vector<float>& 
+   */
+  const std::vector<float> &get_prices() const;
+
+  /**
    * @brief add trade to history (and update price history)
    *
    * @param maker
