@@ -53,6 +53,14 @@ public:
    */
   Order(float _price, int _volume, Trader &_trader, const MarketUtils::Timestamp &_timestamp);
   
+  /**
+   * @brief Construct a new Order object
+   * 
+   * @param _price 
+   * @param _volume 
+   * @param _trader 
+   * @param _timestamp 
+   */
   Order(float _price, int _volume, const Trader* const _trader, const MarketUtils::Timestamp &_timestamp);
 
   /**

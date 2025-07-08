@@ -85,7 +85,19 @@ public:
   // bool cancel_order();
 
 private:
+  /**
+   * @brief Order match logic for sells/shorts
+   * 
+   * @param taker_order 
+   * @return float 
+   */
   float sell_match(Order &taker_order);
+  /**
+   * @brief Order match logic for buys/longs
+   * 
+   * @param taker_order 
+   * @return float 
+   */
   float buy_match(Order &taker_order);
   BuyQueue buy_orders;
   SellQueue sell_orders;
