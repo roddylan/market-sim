@@ -4,6 +4,7 @@
 #include "MarketData.hpp"
 #include "OrderBook.hpp"
 #include "Trader.hpp"
+#include <string>
 #include <vector>
 #include <memory>
 #include <concepts>
@@ -26,7 +27,10 @@ public:
    * @tparam T trader subclass
    */
   template <DerivedTrader T>
-  void add_maker();
+  void add_maker() {
+    makers.push_back(std::make_shared<T>(std::to_string(maker_counter)));
+    ++maker_counter;
+  }
   
   /**
    * @brief autogenerate taker
@@ -34,7 +38,10 @@ public:
    * @tparam T trader subclass
    */
   template <DerivedTrader T>
-  void add_taker();
+  void add_taker() {
+    takers.push_back(std::make_shared<T>(std::to_string(maker_counter)));
+    ++taker_counter;
+  }
 
   const OrderBook &get_book() const;
   const MarketData &get_market_data() const;
