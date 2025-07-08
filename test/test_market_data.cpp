@@ -1,5 +1,6 @@
 // test_market_data.cpp
 #include "gtest/gtest.h"
+#include <stdexcept>
 #include "MarketData.hpp"
 #include "Trader.hpp"
 
@@ -46,8 +47,8 @@ TEST_F(MarketDataTest, TestAddTrade) {
   EXPECT_EQ(data.get_last_trade()->maker, maker);
   EXPECT_EQ(data.get_last_trade()->taker, taker);
   
-  EXPECT_DEATH(data.add_trade(*maker, *taker, 0), ".*");
-  EXPECT_DEATH(data.add_trade(*maker, *taker, -1), ".*");
+  EXPECT_THROW(data.add_trade(*maker, *taker, 0), std::invalid_argument);
+  EXPECT_THROW(data.add_trade(*maker, *taker, -1), std::invalid_argument);
 
 }
 TEST_F(MarketDataTest, TestAddTrades) {

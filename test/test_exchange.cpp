@@ -1,5 +1,6 @@
 // test_exchange.cpp
 #include "gtest/gtest.h"
+#include <stdexcept>
 #include "Exchange.hpp"
 #include "Trader.hpp"
 
@@ -32,16 +33,16 @@ TEST_F(ExchangeTest, ValueInitialization) {
   EXPECT_EQ(ex1.get_book().get_buy_orders().size(), 0);
   EXPECT_EQ(ex1.get_book().get_sell_orders().size(), 0);
 
-  EXPECT_DEATH(Exchange(0), ".*");
-  EXPECT_DEATH(Exchange(-1), ".*");
+  EXPECT_THROW(Exchange(0), std::invalid_argument);
+  EXPECT_THROW(Exchange(-1), std::invalid_argument);
 }
 
 TEST_F(ExchangeTest, StartingPrice) {
   EXPECT_FLOAT_EQ(exchange->get_starting_price(), 100);
   exchange->set_starting_price(1000);
   EXPECT_FLOAT_EQ(exchange->get_starting_price(), 1000);
-  EXPECT_DEATH(exchange->set_starting_price(0), ".*");
-  EXPECT_DEATH(exchange->set_starting_price(-1), ".*");
+  EXPECT_THROW(exchange->set_starting_price(0), std::invalid_argument);
+  EXPECT_THROW(exchange->set_starting_price(-1), std::invalid_argument);
 }
 
 TEST_F(ExchangeTest, AddTraderParam) {
