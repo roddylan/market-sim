@@ -25,4 +25,5 @@ TEST_F(MarketDataTest, TestEmpty) {
   EXPECT_TRUE(data.get_trade_history().empty());
   EXPECT_FLOAT_EQ(data.get_last_price(), 0);
   EXPECT_EQ(data.get_last_trade(), nullptr);
+  EXPECT_TRUE(data.get_prices().empty());
 }
