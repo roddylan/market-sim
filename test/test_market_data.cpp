@@ -50,3 +50,20 @@ TEST_F(MarketDataTest, TestAddTrade) {
   EXPECT_DEATH(data.add_trade(*maker, *taker, -1), ".*");
 
 }
+TEST_F(MarketDataTest, TestAddTrades) {
+  MarketData data;
+  EXPECT_TRUE(data.get_trade_history().empty());
+  EXPECT_FLOAT_EQ(data.get_last_price(), 0);
+  EXPECT_EQ(data.get_last_trade(), nullptr);
+  EXPECT_TRUE(data.get_prices().empty());
+  
+  size_t n_it = 10;
+  for (size_t i = 0; i < n_it; ++i) {
+    data.add_trade(*maker, *taker, 150 + i);
+    EXPECT_EQ(data.get_trade_history().size(), i + 1);
+    EXPECT_EQ(data.get_prices().size(), i + 1);
+    EXPECT_FLOAT_EQ(data.get_last_trade()->price, 150 + i);
+    EXPECT_FLOAT_EQ(data.get_last_price(), 150 + i);
+    EXPECT_FLOAT_EQ(data.get_last_trade()->price, data.get_last_price());
+  }
+}
