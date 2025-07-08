@@ -19,7 +19,9 @@ cd build && make sim
 
 (unfortunately, I haven't added any CLI args so if you want to play around with certain aspects you'll have to go in `src/main.cpp`)
 
-(you can also use your own taker/makers by inheriting from the Trader class)
+(you can also use your own taker/makers by inheriting from the `Trader` class and overriding `make_order`, `fair_price`)
+
+Sim price results will be found in your build folder (`build` in given commands) as `output.csv`, this can be visualized in the notebook found [here](./py_data_analysis).
 
 # Documentation
 The full API documentation is generated using [Doxygen](https://www.doxygen.nl/).  
