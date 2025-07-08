@@ -99,7 +99,7 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
   const int vol = abs_vol * sign;
   const float std = 0.01f;
   
-  std::normal_distribution<float> distr(0.f, std);
+  std::normal_distribution<float> distr(0.0f, std);
   const float price_multiplier = std::abs(distr(gen));
   float price = fair_price;
   // TODO: symmetric pricing from makers
@@ -119,7 +119,7 @@ Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   // const size_t abs_vol = 150;
   const float std = 0.0125f;
   
-  std::normal_distribution<float> distr(0.f, std);
+  std::normal_distribution<float> distr(0.0f, std);
   std::uniform_int_distribution<size_t> vol_dist(5, 15);
   
   const float price_multiplier = std::abs(distr(gen));

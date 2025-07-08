@@ -4,7 +4,4 @@
 #include <iostream>
 
 int main() {
-  OrderBook book{};
-  std::cout << "test";
-  return 0;
 }

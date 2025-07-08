@@ -91,7 +91,7 @@ public:
    */
   bool operator==(const Trader &other) const;
 protected:
-  std::mt19937 gen;
+  mutable std::mt19937 gen;
 private:
   std::string name;
 };
