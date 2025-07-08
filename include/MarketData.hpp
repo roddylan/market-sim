@@ -5,6 +5,11 @@
 #include <memory>
 #include <vector>
 
+/**
+ * @class MarketData
+ * @brief Historical data for market
+ * 
+ */
 class MarketData {
 public:
   using Trades = std::vector<std::unique_ptr<Trade>>;

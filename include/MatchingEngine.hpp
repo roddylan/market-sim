@@ -5,6 +5,10 @@
 // forward declare Order
 class Order;
 
+/**
+ * @brief Matching execution logic
+ * 
+ */
 namespace MatchingEngine {
 
   /**

@@ -9,9 +9,20 @@
 #include <memory>
 #include <concepts>
 
+/**
+ * @brief Trader subclass
+ * 
+ * @tparam T 
+ */
 template<typename T>
 concept DerivedTrader = std::is_base_of<Trader, T>::value;
 
+/**
+ * @class Exchange
+ * @brief Represents Exchange
+ * 
+ * Orchestrates trader actions, stores and handles Traders (market makers/takers)
+ */
 class Exchange {
 public:
   using Traders = std::vector<std::shared_ptr<Trader>>;
