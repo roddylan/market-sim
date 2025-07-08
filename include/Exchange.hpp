@@ -15,7 +15,7 @@ concept DerivedTrader = std::is_base_of<Trader, T>::value;
 class Exchange {
 public:
   Exchange(float _starting_price = 100);
-  ~Exchange();
+  ~Exchange() = default;
 
   void add_maker(const Trader &maker);
   void add_taker(const Trader &taker);
