@@ -9,7 +9,8 @@
 int main(int argc, char** argv) {
   Exchange exchange;
 
-  size_t n_makers{3}, n_takers{20};
+  // makers=1 | takers=3 seems to be ideal
+  size_t n_makers{3}, n_takers{9};
   for (size_t i = 0; i < n_makers; ++i) {
     exchange.add_maker<MMakerTrader>();
   }
