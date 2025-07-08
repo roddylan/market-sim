@@ -32,8 +32,7 @@ public:
    */
   template <DerivedTrader T>
   void add_maker() {
-    makers.push_back(std::make_shared<T>(std::to_string(maker_counter)));
-    ++maker_counter;
+    makers.push_back(std::make_shared<T>(std::to_string(makers.size()+1)));
   }
   
   /**
@@ -43,8 +42,7 @@ public:
    */
   template <DerivedTrader T>
   void add_taker() {
-    takers.push_back(std::make_shared<T>(std::to_string(maker_counter)));
-    ++taker_counter;
+    takers.push_back(std::make_shared<T>(std::to_string(takers.size()+1)));
   }
 
   const OrderBook &get_book() const;
@@ -61,9 +59,6 @@ private:
   std::unique_ptr<OrderBook> book;
   // market data (trade/price history, etc.)
   std::unique_ptr<MarketData> market_data;
-
-  size_t maker_counter;
-  size_t taker_counter;
 
   float starting_price;
   

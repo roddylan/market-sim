@@ -8,7 +8,7 @@
 Exchange::Exchange(float _starting_price)
     : book(std::make_unique<OrderBook>()),
       market_data(std::make_unique<MarketData>()),
-      starting_price(_starting_price), maker_counter{}, taker_counter{} {
+      starting_price(_starting_price) {
   assert(_starting_price > 0);
 }
 
@@ -17,12 +17,10 @@ Exchange::Traders Exchange::get_takers() const { return takers; }
 
 void Exchange::add_maker(const Trader &maker) {
   makers.push_back(std::make_shared<Trader>(maker));
-  ++maker_counter;
 }
 
 void Exchange::add_taker(const Trader &taker) {
   takers.push_back(std::make_shared<Trader>(taker));
-  ++taker_counter;
 }
 
 const OrderBook &Exchange::get_book() const { return *book; }
