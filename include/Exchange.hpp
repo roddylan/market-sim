@@ -30,6 +30,9 @@ private:
   // market data (trade/price history, etc.)
   std::unique_ptr<MarketData> market_data;
 
+  size_t maker_counter;
+  size_t taker_counter;
+
   float starting_price;
   
 };

@@ -12,10 +12,12 @@ Exchange::Exchange(float _starting_price)
 
 void Exchange::add_maker(const Trader &maker) {
   makers.push_back(std::make_shared<Trader>(maker));
+  ++maker_counter;
 }
 
 void Exchange::add_taker(const Trader &taker) {
-  makers.push_back(std::make_shared<Trader>(taker));
+  takers.push_back(std::make_shared<Trader>(taker));
+  ++taker_counter;
 }
 
 const OrderBook &Exchange::get_book() const { return *book; }
