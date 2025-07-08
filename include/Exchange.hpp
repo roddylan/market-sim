@@ -7,7 +7,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include <concepts>
+#include <type_traits>
 
 /**
  * @brief Trader subclass
