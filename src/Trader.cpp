@@ -5,11 +5,10 @@
 #include "Order.hpp"
 #include <random>
 #include <string>
-#include <tuple>
 
-Trader::Trader(const Trader &other) : name{other.name} {}
+Trader::Trader(const Trader &other) : name{other.name}, gen{other.gen} {}
 
-Trader::Trader(const std::string &_name) : name{_name} {}
+Trader::Trader(const std::string &_name) : name{_name}, gen{std::random_device{}()} {}
 
 Trader &Trader::operator=(const Trader &rhs) {
   if (this == &rhs) {
@@ -22,6 +21,10 @@ Trader &Trader::operator=(const Trader &rhs) {
 const std::string &Trader::get_name() const { return name; }
 
 void Trader::set_name(const std::string &_name) { name = _name; }
+
+void Trader::set_random(int seed) {
+  gen = std::mt19937(seed);
+}
 
 MMakerTrader::MMakerTrader(const std::string &_name)
     : Trader("maker_" + _name) {}
@@ -88,6 +91,14 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
 }
 
 Order MMakerTrader::make_order(float fair_price, bool is_long) const {
+  const size_t abs_vol = 100;
+  const int multiplier = (is_long * 2) - 1;
+  const int vol = abs_vol * multiplier;
+  
+  if (is_long) {
+    return Order(fair_price, vol, this);
+  }
+  
   // PLACEHOLDER
   return Order(fair_price, 100, this);
 }

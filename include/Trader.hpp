@@ -2,6 +2,7 @@
 #pragma once
 #include <string>
 #include <unordered_map>
+#include <random>
 
 using SYMBOL = std::string;
 
@@ -58,6 +59,13 @@ public:
   void set_name(const std::string &_name);
 
   /**
+   * @brief Set rng seed
+   * 
+   * @param seed 
+   */
+  void set_random(int seed);
+
+  /**
    * @brief Let Trader make trade
    * 
    * @param fair_price
@@ -82,6 +90,8 @@ public:
    * @return false 
    */
   bool operator==(const Trader &other) const;
+protected:
+  std::mt19937 gen;
 private:
   std::string name;
 };
