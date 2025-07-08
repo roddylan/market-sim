@@ -54,4 +54,4 @@ TEST_F(TraderTest, MakeOrderTest) {
   EXPECT_TRUE(maker_order2.get_volume() < 0);
 }
 // TODO: strategy
-// TODO: tests for make_order, fair_price
+// TODO: tests for fair_price
