@@ -96,11 +96,10 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
   const int vol = abs_vol * multiplier;
   
   if (is_long) {
-    return Order(fair_price, vol, this);
   }
-  
   // PLACEHOLDER
-  return Order(fair_price, 100, this);
+  return Order(fair_price, vol, this);
+  
 }
 Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   // PLACEHOLDER
