@@ -44,6 +44,7 @@ public:
 
   const OrderBook &get_book() const;
   const MarketData &get_market_data() const;
+  void set_starting_price(float price);
   float get_starting_price() const;
 
   void run();

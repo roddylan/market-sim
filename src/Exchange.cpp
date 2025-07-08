@@ -24,6 +24,7 @@ const OrderBook &Exchange::get_book() const { return *book; }
 
 const MarketData &Exchange::get_market_data() const { return *market_data; }
 
+void Exchange::set_starting_price(float price) { starting_price = price; }
 float Exchange::get_starting_price() const { return starting_price; }
 
 void Exchange::run() {
