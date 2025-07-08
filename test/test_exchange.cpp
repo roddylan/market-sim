@@ -33,7 +33,6 @@ TEST_F(ExchangeTest, ValueInitialization) {
   EXPECT_DEATH(Exchange(-1), ".*");
 }
 
-
 TEST_F(ExchangeTest, StartingPrice) {
   EXPECT_FLOAT_EQ(exchange.get_starting_price(), 100);
   exchange.set_starting_price(1000);

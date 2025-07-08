@@ -4,10 +4,12 @@
 #include <memory>
 
 Trade *MarketData::get_last_trade() const {
+  if (trade_history.empty()) { return nullptr; }
   return trade_history.back().get();
 }
 
 float MarketData::get_last_price() const {
+  if (price_history.empty()) { return 0; }
   return price_history.back();
 }
 
