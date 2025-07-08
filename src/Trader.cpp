@@ -27,7 +27,7 @@ const std::string &Trader::get_name() const { return name; }
 
 void Trader::set_name(const std::string &_name) { name = _name; }
 
-void Trader::set_random(int seed) { gen = std::mt19937(seed); }
+void Trader::set_random(int seed) { gen.seed(seed); }
 
 MMakerTrader::MMakerTrader(const std::string &_name)
     : Trader("maker_" + _name) {}
