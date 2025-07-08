@@ -3,8 +3,6 @@
 #pragma once
 
 #include "Trader.hpp"
-#include <memory>
-#include <chrono>
 #include "MarketUtils.hpp"
 
 /**
@@ -69,9 +67,20 @@ public:
    * @param other 
    */
   Order(const Order &other);
+
+  /**
+   * @brief Construct a new Order object
+   * 
+   * @param other 
+   */
+  Order(Order &&other);
   
   // deleted assignment operator
   Order &operator=(const Order &) = delete;
+  
+  // deleted assignment operator
+  Order &operator=(Order &&) = delete;
+
   
   // getters
   /**

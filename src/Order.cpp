@@ -2,7 +2,6 @@
 // Order class implementation
 
 #include "Order.hpp"
-#include <algorithm>
 #include <cassert>
 #include <chrono>
 
@@ -35,6 +34,10 @@ Order::Order(float _price, int _volume, const Trader *const _trader,
 }
 
 Order::Order(const Order &other)
+    : price{other.price}, volume{other.volume}, trader{other.trader},
+      timestamp{other.timestamp} {}
+
+Order::Order(Order &&other)
     : price{other.price}, volume{other.volume}, trader{other.trader},
       timestamp{other.timestamp} {}
 
