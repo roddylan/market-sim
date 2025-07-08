@@ -96,6 +96,7 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
   const int vol = abs_vol * multiplier;
   
   if (is_long) {
+    // buying, make offer above market
   }
   // PLACEHOLDER
   return Order(fair_price, vol, this);

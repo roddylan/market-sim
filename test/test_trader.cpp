@@ -38,3 +38,4 @@ TEST_F(TraderTest, TraderNameTest) {
 }
 
 // TODO: strategy
+// TODO: tests for make_order, fair_price
