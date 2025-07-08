@@ -1,7 +1,6 @@
 // Trader.hpp
 #pragma once
 #include <string>
-#include <unordered_map>
 #include <random>
 
 using SYMBOL = std::string;
