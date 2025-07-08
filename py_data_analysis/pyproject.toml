@@ -1,0 +1,7 @@
+[project]
+name = "py-data-analysis"
+version = "0.1.0"
+description = "Data analysis/vis for csv data"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
