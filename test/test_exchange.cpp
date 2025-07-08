@@ -71,7 +71,25 @@ TEST_F(ExchangeTest, AddTrader) {
   EXPECT_EQ(exchange->get_makers().size(), 1);
   EXPECT_EQ(exchange->get_takers().size(), 1);
   
-  EXPECT_EQ(exchange->get_makers().back()->get_name(), "maker_0");
-  EXPECT_EQ(exchange->get_takers().back()->get_name(), "taker_0");
-
+  EXPECT_EQ(exchange->get_makers().back()->get_name(), "maker_1");
+  EXPECT_EQ(exchange->get_takers().back()->get_name(), "taker_1");
+  
+  exchange->add_maker<MMakerTrader>();
+  exchange->add_taker<MTakerTrader>();
+  EXPECT_EQ(exchange->get_makers().size(), 2);
+  EXPECT_EQ(exchange->get_takers().size(), 2);
+  EXPECT_EQ(exchange->get_makers().back()->get_name(), "maker_2");
+  EXPECT_EQ(exchange->get_takers().back()->get_name(), "taker_2");
+  exchange->add_maker<MMakerTrader>();
+  exchange->add_taker<MTakerTrader>();
+  EXPECT_EQ(exchange->get_makers().size(), 3);
+  EXPECT_EQ(exchange->get_takers().size(), 3);
+  EXPECT_EQ(exchange->get_makers().back()->get_name(), "maker_3");
+  EXPECT_EQ(exchange->get_takers().back()->get_name(), "taker_3");
+  exchange->add_maker<MMakerTrader>();
+  exchange->add_taker<MTakerTrader>();
+  EXPECT_EQ(exchange->get_makers().size(), 4);
+  EXPECT_EQ(exchange->get_takers().size(), 4);
+  EXPECT_EQ(exchange->get_makers().back()->get_name(), "maker_4");
+  EXPECT_EQ(exchange->get_takers().back()->get_name(), "taker_4");
 }
