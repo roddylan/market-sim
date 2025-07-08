@@ -19,10 +19,31 @@ public:
   Exchange(float _starting_price = 100);
   ~Exchange() = default;
 
+  /**
+   * @brief Get market makers
+   * 
+   * @return Traders 
+   */
   Traders get_makers() const;
+  
+  /**
+   * @brief Get market takers
+   * 
+   * @return Traders 
+   */
   Traders get_takers() const;
 
+  /**
+   * @brief Add market maker
+   * 
+   * @param maker 
+   */
   void add_maker(const Trader &maker);
+  /**
+   * @brief Add market taker
+   * 
+   * @param taker 
+   */
   void add_taker(const Trader &taker);
 
   /**
@@ -45,11 +66,38 @@ public:
     takers.push_back(std::make_shared<T>(std::to_string(takers.size()+1)));
   }
 
+  /**
+   * @brief Get the book object
+   * 
+   * @return const OrderBook& 
+   */
   const OrderBook &get_book() const;
+
+  /**
+   * @brief Get the market data object
+   * 
+   * @return const MarketData& 
+   */
   const MarketData &get_market_data() const;
+  
+  /**
+   * @brief Set the starting price
+   * 
+   * @param price 
+   */
   void set_starting_price(float price);
+  
+  /**
+   * @brief Get the starting price
+   * 
+   * @return float 
+   */
   float get_starting_price() const;
 
+  /**
+   * @brief Run tick
+   * 
+   */
   void run(); // TODO: add zero price check; end sim if 0
 private:
   // traders
