@@ -135,6 +135,8 @@ Order MTakerTrader::make_order(float fair_price, bool is_long) const {
     price += price_multiplier * fair_price;
   }
   price = std::round(price * 100) / 100;
+  std::cout << "price: " << price << std::endl;
+  std::cout << "vol: " << vol << std::endl;
   return Order(price, vol, this);
   
 }
