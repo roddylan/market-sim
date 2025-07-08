@@ -6,45 +6,45 @@
 \DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Order.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <queue>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}OrderUtils.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}OrderUtils.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{comment}{//\ TODO:\ order\ cancelling}}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{using\ }BuyQueue\ =\ std::multiset<std::shared\_ptr<Order>,\ \mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare}{OrderUtils::BuyOrderCompare}}>;}
-\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{using\ }SellQueue\ =\ std::multiset<std::shared\_ptr<Order>,\ \mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare}{OrderUtils::SellOrderCompare}}>;}
-\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{class_order_book_a34d37e7193ed67fd24bc571c2fe54a1b}{\string~OrderBook}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}(\textcolor{keyword}{const}\ BuyQueue\ \&\_buys,\ \textcolor{keyword}{const}\ SellQueue\ \&\_sells);}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \&other);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \&\mbox{\hyperlink{class_order_book_ababf8bd5a8c94195d2c616d967f15a5f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \&other);}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{const}\ BuyQueue\ \&\mbox{\hyperlink{class_order_book_ab09ffbde046131e533706bd98aeffcd3}{get\_buy\_orders}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00059\ \ \ }
-\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{const}\ SellQueue\ \&\mbox{\hyperlink{class_order_book_a5e00ab6ae4dd35dca45ff7e3169d73f7}{get\_sell\_orders}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_order_book_aacd9c657e7592a1142c4157284b5b42b}{insert}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order}{Order}}\ \&order);}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ TODO:\ order\ cancelling}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{using\ }BuyQueue\ =}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ std::multiset<std::shared\_ptr<Order>,\ \mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare}{OrderUtils::BuyOrderCompare}}>;}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{using\ }SellQueue\ =}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ std::multiset<std::shared\_ptr<Order>,\ \mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare}{OrderUtils::SellOrderCompare}}>;}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{class_order_book_a34d37e7193ed67fd24bc571c2fe54a1b}{\string~OrderBook}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}(\textcolor{keyword}{const}\ BuyQueue\ \&\_buys,\ \textcolor{keyword}{const}\ SellQueue\ \&\_sells);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \&other);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \&\mbox{\hyperlink{class_order_book_ababf8bd5a8c94195d2c616d967f15a5f}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book_ac49a804db195f730535473b5096c8577}{OrderBook}}\ \&other);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{const}\ BuyQueue\ \&\mbox{\hyperlink{class_order_book_ab09ffbde046131e533706bd98aeffcd3}{get\_buy\_orders}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{const}\ SellQueue\ \&\mbox{\hyperlink{class_order_book_a5e00ab6ae4dd35dca45ff7e3169d73f7}{get\_sell\_orders}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ }
-\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_abb3dfe61bbb55e145f94e22fb7d2cf09}{match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
-\DoxyCodeLine{00084\ \ \ }
-\DoxyCodeLine{00085\ \ \ \textcolor{comment}{//\ bool\ cancel\_order();}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_acf540d87f30066fa399fcd551194b46f}{sell\_match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
-\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_a539c48f2271fa84060ae9c5d4810ea93}{buy\_match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
-\DoxyCodeLine{00102\ \ \ BuyQueue\ buy\_orders;}
-\DoxyCodeLine{00103\ \ \ SellQueue\ sell\_orders;}
-\DoxyCodeLine{00104\ \};}
+\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_order_book_aacd9c657e7592a1142c4157284b5b42b}{insert}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_order}{Order}}\ \&order);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_abb3dfe61bbb55e145f94e22fb7d2cf09}{match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{comment}{//\ bool\ cancel\_order();}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00102\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_acf540d87f30066fa399fcd551194b46f}{sell\_match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_order_book_a539c48f2271fa84060ae9c5d4810ea93}{buy\_match}}(\mbox{\hyperlink{class_order}{Order}}\ \&taker\_order);}
+\DoxyCodeLine{00110\ \ \ BuyQueue\ buy\_orders;}
+\DoxyCodeLine{00111\ \ \ SellQueue\ sell\_orders;}
+\DoxyCodeLine{00112\ \};}
 
 \end{DoxyCode}

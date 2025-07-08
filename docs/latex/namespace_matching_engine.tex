@@ -1,0 +1,84 @@
+\doxysection{Matching\+Engine Namespace Reference}
+\hypertarget{namespace_matching_engine}{}\label{namespace_matching_engine}\index{MatchingEngine@{MatchingEngine}}
+
+
+Matching execution logic.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_matching_engine_a84b0e2060b679c63f2c96b9d967d24ec}{match\+\_\+order}} (\mbox{\hyperlink{class_order}{Order}} \&maker\+\_\+order, \mbox{\hyperlink{class_order}{Order}} \&taker\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Execute order (partially or fully) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_matching_engine_acc2fa4a36c8e4402ffc1dfa57ce464e0}{sell\+\_\+order}} (\mbox{\hyperlink{class_order}{Order}} \&maker\+\_\+order, \mbox{\hyperlink{class_order}{Order}} \&taker\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Execute sell order (maker selling, taker buying) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_matching_engine_a2e2240760d734ba512126d0c803e3034}{buy\+\_\+order}} (\mbox{\hyperlink{class_order}{Order}} \&maker\+\_\+order, \mbox{\hyperlink{class_order}{Order}} \&taker\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Execute buy order (maker buying, taker selling) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Matching execution logic. 
+
+\label{doc-func-members}
+\Hypertarget{namespace_matching_engine_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_matching_engine_a2e2240760d734ba512126d0c803e3034}\index{MatchingEngine@{MatchingEngine}!buy\_order@{buy\_order}}
+\index{buy\_order@{buy\_order}!MatchingEngine@{MatchingEngine}}
+\doxysubsubsection{\texorpdfstring{buy\_order()}{buy\_order()}}
+{\footnotesize\ttfamily \label{namespace_matching_engine_a2e2240760d734ba512126d0c803e3034} 
+int Matching\+Engine\+::buy\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{maker\+\_\+order}{, }\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{taker\+\_\+order}{}\end{DoxyParamCaption})}
+
+
+
+Execute buy order (maker buying, taker selling) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maker\+\_\+order} & \\
+\hline
+{\em taker\+\_\+order} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int volume traded 
+\end{DoxyReturn}
+\Hypertarget{namespace_matching_engine_a84b0e2060b679c63f2c96b9d967d24ec}\index{MatchingEngine@{MatchingEngine}!match\_order@{match\_order}}
+\index{match\_order@{match\_order}!MatchingEngine@{MatchingEngine}}
+\doxysubsubsection{\texorpdfstring{match\_order()}{match\_order()}}
+{\footnotesize\ttfamily \label{namespace_matching_engine_a84b0e2060b679c63f2c96b9d967d24ec} 
+int Matching\+Engine\+::match\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{maker\+\_\+order}{, }\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{taker\+\_\+order}{}\end{DoxyParamCaption})}
+
+
+
+Execute order (partially or fully) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maker\+\_\+order} & maker order \\
+\hline
+{\em taker\+\_\+order} & taker order \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int volume traded 
+\end{DoxyReturn}
+\Hypertarget{namespace_matching_engine_acc2fa4a36c8e4402ffc1dfa57ce464e0}\index{MatchingEngine@{MatchingEngine}!sell\_order@{sell\_order}}
+\index{sell\_order@{sell\_order}!MatchingEngine@{MatchingEngine}}
+\doxysubsubsection{\texorpdfstring{sell\_order()}{sell\_order()}}
+{\footnotesize\ttfamily \label{namespace_matching_engine_acc2fa4a36c8e4402ffc1dfa57ce464e0} 
+int Matching\+Engine\+::sell\+\_\+order (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{maker\+\_\+order}{, }\item[{\mbox{\hyperlink{class_order}{Order}} \&}]{taker\+\_\+order}{}\end{DoxyParamCaption})}
+
+
+
+Execute sell order (maker selling, taker buying) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em maker\+\_\+order} & \\
+\hline
+{\em taker\+\_\+order} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int volume traded 
+\end{DoxyReturn}

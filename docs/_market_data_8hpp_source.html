@@ -98,38 +98,38 @@ $(function(){initNavTree('_market_data_8hpp_source.html','',''); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;Trade.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_market_data.html">    8</a></span><span class="keyword">class </span>MarketData {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keyword">using </span>Trades = std::vector&lt;std::unique_ptr&lt;Trade&gt;&gt;;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  MarketData() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  ~MarketData() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_struct" href="struct_trade.html">Trade</a> *<a class="code hl_function" href="class_market_data.html#abd618e26f7965b4cb6ede2d4beb34e94">get_last_trade</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">float</span> <a class="code hl_function" href="class_market_data.html#a93cfb1b25a267eaedcf2e770b5d2403f">get_last_price</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">const</span> Trades &amp;<a class="code hl_function" href="class_market_data.html#a3f4fb9df796196bc8f612d27a225132a">get_trade_history</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keyword">const</span> std::vector&lt;float&gt; &amp;<a class="code hl_function" href="class_market_data.html#adf5f16e78b26d528ed4185d3cd992d16">get_prices</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_market_data.html#aef7e474750e654b42aa91dfe605cf80c">add_trade</a>(<a class="code hl_class" href="class_trader.html">Trader</a> &amp;maker, <a class="code hl_class" href="class_trader.html">Trader</a> &amp;taker, <span class="keywordtype">float</span> vwap);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="comment">// stack containing trade history</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  Trades trade_history;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  std::vector&lt;float&gt; price_history;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="class_market_data.html">   13</a></span><span class="keyword">class </span>MarketData {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">using </span>Trades = std::vector&lt;std::unique_ptr&lt;Trade&gt;&gt;;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  MarketData() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  ~MarketData() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <a class="code hl_class" href="struct_trade.html">Trade</a> *<a class="code hl_function" href="class_market_data.html#abd618e26f7965b4cb6ede2d4beb34e94">get_last_trade</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keywordtype">float</span> <a class="code hl_function" href="class_market_data.html#a93cfb1b25a267eaedcf2e770b5d2403f">get_last_price</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">const</span> Trades &amp;<a class="code hl_function" href="class_market_data.html#a3f4fb9df796196bc8f612d27a225132a">get_trade_history</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">const</span> std::vector&lt;float&gt; &amp;<a class="code hl_function" href="class_market_data.html#adf5f16e78b26d528ed4185d3cd992d16">get_prices</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_market_data.html#aef7e474750e654b42aa91dfe605cf80c">add_trade</a>(<a class="code hl_class" href="class_trader.html">Trader</a> &amp;maker, <a class="code hl_class" href="class_trader.html">Trader</a> &amp;taker, <span class="keywordtype">float</span> vwap);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="comment">// stack containing trade history</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  Trades trade_history;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  std::vector&lt;float&gt; price_history;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
 </div>
 <div class="ttc" id="aclass_market_data_html_a3f4fb9df796196bc8f612d27a225132a"><div class="ttname"><a href="class_market_data.html#a3f4fb9df796196bc8f612d27a225132a">MarketData::get_trade_history</a></div><div class="ttdeci">const Trades &amp; get_trade_history() const</div><div class="ttdoc">Get the trade history object.</div><div class="ttdef"><b>Definition</b> MarketData.cpp:20</div></div>
 <div class="ttc" id="aclass_market_data_html_a93cfb1b25a267eaedcf2e770b5d2403f"><div class="ttname"><a href="class_market_data.html#a93cfb1b25a267eaedcf2e770b5d2403f">MarketData::get_last_price</a></div><div class="ttdeci">float get_last_price() const</div><div class="ttdoc">Get the last price.</div><div class="ttdef"><b>Definition</b> MarketData.cpp:13</div></div>
 <div class="ttc" id="aclass_market_data_html_abd618e26f7965b4cb6ede2d4beb34e94"><div class="ttname"><a href="class_market_data.html#abd618e26f7965b4cb6ede2d4beb34e94">MarketData::get_last_trade</a></div><div class="ttdeci">Trade * get_last_trade() const</div><div class="ttdoc">Get the last trade (most recent)</div><div class="ttdef"><b>Definition</b> MarketData.cpp:6</div></div>
 <div class="ttc" id="aclass_market_data_html_adf5f16e78b26d528ed4185d3cd992d16"><div class="ttname"><a href="class_market_data.html#adf5f16e78b26d528ed4185d3cd992d16">MarketData::get_prices</a></div><div class="ttdeci">const std::vector&lt; float &gt; &amp; get_prices() const</div><div class="ttdoc">Get the prices object.</div><div class="ttdef"><b>Definition</b> MarketData.cpp:24</div></div>
 <div class="ttc" id="aclass_market_data_html_aef7e474750e654b42aa91dfe605cf80c"><div class="ttname"><a href="class_market_data.html#aef7e474750e654b42aa91dfe605cf80c">MarketData::add_trade</a></div><div class="ttdeci">void add_trade(Trader &amp;maker, Trader &amp;taker, float vwap)</div><div class="ttdoc">add trade to history (and update price history)</div><div class="ttdef"><b>Definition</b> MarketData.cpp:28</div></div>
-<div class="ttc" id="aclass_trader_html"><div class="ttname"><a href="class_trader.html">Trader</a></div><div class="ttdef"><b>Definition</b> Trader.hpp:14</div></div>
-<div class="ttc" id="astruct_trade_html"><div class="ttname"><a href="struct_trade.html">Trade</a></div><div class="ttdoc">Executed trade.</div><div class="ttdef"><b>Definition</b> Trade.hpp:10</div></div>
+<div class="ttc" id="aclass_trader_html"><div class="ttname"><a href="class_trader.html">Trader</a></div><div class="ttdoc">Trader base class.</div><div class="ttdef"><b>Definition</b> Trader.hpp:19</div></div>
+<div class="ttc" id="astruct_trade_html"><div class="ttname"><a href="struct_trade.html">Trade</a></div><div class="ttdoc">Represents executed trade.</div><div class="ttdef"><b>Definition</b> Trade.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

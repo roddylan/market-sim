@@ -1,5 +1,14 @@
 \doxysection{Order\+Book\+PQ Class Reference}
 \hypertarget{class_order_book_p_q}{}\label{class_order_book_p_q}\index{OrderBookPQ@{OrderBookPQ}}
+
+
+({\bfseries{deprecated}}) \doxylink{class_order}{Order} book storing market maker limit orders; handles match and make logic. Uses priority queue.  
+
+
+
+
+{\ttfamily \#include $<$Order\+Book\+PQ.\+hpp$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
@@ -49,6 +58,11 @@ Buy\+Queue {\bfseries buy\+\_\+orders}
 Sell\+Queue {\bfseries sell\+\_\+orders}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+({\bfseries{deprecated}}) \doxylink{class_order}{Order} book storing market maker limit orders; handles match and make logic. Uses priority queue. 
+
+Orders stored in ordered priority queue. Buys sorted by best bid (highest) and earliest time. Sells sorted by best ask (lowest) and earliest time 
 
 \label{doc-constructors}
 \Hypertarget{class_order_book_p_q_doc-constructors}

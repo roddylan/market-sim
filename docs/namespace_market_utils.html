@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>market-sim: TraderHash Class Reference</title>
+<title>market-sim: MarketUtils Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('struct_trader_hash.html','','struct_trader_hash-members'); });
+$(function(){initNavTree('namespace_market_utils.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,31 +89,27 @@ $(function(){initNavTree('struct_trader_hash.html','','struct_trader_hash-member
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">TraderHash Class Reference</div></div>
+  <div class="headertitle"><div class="title">MarketUtils Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Hash function for <a class="el" href="class_trader.html" title="Trader base class.">Trader</a>.  
- <a href="#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="_trader_utils_8hpp_source.html">TraderUtils.hpp</a>&gt;</code></p>
+<p>Useful types aliases for Market-related functions.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a4fa4919964fed143e43bf8e5daabe178" id="r_a4fa4919964fed143e43bf8e5daabe178"><td class="memItemLeft" align="right" valign="top"><a id="a4fa4919964fed143e43bf8e5daabe178" name="a4fa4919964fed143e43bf8e5daabe178"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const <a class="el" href="class_trader.html">Trader</a> &amp;trader) const</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a172e5f69f9081871348a0df43115dca1" id="r_a172e5f69f9081871348a0df43115dca1"><td class="memItemLeft" align="right" valign="top"><a id="a172e5f69f9081871348a0df43115dca1" name="a172e5f69f9081871348a0df43115dca1"></a>
-static const std::hash&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>hasher</b></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:afe421013b10910948c85204e0c1e812c" id="r_afe421013b10910948c85204e0c1e812c"><td class="memItemLeft" align="right" valign="top"><a id="afe421013b10910948c85204e0c1e812c" name="afe421013b10910948c85204e0c1e812c"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Timestamp</b> = std::chrono::time_point&lt;std::chrono::steady_clock&gt;</td></tr>
+<tr class="memitem:a32d7af287ef5e24365ffcfbab79dd703" id="r_a32d7af287ef5e24365ffcfbab79dd703"><td class="memItemLeft" align="right" valign="top"><a id="a32d7af287ef5e24365ffcfbab79dd703" name="a32d7af287ef5e24365ffcfbab79dd703"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Duration</b> = std::chrono::nanoseconds</td></tr>
+<tr class="memitem:adbe9b62cd5b376549626727921f3212e" id="r_adbe9b62cd5b376549626727921f3212e"><td class="memItemLeft" align="right" valign="top"><a id="adbe9b62cd5b376549626727921f3212e" name="adbe9b62cd5b376549626727921f3212e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Clock</b> = std::chrono::steady_clock</td></tr>
+<tr class="memitem:abf23a1d53797378e88b8017fd7a37e2a" id="r_abf23a1d53797378e88b8017fd7a37e2a"><td class="memItemLeft" align="right" valign="top"><a id="abf23a1d53797378e88b8017fd7a37e2a" name="abf23a1d53797378e88b8017fd7a37e2a"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Time</b> = std::chrono::time_point&lt;std::chrono::steady_clock&gt;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Hash function for <a class="el" href="class_trader.html" title="Trader base class.">Trader</a>. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>include/<a class="el" href="_trader_utils_8hpp_source.html">TraderUtils.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<div class="textblock"><p>Useful types aliases for Market-related functions. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -126,7 +122,7 @@ static const std::hash&lt; std::string &gt;&#160;</td><td class="memItemRight" v
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="struct_trader_hash.html">TraderHash</a></li>
+    <li class="navelem"><a href="namespace_market_utils.html">MarketUtils</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

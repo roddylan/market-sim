@@ -1,13 +1,20 @@
 \doxysection{Order\+Book Class Reference}
 \hypertarget{class_order_book}{}\label{class_order_book}\index{OrderBook@{OrderBook}}
+
+
+\doxylink{class_order}{Order} book storing market maker limit orders; handles match and make logic.  
+
+
+
+
+{\ttfamily \#include $<$Order\+Book.\+hpp$>$}
+
 \doxysubsubsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_order_book_a8bf1119b6c9acbcb5928f5eea9777fa3}\label{class_order_book_a8bf1119b6c9acbcb5928f5eea9777fa3} 
-using {\bfseries Buy\+Queue} = std\+::multiset$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_order}{Order}}$>$, \mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare}{Order\+Utils\+::\+Buy\+Order\+Compare}}$>$
+using \mbox{\hyperlink{class_order_book_a1b13a2f005684affe592d718d1719a17}{Buy\+Queue}}
 \item 
-\Hypertarget{class_order_book_aec16d412ddfec546b2fe80e30ef41fa3}\label{class_order_book_aec16d412ddfec546b2fe80e30ef41fa3} 
-using {\bfseries Sell\+Queue} = std\+::multiset$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_order}{Order}}$>$, \mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare}{Order\+Utils\+::\+Sell\+Order\+Compare}}$>$
+using \mbox{\hyperlink{class_order_book_a599b1c4606d733e5e19d729bfb2a221f}{Sell\+Queue}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -48,6 +55,40 @@ Buy\+Queue {\bfseries buy\+\_\+orders}
 \Hypertarget{class_order_book_a71f99f8efe47a7d11b560d9665cfe8a7}\label{class_order_book_a71f99f8efe47a7d11b560d9665cfe8a7} 
 Sell\+Queue {\bfseries sell\+\_\+orders}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_order}{Order} book storing market maker limit orders; handles match and make logic. 
+
+Orders stored in ordered multiset. Buys sorted by best bid (highest) and earliest time. Sells sorted by best ask (lowest) and earliest time 
+
+\label{doc-typedef-members}
+\Hypertarget{class_order_book_doc-typedef-members}
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{class_order_book_a1b13a2f005684affe592d718d1719a17}\index{OrderBook@{OrderBook}!BuyQueue@{BuyQueue}}
+\index{BuyQueue@{BuyQueue}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{BuyQueue}{BuyQueue}}
+{\footnotesize\ttfamily \label{class_order_book_a1b13a2f005684affe592d718d1719a17} 
+using Order\+Book\+::\+Buy\+Queue}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ std::multiset<std::shared\_ptr<Order>,\ \mbox{\hyperlink{struct_order_utils_1_1_buy_order_compare}{OrderUtils::BuyOrderCompare}}>}
+
+\end{DoxyCode}
+\Hypertarget{class_order_book_a599b1c4606d733e5e19d729bfb2a221f}\index{OrderBook@{OrderBook}!SellQueue@{SellQueue}}
+\index{SellQueue@{SellQueue}!OrderBook@{OrderBook}}
+\doxysubsubsection{\texorpdfstring{SellQueue}{SellQueue}}
+{\footnotesize\ttfamily \label{class_order_book_a599b1c4606d733e5e19d729bfb2a221f} 
+using Order\+Book\+::\+Sell\+Queue}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ std::multiset<std::shared\_ptr<Order>,\ \mbox{\hyperlink{struct_order_utils_1_1_sell_order_compare}{OrderUtils::SellOrderCompare}}>}
+
+\end{DoxyCode}
 
 
 \label{doc-constructors}

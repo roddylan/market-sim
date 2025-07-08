@@ -15,51 +15,51 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_order}{Order}};}
 \DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_exchange}{Exchange}};}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_trader_a54e3b17aa168bc52abaf3bd47afaf9fc}{\string~Trader}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
-\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&other);}
-\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&\mbox{\hyperlink{class_trader_a5390c6a65bd4b4efe0e81eca04fda1a3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&rhs);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_trader_a59d4e3527b2b5d77dbadc30436a65a50}{get\_name}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00053\ \ \ }
-\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trader_a80b17dca691794f1ef65ab5830d16740}{set\_name}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trader_ac2a5c11882b0c26b271bfdefe6d28091}{set\_random}}(\textcolor{keywordtype}{int}\ seed);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_order}{Order}}\ \mbox{\hyperlink{class_trader_a8f7a6543907ea359d043cffae1823771}{make\_order}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange,\ \textcolor{keywordtype}{bool}\ is\_long\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_trader_a0ba0a36d394adf7f7714ac94dec0b0af}{fair\_price}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_trader_a83cad62d01dce441864f1f11aa06759f}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&other)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00093\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00094\ \ \ \textcolor{keyword}{mutable}\ std::mt19937\ gen;}
-\DoxyCodeLine{00095\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00096\ \ \ std::string\ name;}
-\DoxyCodeLine{00097\ \};}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00103\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_maker_trader_aff19d4cbb23070f9f0f8178886fc3668}{MMakerTrader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \{}
-\DoxyCodeLine{00104\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{class_m_maker_trader_aff19d4cbb23070f9f0f8178886fc3668}{MMakerTrader}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00119\ \ \ \mbox{\hyperlink{class_order}{Order}}\ \mbox{\hyperlink{class_m_maker_trader_a0515782f6a6d43581901fec5e569fb7c}{make\_order}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange,\ \textcolor{keywordtype}{bool}\ is\_long\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_m_maker_trader_a1f1bf75ef720a37b9c8f3c0a00ae338a}{fair\_price}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00128\ \};}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00134\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_taker_trader_afbe22640f5fc7def745d97f7963063b5}{MTakerTrader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \{}
-\DoxyCodeLine{00135\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00141\ \ \ \mbox{\hyperlink{class_m_taker_trader_afbe22640f5fc7def745d97f7963063b5}{MTakerTrader}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00150\ \ \ \mbox{\hyperlink{class_order}{Order}}\ \mbox{\hyperlink{class_m_taker_trader_a9c25a0b3685fcdae1f46140cdd736eab}{make\_order}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange,\ \textcolor{keywordtype}{bool}\ is\_long\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00151\ \ \ \textcolor{comment}{//\ Order\ make\_order(float\ fair\_price,\ bool\ is\_long\ =\ false)\ const\ override;}}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00159\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_m_taker_trader_a7039cbabe5fd7bb8e12a0be8211bd15a}{fair\_price}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00160\ \};}
-\DoxyCodeLine{00161\ }
-\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_trader_a54e3b17aa168bc52abaf3bd47afaf9fc}{\string~Trader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&other);}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&\mbox{\hyperlink{class_trader_a5390c6a65bd4b4efe0e81eca04fda1a3}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&rhs);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_trader_a59d4e3527b2b5d77dbadc30436a65a50}{get\_name}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ \ \ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trader_a80b17dca691794f1ef65ab5830d16740}{set\_name}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_trader_ac2a5c11882b0c26b271bfdefe6d28091}{set\_random}}(\textcolor{keywordtype}{int}\ seed);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00080\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_order}{Order}}\ \mbox{\hyperlink{class_trader_a8f7a6543907ea359d043cffae1823771}{make\_order}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange,\ \textcolor{keywordtype}{bool}\ is\_long\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_trader_a0ba0a36d394adf7f7714ac94dec0b0af}{fair\_price}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_trader_a83cad62d01dce441864f1f11aa06759f}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00098\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00099\ \ \ \textcolor{keyword}{mutable}\ std::mt19937\ gen;}
+\DoxyCodeLine{00100\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00101\ \ \ std::string\ name;}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_maker_trader_aff19d4cbb23070f9f0f8178886fc3668}{MMakerTrader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \{}
+\DoxyCodeLine{00109\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00115\ \ \ \mbox{\hyperlink{class_m_maker_trader_aff19d4cbb23070f9f0f8178886fc3668}{MMakerTrader}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00124\ \ \ \mbox{\hyperlink{class_order}{Order}}\ \mbox{\hyperlink{class_m_maker_trader_a0515782f6a6d43581901fec5e569fb7c}{make\_order}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange,\ \textcolor{keywordtype}{bool}\ is\_long\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00132\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_m_maker_trader_a1f1bf75ef720a37b9c8f3c0a00ae338a}{fair\_price}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00133\ \};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_m_taker_trader_afbe22640f5fc7def745d97f7963063b5}{MTakerTrader}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_trader_ada11f5262e90ba56fc5e24bcec0b7825}{Trader}}\ \{}
+\DoxyCodeLine{00140\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00146\ \ \ \mbox{\hyperlink{class_m_taker_trader_afbe22640f5fc7def745d97f7963063b5}{MTakerTrader}}(\textcolor{keyword}{const}\ std::string\ \&\_name);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00155\ \ \ \mbox{\hyperlink{class_order}{Order}}\ \mbox{\hyperlink{class_m_taker_trader_a9c25a0b3685fcdae1f46140cdd736eab}{make\_order}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange,\ \textcolor{keywordtype}{bool}\ is\_long\ =\ \textcolor{keyword}{false})\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00156\ \ \ \textcolor{comment}{//\ Order\ make\_order(float\ fair\_price,\ bool\ is\_long\ =\ false)\ const\ override;}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00164\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_m_taker_trader_a7039cbabe5fd7bb8e12a0be8211bd15a}{fair\_price}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_exchange}{Exchange}}\ *exchange)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00165\ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ }
 
 \end{DoxyCode}

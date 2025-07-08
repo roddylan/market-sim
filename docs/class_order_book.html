@@ -92,13 +92,16 @@ $(function(){initNavTree('class_order_book.html','','class_order_book-members');
   <div class="headertitle"><div class="title">OrderBook Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="class_order.html" title="Represents Order.">Order</a> book storing market maker limit orders; handles match and make logic.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_order_book_8hpp_source.html">OrderBook.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a8bf1119b6c9acbcb5928f5eea9777fa3" id="r_a8bf1119b6c9acbcb5928f5eea9777fa3"><td class="memItemLeft" align="right" valign="top"><a id="a8bf1119b6c9acbcb5928f5eea9777fa3" name="a8bf1119b6c9acbcb5928f5eea9777fa3"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>BuyQueue</b> = std::multiset&lt;std::shared_ptr&lt;<a class="el" href="class_order.html">Order</a>&gt;, <a class="el" href="struct_order_utils_1_1_buy_order_compare.html">OrderUtils::BuyOrderCompare</a>&gt;</td></tr>
-<tr class="memitem:aec16d412ddfec546b2fe80e30ef41fa3" id="r_aec16d412ddfec546b2fe80e30ef41fa3"><td class="memItemLeft" align="right" valign="top"><a id="aec16d412ddfec546b2fe80e30ef41fa3" name="aec16d412ddfec546b2fe80e30ef41fa3"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>SellQueue</b> = std::multiset&lt;std::shared_ptr&lt;<a class="el" href="class_order.html">Order</a>&gt;, <a class="el" href="struct_order_utils_1_1_sell_order_compare.html">OrderUtils::SellOrderCompare</a>&gt;</td></tr>
+<tr class="memitem:a1b13a2f005684affe592d718d1719a17" id="r_a1b13a2f005684affe592d718d1719a17"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b13a2f005684affe592d718d1719a17">BuyQueue</a></td></tr>
+<tr class="memitem:a599b1c4606d733e5e19d729bfb2a221f" id="r_a599b1c4606d733e5e19d729bfb2a221f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a599b1c4606d733e5e19d729bfb2a221f">SellQueue</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -137,6 +140,44 @@ BuyQueue&#160;</td><td class="memItemRight" valign="bottom"><b>buy_orders</b></t
 <tr class="memitem:a71f99f8efe47a7d11b560d9665cfe8a7" id="r_a71f99f8efe47a7d11b560d9665cfe8a7"><td class="memItemLeft" align="right" valign="top"><a id="a71f99f8efe47a7d11b560d9665cfe8a7" name="a71f99f8efe47a7d11b560d9665cfe8a7"></a>
 SellQueue&#160;</td><td class="memItemRight" valign="bottom"><b>sell_orders</b></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_order.html" title="Represents Order.">Order</a> book storing market maker limit orders; handles match and make logic. </p>
+<p>Orders stored in ordered multiset. Buys sorted by best bid (highest) and earliest time. Sells sorted by best ask (lowest) and earliest time </p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a1b13a2f005684affe592d718d1719a17" name="a1b13a2f005684affe592d718d1719a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b13a2f005684affe592d718d1719a17">&#9670;&#160;</a></span>BuyQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using OrderBook::BuyQueue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"> </div>
+<div class="line">      std::multiset&lt;std::shared_ptr&lt;Order&gt;, <a class="code hl_struct" href="struct_order_utils_1_1_buy_order_compare.html">OrderUtils::BuyOrderCompare</a>&gt;</div>
+<div class="ttc" id="astruct_order_utils_1_1_buy_order_compare_html"><div class="ttname"><a href="struct_order_utils_1_1_buy_order_compare.html">OrderUtils::BuyOrderCompare</a></div><div class="ttdoc">Comparator for Buy Orders (multiset)</div><div class="ttdef"><b>Definition</b> OrderUtils.hpp:45</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a599b1c4606d733e5e19d729bfb2a221f" name="a599b1c4606d733e5e19d729bfb2a221f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a599b1c4606d733e5e19d729bfb2a221f">&#9670;&#160;</a></span>SellQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using OrderBook::SellQueue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line"> </div>
+<div class="line">      std::multiset&lt;std::shared_ptr&lt;Order&gt;, <a class="code hl_struct" href="struct_order_utils_1_1_sell_order_compare.html">OrderUtils::SellOrderCompare</a>&gt;</div>
+<div class="ttc" id="astruct_order_utils_1_1_sell_order_compare_html"><div class="ttname"><a href="struct_order_utils_1_1_sell_order_compare.html">OrderUtils::SellOrderCompare</a></div><div class="ttdoc">Comparator for Sell Orders (multiset)</div><div class="ttdef"><b>Definition</b> OrderUtils.hpp:62</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa58a0bc18fd44e7329c8aafd75341ec0" name="aa58a0bc18fd44e7329c8aafd75341ec0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa58a0bc18fd44e7329c8aafd75341ec0">&#9670;&#160;</a></span>OrderBook() <span class="overload">[1/2]</span></h2>
@@ -344,7 +385,7 @@ false failed </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_order_book.html">OrderBook</a>&amp; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_order_book.html" title="Order book storing market maker limit orders; handles match and make logic.">OrderBook</a>&amp; </dd></dl>
 
 </div>
 </div>

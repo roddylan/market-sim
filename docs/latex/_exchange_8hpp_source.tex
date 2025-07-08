@@ -13,53 +13,53 @@
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <concepts>}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00013\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_derived_trader}{DerivedTrader}}\ =\ std::is\_base\_of<Trader,\ T>::value;}
-\DoxyCodeLine{00014\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }Exchange\ \{}
-\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{using\ }Traders\ =\ std::vector<std::shared\_ptr<Trader>>;}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ Exchange(\textcolor{keywordtype}{float}\ \_starting\_price\ =\ 100);}
-\DoxyCodeLine{00020\ \ \ \string~Exchange()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00027\ \ \ Traders\ \mbox{\hyperlink{class_exchange_a3ee54812a0447b15972199ae9ece7b37}{get\_makers}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00028\ \ \ }
-\DoxyCodeLine{00034\ \ \ Traders\ \mbox{\hyperlink{class_exchange_abdf815c335de50587898cfc1532aa150}{get\_takers}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_ab9241a3795a84943690d4207173d33e9}{add\_maker}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader}{Trader}}\ \&maker);}
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_aaa59753ef67cdb123c9778f4c01c7bab}{add\_taker}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader}{Trader}}\ \&taker);}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00054\ \ \ \textcolor{keyword}{template}\ <DerivedTrader\ T>}
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_ab9241a3795a84943690d4207173d33e9}{add\_maker}}()\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ makers.push\_back(std::make\_shared<T>(std::to\_string(makers.size()+1)));}
-\DoxyCodeLine{00057\ \ \ \}}
-\DoxyCodeLine{00058\ \ \ }
-\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{template}\ <DerivedTrader\ T>}
-\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_aaa59753ef67cdb123c9778f4c01c7bab}{add\_taker}}()\ \{}
-\DoxyCodeLine{00066\ \ \ \ \ takers.push\_back(std::make\_shared<T>(std::to\_string(takers.size()+1)));}
-\DoxyCodeLine{00067\ \ \ \}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book}{OrderBook}}\ \&\mbox{\hyperlink{class_exchange_a6ef17f4f4a6ea54f612481b1da72e99d}{get\_book}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_market_data}{MarketData}}\ \&\mbox{\hyperlink{class_exchange_aafddc09a52f69d5ff648bf3a9493e72c}{get\_market\_data}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00082\ \ \ }
-\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_a5d412fa1873a3693d80d124939865dad}{set\_starting\_price}}(\textcolor{keywordtype}{float}\ price);}
-\DoxyCodeLine{00089\ \ \ }
-\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_exchange_a4eb819e23862645cb513ee8d14f6cfe7}{get\_starting\_price}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_a43f9c2579bbf4a795002de9cdf86bd33}{run}}();\ \textcolor{comment}{//\ TODO:\ add\ zero\ price\ check;\ end\ sim\ if\ 0}}
-\DoxyCodeLine{00102\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00103\ \ \ \textcolor{comment}{//\ traders}}
-\DoxyCodeLine{00104\ \ \ Traders\ makers;}
-\DoxyCodeLine{00105\ \ \ Traders\ takers;}
-\DoxyCodeLine{00106\ \ \ \textcolor{comment}{//\ order\ book}}
-\DoxyCodeLine{00107\ \ \ std::unique\_ptr<OrderBook>\ book;}
-\DoxyCodeLine{00108\ \ \ \textcolor{comment}{//\ market\ data\ (trade/price\ history,\ etc.)}}
-\DoxyCodeLine{00109\ \ \ std::unique\_ptr<MarketData>\ market\_data;}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{float}\ starting\_price;}
-\DoxyCodeLine{00112\ \ \ }
-\DoxyCodeLine{00113\ \};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \textcolor{keyword}{concept\ }\mbox{\hyperlink{concept_derived_trader}{DerivedTrader}}\ =\ std::is\_base\_of<Trader,\ T>::value;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }Exchange\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{using\ }Traders\ =\ std::vector<std::shared\_ptr<Trader>>;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ Exchange(\textcolor{keywordtype}{float}\ \_starting\_price\ =\ 100);}
+\DoxyCodeLine{00031\ \ \ \string~Exchange()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ Traders\ \mbox{\hyperlink{class_exchange_a3ee54812a0447b15972199ae9ece7b37}{get\_makers}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ }
+\DoxyCodeLine{00045\ \ \ Traders\ \mbox{\hyperlink{class_exchange_abdf815c335de50587898cfc1532aa150}{get\_takers}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_ab9241a3795a84943690d4207173d33e9}{add\_maker}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader}{Trader}}\ \&maker);}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_aaa59753ef67cdb123c9778f4c01c7bab}{add\_taker}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_trader}{Trader}}\ \&taker);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{template}\ <DerivedTrader\ T>}
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_ab9241a3795a84943690d4207173d33e9}{add\_maker}}()\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ makers.push\_back(std::make\_shared<T>(std::to\_string(makers.size()+1)));}
+\DoxyCodeLine{00068\ \ \ \}}
+\DoxyCodeLine{00069\ \ \ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{template}\ <DerivedTrader\ T>}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_aaa59753ef67cdb123c9778f4c01c7bab}{add\_taker}}()\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ takers.push\_back(std::make\_shared<T>(std::to\_string(takers.size()+1)));}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_order_book}{OrderBook}}\ \&\mbox{\hyperlink{class_exchange_a6ef17f4f4a6ea54f612481b1da72e99d}{get\_book}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_market_data}{MarketData}}\ \&\mbox{\hyperlink{class_exchange_aafddc09a52f69d5ff648bf3a9493e72c}{get\_market\_data}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ \ \ }
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_a5d412fa1873a3693d80d124939865dad}{set\_starting\_price}}(\textcolor{keywordtype}{float}\ price);}
+\DoxyCodeLine{00100\ \ \ }
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_exchange_a4eb819e23862645cb513ee8d14f6cfe7}{get\_starting\_price}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_exchange_a43f9c2579bbf4a795002de9cdf86bd33}{run}}();\ \textcolor{comment}{//\ TODO:\ add\ zero\ price\ check;\ end\ sim\ if\ 0}}
+\DoxyCodeLine{00113\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00114\ \ \ \textcolor{comment}{//\ traders}}
+\DoxyCodeLine{00115\ \ \ Traders\ makers;}
+\DoxyCodeLine{00116\ \ \ Traders\ takers;}
+\DoxyCodeLine{00117\ \ \ \textcolor{comment}{//\ order\ book}}
+\DoxyCodeLine{00118\ \ \ std::unique\_ptr<OrderBook>\ book;}
+\DoxyCodeLine{00119\ \ \ \textcolor{comment}{//\ market\ data\ (trade/price\ history,\ etc.)}}
+\DoxyCodeLine{00120\ \ \ std::unique\_ptr<MarketData>\ market\_data;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{float}\ starting\_price;}
+\DoxyCodeLine{00123\ \ \ }
+\DoxyCodeLine{00124\ \};}
 
 \end{DoxyCode}
