@@ -79,6 +79,7 @@ public:
    */
   float match(Order &taker_order);
   
+  // bool cancel_order();
 
 private:
   float sell_match(Order &taker_order);
