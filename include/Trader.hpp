@@ -66,13 +66,13 @@ public:
   void set_random(int seed);
 
   /**
-   * @brief Let Trader make trade
+   * @brief Generate order from trader
    * 
-   * @param fair_price
-   * @param is_long
-   * @return Order
+   * @param exchange 
+   * @param is_long 
+   * @return Order 
    */
-  virtual Order make_order(float fair_price, bool is_long = false) const;
+  virtual Order make_order(const Exchange *exchange, bool is_long = false) const;
 
   /**
    * @brief generate fair price from exchange
@@ -110,13 +110,13 @@ public:
   MMakerTrader(const std::string &_name);
 
   /**
-   * @brief Let Trader make trade
+   * @brief Generate order from trader
    * 
-   * @param fair_price
-   * @param is_long
-   * @return Order
+   * @param exchange 
+   * @param is_long 
+   * @return Order 
    */
-  Order make_order(float fair_price, bool is_long = false) const override;
+  Order make_order(const Exchange *exchange, bool is_long = false) const override;
 
   /**
    * @brief generate fair price from exchange
@@ -141,13 +141,14 @@ public:
   MTakerTrader(const std::string &_name);
 
   /**
-   * @brief Let Trader make trade
+   * @brief Generate order from trader
    * 
-   * @param fair_price
-   * @param is_long
-   * @return Order
+   * @param exchange 
+   * @param is_long 
+   * @return Order 
    */
-  Order make_order(float fair_price, bool is_long = false) const override;
+  Order make_order(const Exchange *exchange, bool is_long = false) const override;
+  // Order make_order(float fair_price, bool is_long = false) const override;
 
   /**
    * @brief generate fair price from exchange

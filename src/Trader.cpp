@@ -43,8 +43,8 @@ bool Trader::operator==(const Trader &other) const {
 
 float Trader::fair_price(const Exchange *exchange) const { return 0; }
 
-Order Trader::make_order(float fair_price, bool is_long) const {
-  return Order(fair_price, 100, this);
+Order Trader::make_order(const Exchange *exchange, bool is_long) const {
+  return Order(fair_price(exchange), 100, this);
 }
 
 float MMakerTrader::fair_price(const Exchange *exchange) const {
@@ -95,7 +95,8 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   return price;
 }
 
-Order MMakerTrader::make_order(float fair_price, bool is_long) const {
+Order MMakerTrader::make_order(const Exchange *exchange, bool is_long) const {
+  const float _fair_price = fair_price(exchange);
   const size_t abs_vol = 100;
   const int sign = (is_long * 2) - 1;
   const int vol = abs_vol * sign;
@@ -103,23 +104,25 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
   
   std::normal_distribution<float> distr(0.0f, std);
   const float price_multiplier = std::abs(distr(gen));
-  float price = fair_price;
+  float price = _fair_price;
   // TODO: symmetric pricing from makers
   if (is_long) {
     // buying, make offer <= fair
-    price -= price_multiplier * fair_price;
+    price -= price_multiplier * _fair_price;
   } else {
     // selling, make offer >= fair
-    price += price_multiplier * fair_price;
+    price += price_multiplier * _fair_price;
   }
   price = std::round(price * 100) / 100;
   return Order(price, vol, this);
 }
 
-Order MTakerTrader::make_order(float fair_price, bool is_long) const {
+Order MTakerTrader::make_order(const Exchange *exchange, bool is_long) const {
+  const float _fair_price = fair_price(exchange);
   const int sign = (is_long * 2) - 1;
   // const size_t abs_vol = 150;
   const float std = 0.02f;
+  float price = _fair_price;
   
   std::normal_distribution<float> distr(0.0f, std);
   std::uniform_int_distribution<size_t> vol_dist(5, 15);
@@ -127,13 +130,12 @@ Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   const float price_multiplier = std::abs(distr(gen));
   const int vol = vol_dist(gen) * 10 * sign;
   
-  float price = fair_price;
   if (is_long) {
     // buying, make offer <= fair
-    price -= price_multiplier * fair_price;
+    price -= price_multiplier * _fair_price;
   } else {
     // selling, make offer >= fair
-    price += price_multiplier * fair_price;
+    price += price_multiplier * _fair_price;
   }
   price = std::round(price * 100) / 100;
   return Order(price, vol, this);

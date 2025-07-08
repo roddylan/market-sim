@@ -39,8 +39,8 @@ void Exchange::run() {
   }
   for (const auto maker : makers) {
     float price = maker->fair_price(this);
-    book->insert(maker->make_order(price, true));
-    book->insert(maker->make_order(price, false));
+    book->insert(maker->make_order(this, true));
+    book->insert(maker->make_order(this, false));
   }
 
   for (const auto taker : takers) {
@@ -48,7 +48,7 @@ void Exchange::run() {
       break;
     }
     float price = taker->fair_price(this);
-    Order order = taker->make_order(price);
+    Order order = taker->make_order(this);
 
     float vwap = book->match(order); // TODO: make match (and other stuff that
                                      // uses taker orders) use universal ref
