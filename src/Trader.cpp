@@ -80,7 +80,6 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
     return price;
   }
   price = data.get_last_price();
-  std::cout << price << std::endl;
   return price;
 
   // if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
