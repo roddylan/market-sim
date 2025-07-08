@@ -75,20 +75,21 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   float price = exchange->get_starting_price();
 
   if (data.get_last_price() == 0 ||
-      (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
+  (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
     return price;
   }
+  return data.get_last_price();
 
-  if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
-    price = ((*book.get_buy_orders().begin())->get_price() +
-             (*book.get_sell_orders().begin())->get_price()) /
-            2;
-  } else if (!book.get_buy_orders().empty()) {
-    price = (*book.get_buy_orders().begin())->get_price();
-  } else {
-    price = (*book.get_sell_orders().begin())->get_price();
-  }
-  return price;
+  // if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
+  //   price = ((*book.get_buy_orders().begin())->get_price() +
+  //            (*book.get_sell_orders().begin())->get_price()) /
+  //           2;
+  // } else if (!book.get_buy_orders().empty()) {
+  //   price = (*book.get_buy_orders().begin())->get_price();
+  // } else {
+  //   price = (*book.get_sell_orders().begin())->get_price();
+  // }
+  // return price;
 }
 
 Order MMakerTrader::make_order(float fair_price, bool is_long) const {
@@ -112,12 +113,11 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
 }
 Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   const int sign = (is_long * 2) - 1;
+  const size_t abs_vol = 100;
   
   std::normal_distribution<float> distr(0.f, 0.02f);
-  std::normal_distribution<size_t> vol_distr(5, 15);
-  
   const float price_multiplier = distr(gen);
-  const int vol = vol_distr(gen) * 10 * sign;
+  const int vol = abs_vol * sign;
   
   float price = fair_price;
   if (is_long) {
