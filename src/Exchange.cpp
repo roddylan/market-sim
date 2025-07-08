@@ -3,6 +3,7 @@
 #include "MarketData.hpp"
 #include "OrderBook.hpp"
 #include "Trader.hpp"
+#include <cassert>
 #include <memory>
 
 Exchange::Exchange(float _starting_price)

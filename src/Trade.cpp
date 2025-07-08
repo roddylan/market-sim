@@ -1,6 +1,8 @@
 // Trade.cpp
 #include "Trade.hpp"
 #include "MarketUtils.hpp"
+#include <cassert>
+
 
 Trade::Trade(const Trader *_maker, const Trader *_taker, float _price)
     : maker(_maker), taker(_taker), price(_price), timestamp(MarketUtils::Clock::now()) {
