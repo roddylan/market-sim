@@ -10,6 +10,9 @@ Exchange::Exchange(float _starting_price)
       market_data(std::make_unique<MarketData>()),
       starting_price(_starting_price) {}
 
+Exchange::Traders Exchange::get_makers() const { return makers; }
+Exchange::Traders Exchange::get_takers() const { return takers; }
+
 void Exchange::add_maker(const Trader &maker) {
   makers.push_back(std::make_shared<Trader>(maker));
   ++maker_counter;

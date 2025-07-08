@@ -17,4 +17,8 @@ protected:
 
 TEST_F(ExchangeTest, DefaultInitialization) {
   EXPECT_EQ(exchange.get_starting_price(), 100);
+  Exchange ex1;
+  EXPECT_EQ(ex1.get_starting_price(), 100);
+  EXPECT_EQ(ex1.get_book().get_buy_orders().size(), 0);
+  EXPECT_EQ(ex1.get_book().get_sell_orders().size(), 0);
 }
