@@ -92,7 +92,6 @@ float OrderBook::buy_match(Order &taker_order) {
       buy_orders.insert(best_order);
     }
   }
-
   return (total_vol != 0) ? (res / total_vol) : res;
   // return res;
 }
@@ -130,6 +129,5 @@ float OrderBook::sell_match(Order &taker_order) {
       sell_orders.insert(best_order);
     }
   }
-
   return (total_vol != 0) ? (res / total_vol) : res;
 }

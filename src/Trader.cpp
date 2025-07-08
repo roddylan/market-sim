@@ -7,6 +7,7 @@
 #include <exception>
 #include <random>
 #include <string>
+#include <iostream>
 
 Trader::Trader(const Trader &other) : name{other.name}, gen{other.gen} {}
 
@@ -74,12 +75,12 @@ float MTakerTrader::fair_price(const Exchange *exchange) const {
   const OrderBook &book = exchange->get_book();
   const MarketData &data = exchange->get_market_data();
   float price = exchange->get_starting_price();
-
   if (data.get_last_price() == 0 ||
   (book.get_buy_orders().empty() && book.get_sell_orders().empty())) {
     return price;
   }
-  return data.get_last_price();
+  price = data.get_last_price();
+  return price;
 
   // if (!book.get_buy_orders().empty() && !book.get_sell_orders().empty()) {
   //   price = ((*book.get_buy_orders().begin())->get_price() +
@@ -112,8 +113,8 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
   }
   price = std::round(price * 100) / 100;
   return Order(price, vol, this);
-  
 }
+
 Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   const int sign = (is_long * 2) - 1;
   // const size_t abs_vol = 150;
