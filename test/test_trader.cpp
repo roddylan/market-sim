@@ -43,9 +43,15 @@ TEST_F(TraderTest, MakeOrderTest) {
   auto trader_order = trader->make_order(&exch);
   EXPECT_EQ(trader_order.get_price(), exch.get_starting_price());
   auto taker_order = taker->make_order(&exch);
-  auto maker_order = maker->make_order(&exch);
+  auto maker_order1 = maker->make_order(&exch, true);
+  auto maker_order2 = maker->make_order(&exch, false);
 
+  EXPECT_EQ(taker_order.get_trader(), *taker);
+  EXPECT_EQ(maker_order1.get_trader(), *maker);
+  EXPECT_EQ(maker_order2.get_trader(), *maker);
 
+  EXPECT_TRUE(maker_order1.get_volume() > 0);
+  EXPECT_TRUE(maker_order2.get_volume() < 0);
 }
 // TODO: strategy
 // TODO: tests for make_order, fair_price
