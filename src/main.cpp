@@ -28,11 +28,13 @@ int main(int argc, char** argv) {
   }
   size_t i = 0;
   for (const auto &price : exchange.get_market_data().get_prices()) {
-    std::cout << price << std::endl;
+    std::cout << price << "\n";
     if (i < (exchange.get_market_data().get_prices().size() - 1)){
       file << price << ",";
     }
     ++i;
   }
+  file.close();
+  std::cout << "done" << std::endl;
 
 }
