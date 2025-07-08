@@ -44,6 +44,7 @@ bool OrderBook::insert(const Order &order) {
   return true;
 }
 
+// TODO: return trades instead
 float OrderBook::match(Order &taker_order) {
   const int taker_vol{taker_order.get_volume()};
   if (taker_vol == 0) {
