@@ -14,7 +14,6 @@ concept DerivedTrader = std::is_base_of<Trader, T>::value;
 
 class Exchange {
 public:
-  Exchange() = delete;
   Exchange(float _starting_price = 100);
   ~Exchange();
 
