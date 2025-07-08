@@ -3,6 +3,7 @@
 #include "Exchange.hpp"
 #include "MarketData.hpp"
 #include "Order.hpp"
+#include <cmath>
 #include <exception>
 #include <random>
 #include <string>
@@ -109,6 +110,7 @@ Order MMakerTrader::make_order(float fair_price, bool is_long) const {
     // selling, make offer >= fair
     price += price_multiplier * fair_price;
   }
+  price = std::round(price * 100) / 100;
   return Order(price, vol, this);
   
 }
@@ -118,10 +120,10 @@ Order MTakerTrader::make_order(float fair_price, bool is_long) const {
   const float std = 0.0125f;
   
   std::normal_distribution<float> distr(0.f, std);
-  std::uniform_int_distribution<size_t> vol_dist(50, 150);
+  std::uniform_int_distribution<size_t> vol_dist(5, 15);
   
   const float price_multiplier = std::abs(distr(gen));
-  const int vol = vol_dist(gen) * sign;
+  const int vol = vol_dist(gen) * 10 * sign;
   
   float price = fair_price;
   if (is_long) {
@@ -131,6 +133,7 @@ Order MTakerTrader::make_order(float fair_price, bool is_long) const {
     // selling, make offer >= fair
     price += price_multiplier * fair_price;
   }
+  price = std::round(price * 100) / 100;
   return Order(price, vol, this);
   
 }
