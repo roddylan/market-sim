@@ -17,7 +17,7 @@ int main(int argc, char** argv) {
     exchange.add_taker<MTakerTrader>();
   }
 
-  const size_t n_it = 10000;
+  const size_t n_it = 100000;
 
   for (size_t i = 0; i < n_it; ++i) {
     exchange.run();
