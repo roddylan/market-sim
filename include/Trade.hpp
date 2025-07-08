@@ -4,7 +4,8 @@
 #include "MarketUtils.hpp"
 
 /**
- * @brief Executed trade
+ * @class Trade
+ * @brief Represents executed trade
  * 
  */
 struct Trade {
