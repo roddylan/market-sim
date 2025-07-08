@@ -3,14 +3,16 @@
 #include "MarketData.hpp"
 #include "OrderBook.hpp"
 #include "Trader.hpp"
-#include <cassert>
 #include <memory>
+#include <stdexcept>
 
 Exchange::Exchange(float _starting_price)
     : book(std::make_unique<OrderBook>()),
       market_data(std::make_unique<MarketData>()),
       starting_price(_starting_price) {
-  assert(_starting_price > 0);
+  if (_starting_price <= 0) {
+    throw std::invalid_argument("Price must be > 0");
+  }
 }
 
 Exchange::Traders Exchange::get_makers() const { return makers; }
@@ -29,7 +31,9 @@ const OrderBook &Exchange::get_book() const { return *book; }
 const MarketData &Exchange::get_market_data() const { return *market_data; }
 
 void Exchange::set_starting_price(float price) {
-  assert(price > 0);
+  if (price <= 0) {
+    throw std::invalid_argument("Price must be > 0");
+  }
   starting_price = price;
 }
 float Exchange::get_starting_price() const { return starting_price; }
