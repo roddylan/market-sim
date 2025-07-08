@@ -1,3 +1,7 @@
+# python
+.venv
+.env
+
 # compile commands
 compile_commands.json
 build/
