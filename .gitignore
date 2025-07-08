@@ -2,6 +2,8 @@
 .venv
 .env
 
+build_prof
+
 # compile commands
 compile_commands.json
 build/
