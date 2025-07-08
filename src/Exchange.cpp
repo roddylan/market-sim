@@ -35,6 +35,7 @@ void Exchange::run() {
   for (const auto taker : takers) {
     if (book->get_buy_orders().empty() && book->get_sell_orders().empty()) { break; }
     float price = taker->fair_price(this);
+
     // book->match(taker->make_order(price));
   }
 }

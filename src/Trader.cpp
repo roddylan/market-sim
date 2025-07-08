@@ -36,6 +36,7 @@ bool Trader::operator==(const Trader &other) const {
 }
 
 float Trader::fair_price(const Exchange *exchange) const { return 0; }
+
 Order Trader::make_order(float fair_price, bool is_long) const {
   return Order(fair_price, 100, this);
 }
