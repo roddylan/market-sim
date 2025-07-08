@@ -38,7 +38,7 @@ void Exchange::run() {
     return;
   }
   for (const auto maker : makers) {
-    float price = maker->fair_price(this);
+    // float price = maker->fair_price(this);
     book->insert(maker->make_order(this, true));
     book->insert(maker->make_order(this, false));
   }
@@ -47,7 +47,7 @@ void Exchange::run() {
     if (book->get_buy_orders().empty() && book->get_sell_orders().empty()) {
       break;
     }
-    float price = taker->fair_price(this);
+    // float price = taker->fair_price(this);
     Order order = taker->make_order(this);
 
     float vwap = book->match(order); // TODO: make match (and other stuff that
