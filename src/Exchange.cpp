@@ -15,15 +15,15 @@ Exchange::Exchange(float _starting_price)
   }
 }
 
-Exchange::Traders Exchange::get_makers() const { return makers; }
-Exchange::Traders Exchange::get_takers() const { return takers; }
+const Exchange::Traders &Exchange::get_makers() const { return makers; }
+const Exchange::Traders &Exchange::get_takers() const { return takers; }
 
 void Exchange::add_maker(const Trader &maker) {
-  makers.push_back(std::make_shared<Trader>(maker));
+  makers.push_back(std::make_unique<Trader>(maker));
 }
 
 void Exchange::add_taker(const Trader &taker) {
-  takers.push_back(std::make_shared<Trader>(taker));
+  takers.push_back(std::make_unique<Trader>(taker));
 }
 
 const OrderBook &Exchange::get_book() const { return *book; }
@@ -42,13 +42,13 @@ void Exchange::run() {
   if (makers.empty() || takers.empty()) {
     return;
   }
-  for (const auto maker : makers) {
+  for (const auto &maker : makers) {
     // float price = maker->fair_price(this);
     book->insert(maker->make_order(this, true));
     book->insert(maker->make_order(this, false));
   }
 
-  for (const auto taker : takers) {
+  for (const auto &taker : takers) {
     if (book->get_buy_orders().empty() && book->get_sell_orders().empty()) {
       break;
     }

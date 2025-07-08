@@ -25,7 +25,7 @@ concept DerivedTrader = std::is_base_of<Trader, T>::value;
  */
 class Exchange {
 public:
-  using Traders = std::vector<std::shared_ptr<Trader>>;
+  using Traders = std::vector<std::unique_ptr<Trader>>;
 
   Exchange(float _starting_price = 100);
   ~Exchange() = default;
@@ -35,14 +35,14 @@ public:
    * 
    * @return Traders 
    */
-  Traders get_makers() const;
+  const Traders &get_makers() const;
   
   /**
    * @brief Get market takers
    * 
    * @return Traders 
    */
-  Traders get_takers() const;
+  const Traders &get_takers() const;
 
   /**
    * @brief Add market maker
