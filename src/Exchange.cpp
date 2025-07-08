@@ -8,7 +8,7 @@
 Exchange::Exchange(float _starting_price)
     : book(std::make_unique<OrderBook>()),
       market_data(std::make_unique<MarketData>()),
-      starting_price(_starting_price) {
+      starting_price(_starting_price), maker_counter{}, taker_counter{} {
   assert(_starting_price > 0);
 }
 

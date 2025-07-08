@@ -56,7 +56,22 @@ TEST_F(ExchangeTest, AddTraderParam) {
   EXPECT_EQ(exchange->get_makers().size(), 1);
   EXPECT_EQ(exchange->get_takers().size(), 1);
   
-  EXPECT_EQ(*exchange->get_makers()[0], maker);
-  EXPECT_EQ(*exchange->get_takers()[0], taker);
+  EXPECT_EQ(*exchange->get_makers().back(), maker);
+  EXPECT_EQ(*exchange->get_takers().back(), taker);
+
+}
+
+TEST_F(ExchangeTest, AddTrader) {
+  EXPECT_TRUE(exchange->get_makers().empty());
+  EXPECT_TRUE(exchange->get_takers().empty());
+  exchange->add_maker<MMakerTrader>();
+  EXPECT_EQ(exchange->get_makers().size(), 1);
+  EXPECT_TRUE(exchange->get_takers().empty());
+  exchange->add_taker<MTakerTrader>();
+  EXPECT_EQ(exchange->get_makers().size(), 1);
+  EXPECT_EQ(exchange->get_takers().size(), 1);
+  
+  EXPECT_EQ(exchange->get_makers().back()->get_name(), "maker_0");
+  EXPECT_EQ(exchange->get_takers().back()->get_name(), "taker_0");
 
 }
