@@ -9,7 +9,7 @@
 int main(int argc, char** argv) {
   Exchange exchange;
 
-  size_t n_makers{5}, n_takers{20};
+  size_t n_makers{3}, n_takers{20};
   for (size_t i = 0; i < n_makers; ++i) {
     exchange.add_maker<MMakerTrader>();
   }
