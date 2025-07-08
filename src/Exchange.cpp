@@ -36,6 +36,9 @@ void Exchange::set_starting_price(float price) {
 float Exchange::get_starting_price() const { return starting_price; }
 
 void Exchange::run() {
+  if (makers.empty() || takers.empty()) {
+    return;
+  }
   for (const auto maker : makers) {
     float price = maker->fair_price(this);
     book->insert(maker->make_order(price, true));
