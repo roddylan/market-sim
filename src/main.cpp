@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
   }
   size_t i = 0;
   file << "price\n";
-  for (const auto &price : exchange.get_market_data().get_prices()) {
+  for (const float &price : exchange.get_market_data().get_prices()) {
     if (i < (exchange.get_market_data().get_prices().size() - 1)){
       file << price << "\n";
     }
