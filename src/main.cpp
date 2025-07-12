@@ -1,10 +1,10 @@
 // main.cpp
 #include "Exchange.hpp"
 #include "Trader.hpp"
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
   Exchange exchange;
 
   // makers=1 | takers=3 seems to be ideal
@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
   for (size_t i = 0; i < n_it; ++i) {
     exchange.run();
   }
-  
+
   std::ofstream file("output.csv");
   if (!file.is_open()) {
     std::cerr << "Failed to open file for writing\n";
@@ -31,12 +31,11 @@ int main(int argc, char** argv) {
   size_t i = 0;
   file << "price\n";
   for (const float &price : exchange.get_market_data().get_prices()) {
-    if (i < (exchange.get_market_data().get_prices().size() - 1)){
+    if (i < (exchange.get_market_data().get_prices().size() - 1)) {
       file << price << "\n";
     }
     ++i;
   }
   file.close();
   std::cout << "done" << std::endl;
-
 }
