@@ -1,13 +1,13 @@
 // OrderBook.hpp
 #pragma once
 
-#include "Order.hpp"
+// #include "Order.hpp"
 #include "OrderUtils.hpp"
 #include <memory>
 #include <set>
 
 // TODO: order cancelling
-
+class Order;
 /**
  * @class OrderBook
  * @brief Order book storing market maker limit orders; handles match and make
