@@ -24,7 +24,7 @@ cd build && make sim
 Sim price results will be found in your build folder (`build` in given commands) as `output.csv`, this can be visualized in the notebook found [here](./py_data_analysis).
 
 # Documentation
-The full API documentation is generated using [Doxygen](https://www.doxygen.nl/).  
+The full [documentation](https://roddylan.github.io/market-sim/) is generated using [Doxygen](https://www.doxygen.nl/).  
 To build it locally:
 
 ```bash
